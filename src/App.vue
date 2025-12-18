@@ -39,6 +39,7 @@ const {
     applyBackup,
     isSource,
     isTarget,
+    setBracketsAlwaysShow,
 } = useCopyManager()
 
 function isBackupSource(backup: { id: string }): boolean {
@@ -125,6 +126,7 @@ onMounted(init)
                         @set-backup-source="setSource"
                         @delete-backup="deleteBackup"
                         @refresh="refresh"
+                        @set-brackets-always-show="setBracketsAlwaysShow"
                     />
 
                     <CopyPanel

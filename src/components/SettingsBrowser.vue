@@ -38,6 +38,7 @@ const emit = defineEmits<{
     setBackupSource: [backup: BackupEntry]
     deleteBackup: [backup: BackupEntry]
     refresh: []
+    setBracketsAlwaysShow: [serverPath: string, enabled: boolean]
 }>()
 
 const activeTab = ref(props.appData.servers[0]?.info.id || '')
@@ -153,6 +154,10 @@ function getTargetsForBackup(backup: BackupEntry): SettingsEntry[] {
                             (p, k) => emit('addAllFromProfile', p, k)
                         "
                         @refresh="emit('refresh')"
+                        @set-brackets-always-show="
+                            (path, enabled) =>
+                                emit('setBracketsAlwaysShow', path, enabled)
+                        "
                     />
                 </TabsContent>
 

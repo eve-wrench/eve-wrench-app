@@ -37,6 +37,8 @@ export interface ServerInfo {
     short_name: string
     color: string
     supports_esi: boolean
+    brackets_always_show: boolean
+    server_path: string
 }
 
 export interface ServerData {

@@ -289,6 +289,17 @@ export function useCopyManager() {
         loadData(true)
     }
 
+    async function setBracketsAlwaysShow(serverPath: string, enabled: boolean) {
+        try {
+            await invoke('set_brackets_always_show', { serverPath, enabled })
+            toast.success('Setting updated', {
+                description: `Brackets always show ${enabled ? 'enabled' : 'disabled'}`,
+            })
+        } catch (e: unknown) {
+            toast.error('Failed to update setting', { description: String(e) })
+        }
+    }
+
     return {
         appData,
         loading,
@@ -314,5 +325,6 @@ export function useCopyManager() {
         applyBackup,
         isSource,
         isTarget,
+        setBracketsAlwaysShow,
     }
 }

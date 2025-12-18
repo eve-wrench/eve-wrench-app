@@ -81,6 +81,8 @@ pub struct ServerInfo {
     pub short_name: String,
     pub color: String,
     pub supports_esi: bool,
+    pub brackets_always_show: bool,
+    pub server_path: String,
 }
 
 #[derive(Serialize, Debug, Clone)]
@@ -188,6 +190,76 @@ fn save_aliases(app: &tauri::AppHandle, aliases: &HashMap<String, String>) -> Re
     Ok(())
 }
 
+fn read_brackets_setting(server_path: &PathBuf) -> bool {
+    // Check all profile folders (settings_*) for the setting
+    if let Ok(entries) = fs::read_dir(server_path) {
+        for entry in entries.flatten() {
+            let path = entry.path();
+            let name = path.file_name().and_then(|n| n.to_str()).unwrap_or("");
+            if path.is_dir() && name.starts_with("settings_") {
+                let prefs_path = path.join("prefs.ini");
+                if let Ok(content) = fs::read_to_string(&prefs_path) {
+                    for line in content.lines() {
+                        let trimmed = line.trim();
+                        if trimmed.starts_with("bracketsAlwaysShowShipText=") {
+                            if let Some(value) = trimmed.strip_prefix("bracketsAlwaysShowShipText=")
+                            {
+                                if value.trim() == "1" {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    false
+}
+
+fn write_brackets_setting(server_path: &PathBuf, enabled: bool) -> Result<(), String> {
+    let setting_line = format!(
+        "bracketsAlwaysShowShipText={}",
+        if enabled { "1" } else { "0" }
+    );
+
+    // Apply to all profile folders (settings_*)
+    let entries = fs::read_dir(server_path).map_err(|e| e.to_string())?;
+    for entry in entries.flatten() {
+        let path = entry.path();
+        let name = path.file_name().and_then(|n| n.to_str()).unwrap_or("");
+        if path.is_dir() && name.starts_with("settings_") {
+            let prefs_path = path.join("prefs.ini");
+
+            let content = if prefs_path.exists() {
+                let existing = fs::read_to_string(&prefs_path).map_err(|e| e.to_string())?;
+                let mut found = false;
+                let mut lines: Vec<String> = existing
+                    .lines()
+                    .map(|line| {
+                        if line.trim().starts_with("bracketsAlwaysShowShipText=") {
+                            found = true;
+                            setting_line.clone()
+                        } else {
+                            line.to_string()
+                        }
+                    })
+                    .collect();
+
+                if !found {
+                    lines.push(setting_line.clone());
+                }
+                lines.join("\n")
+            } else {
+                setting_line.clone()
+            };
+
+            fs::write(&prefs_path, content).map_err(|e| e.to_string())?;
+        }
+    }
+    Ok(())
+}
+
 fn format_relative_time(timestamp: u64) -> String {
     let now = SystemTime::now()
         .duration_since(UNIX_EPOCH)
@@ -259,14 +331,16 @@ fn parse_settings_file(
     })
 }
 
-fn scan_installations() -> Result<HashMap<Server, Vec<ProfileData>>, String> {
+fn scan_installations(
+) -> Result<(HashMap<Server, Vec<ProfileData>>, HashMap<Server, PathBuf>), String> {
     let root = eve_settings_root().ok_or("EVE settings directory not found")?;
 
     if !root.exists() {
-        return Ok(HashMap::new());
+        return Ok((HashMap::new(), HashMap::new()));
     }
 
     let mut server_profiles: HashMap<Server, Vec<ProfileData>> = HashMap::new();
+    let mut server_paths: HashMap<Server, PathBuf> = HashMap::new();
     let entries = fs::read_dir(&root).map_err(|e| e.to_string())?;
 
     for entry in entries.flatten() {
@@ -284,6 +358,8 @@ fn scan_installations() -> Result<HashMap<Server, Vec<ProfileData>>, String> {
             Some(s) => s,
             None => continue,
         };
+
+        server_paths.insert(server, path.clone());
 
         let sub_entries = match fs::read_dir(&path) {
             Ok(e) => e,
@@ -363,7 +439,7 @@ fn scan_installations() -> Result<HashMap<Server, Vec<ProfileData>>, String> {
         profiles.sort_by(|a, b| a.name.cmp(&b.name));
     }
 
-    Ok(server_profiles)
+    Ok((server_profiles, server_paths))
 }
 
 fn scan_backups() -> Result<Vec<BackupEntry>, String> {
@@ -454,7 +530,7 @@ fn scan_backups() -> Result<Vec<BackupEntry>, String> {
 
 #[tauri::command]
 pub async fn get_app_data(app: tauri::AppHandle) -> Result<AppData, String> {
-    let mut server_profiles = scan_installations()?;
+    let (mut server_profiles, server_paths) = scan_installations()?;
     let mut backups = scan_backups()?;
     let aliases = load_aliases(&app);
 
@@ -502,6 +578,8 @@ pub async fn get_app_data(app: tauri::AppHandle) -> Result<AppData, String> {
     for server in all_servers {
         if let Some(profiles) = server_profiles.remove(&server) {
             if !profiles.is_empty() {
+                let server_path = server_paths.get(&server).cloned().unwrap_or_default();
+                let brackets_always_show = read_brackets_setting(&server_path);
                 servers.push(ServerData {
                     info: ServerInfo {
                         id: server,
@@ -509,6 +587,8 @@ pub async fn get_app_data(app: tauri::AppHandle) -> Result<AppData, String> {
                         short_name: server.short_name().to_string(),
                         color: server.color().to_string(),
                         supports_esi: server.supports_esi(),
+                        brackets_always_show,
+                        server_path: server_path.to_string_lossy().into_owned(),
                     },
                     profiles,
                 });
@@ -666,6 +746,18 @@ pub fn set_alias(
     }
 
     save_aliases(&app, &aliases)?;
+    emit_data_changed(&app);
+    Ok(())
+}
+
+#[tauri::command]
+pub fn set_brackets_always_show(
+    app: tauri::AppHandle,
+    server_path: String,
+    enabled: bool,
+) -> Result<(), String> {
+    let path = PathBuf::from(&server_path);
+    write_brackets_setting(&path, enabled)?;
     emit_data_changed(&app);
     Ok(())
 }

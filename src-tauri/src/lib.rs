@@ -1,7 +1,9 @@
 mod esi;
 mod evesettings;
 
-use evesettings::{copy_settings, create_backup, delete_backup, get_app_data, set_alias};
+use evesettings::{
+    copy_settings, create_backup, delete_backup, get_app_data, set_alias, set_brackets_always_show,
+};
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -14,6 +16,7 @@ pub fn run() {
             delete_backup,
             copy_settings,
             set_alias,
+            set_brackets_always_show,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
