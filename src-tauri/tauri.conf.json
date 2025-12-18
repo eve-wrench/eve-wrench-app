@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "eve-wrench",
+  "productName": "EVE Wrench",
   "version": "0.1.0",
   "identifier": "com.timkunze.eve-wrench",
   "build": {
@@ -12,11 +12,14 @@
   "app": {
     "windows": [
       {
-        "title": "eve-wrench",
-        "width": 800,
-        "height": 600,
-        "minWidth": 800,
-        "minHeight": 600
+        "title": "EVE Wrench",
+        "width": 1000,
+        "height": 700,
+        "minWidth": 1000,
+        "minHeight": 600,
+        "decorations": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
       }
     ],
     "security": {

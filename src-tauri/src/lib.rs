@@ -7,6 +7,7 @@ use evesettings::{copy_settings, create_backup, delete_backup, get_app_data, set
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
+        .plugin(tauri_plugin_os::init())
         .invoke_handler(tauri::generate_handler![
             get_app_data,
             create_backup,

@@ -24,4 +24,9 @@ export default defineConfig([
         '.vscode/**',
         '.github/**',
     ]),
+    {
+        rules: {
+            'vue/multi-word-component-names': 'off',
+        },
+    },
 ])

@@ -1,8 +1,8 @@
 [package]
 name = "eve-wrench"
 version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+description = "EVE Online Settings Manager - Backup, restore, and sync settings"
+authors = ["Tim Kunze"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -26,5 +26,6 @@ dirs = "5"
 reqwest = { version = "0.12", features = ["json"] }
 tokio = { version = "1", features = ["full"] }
 tauri-plugin-dialog = "2.4.2"
+tauri-plugin-os = "2"
 filetime = "0.2.26"
 
