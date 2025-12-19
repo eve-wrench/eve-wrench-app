@@ -314,6 +314,7 @@ const sortedCharacters = computed(() =>
                                 (entry, backup) =>
                                     emit('restore', entry, backup)
                             "
+                            @alias-changed="emit('refresh')"
                         />
                     </TableBody>
                 </Table>

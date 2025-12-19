@@ -542,24 +542,32 @@ pub async fn get_app_data(app: tauri::AppHandle) -> Result<AppData, String> {
                     account.display_name = alias.clone();
                 }
             }
+            for character in profile.characters.iter_mut() {
+                if let Some(alias) = aliases.get(&character.id) {
+                    character.alias = Some(alias.clone());
+                    character.display_name = alias.clone();
+                }
+            }
         }
     }
 
-    if let Some(tq_profiles) = server_profiles.get_mut(&Server::Tranquility) {
-        for profile in tq_profiles.iter_mut() {
-            for character in profile.characters.iter_mut() {
-                if let Ok(char_id) = character.id.parse::<i64>() {
-                    if char_id >= 90_000_000 {
-                        if let Ok(info) = esi::get_character(char_id).await {
-                            character.display_name = info.name.clone();
-                            character.character = Some(CharacterDetails {
-                                name: info.name,
-                                corporation: info.corporation_name,
-                                portrait_url: format!(
-                                    "https://images.evetech.net/characters/{}/portrait?size=64",
-                                    char_id
-                                ),
-                            });
+    for server in [Server::Tranquility, Server::Singularity] {
+        if let Some(profiles) = server_profiles.get_mut(&server) {
+            for profile in profiles.iter_mut() {
+                for character in profile.characters.iter_mut() {
+                    if let Ok(char_id) = character.id.parse::<i64>() {
+                        if char_id >= 90_000_000 {
+                            if let Ok(info) = esi::get_character(char_id).await {
+                                character.display_name = info.name.clone();
+                                character.character = Some(CharacterDetails {
+                                    name: info.name,
+                                    corporation: info.corporation_name,
+                                    portrait_url: format!(
+                                        "https://images.evetech.net/characters/{}/portrait?size=64",
+                                        char_id
+                                    ),
+                                });
+                            }
                         }
                     }
                 }

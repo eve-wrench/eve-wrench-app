@@ -10,10 +10,13 @@ import SettingsBrowser from '@/components/SettingsBrowser.vue'
 import CopyPanel from '@/components/CopyPanel.vue'
 import ConfirmDialog from '@/components/ConfirmDialog.vue'
 import PromptDialog from '@/components/PromptDialog.vue'
+import UpdateModal from '@/components/UpdateModal.vue'
 import { useCopyManager } from '@/composables/useCopyManager'
+import { useUpdateChecker } from '@/composables/useUpdateChecker'
 import { isBackup } from '@/types'
 
 const colorMode = useColorMode()
+const { updateAvailable, updateInfo, dismissed, dismiss } = useUpdateChecker()
 
 const {
     appData,
@@ -70,6 +73,11 @@ onMounted(init)
             />
             <ConfirmDialog />
             <PromptDialog />
+            <UpdateModal
+                v-if="updateAvailable && updateInfo && !dismissed"
+                :info="updateInfo"
+                @dismiss="dismiss"
+            />
 
             <TitleBar
                 :loading="loading"

@@ -6,7 +6,7 @@ use tokio::sync::RwLock;
 
 const ESI_BASE: &str = "https://esi.evetech.net/latest";
 
-static CLIENT: LazyLock<Client> = LazyLock::new(|| {
+pub static CLIENT: LazyLock<Client> = LazyLock::new(|| {
     Client::builder()
         .user_agent("EVE-Wrench/1.0")
         .build()
