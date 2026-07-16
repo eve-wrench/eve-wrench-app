@@ -997,7 +997,7 @@ dependencies = [
 
 [[package]]
 name = "eve-wrench"
-version = "0.3.0-2"
+version = "0.3.0"
 dependencies = [
  "blue-marshal",
  "dirs 5.0.1",
