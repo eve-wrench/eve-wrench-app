@@ -48,18 +48,19 @@ function pinpoint(): FormationProbe[] {
     ]
 }
 
-// Drifter: one probe placed behind the Drifter (11,500 km West, 3,500 km Up),
-// the rest left as 250 km placeholders to reposition
+// Drifter: one probe placed behind the Drifter (11,000 km West, 3,400 km Up),
+// mirrored by a counterweight probe so the centroid is zero and the layout
+// launches as drawn; the rest are 250 km placeholders to reposition
 function drifter(): FormationProbe[] {
     return [
-        p(11500, 3500, 0),
+        p(11000, 3400, 0),
+        p(-11000, -3400, 0),
         p(250, 0, 0),
         p(-250, 0, 0),
         p(0, 0, 250),
         p(0, 0, -250),
         p(0, 250, 0),
         p(0, -250, 0),
-        p(0, 500, 0),
     ]
 }
 
@@ -75,7 +76,11 @@ export const FORMATION_PRESETS: FormationPreset[] = [
     { id: 'drifter', icon: Skull, probes: drifter },
 ]
 
-// Directional stacks: all 8 probes layered along one axis at 200 km intervals
+// Directional stacks: 7 probes layered along one axis at 200 km intervals plus
+// one counterweight probe far on the opposite side. EVE re-centers launched
+// formations on their centroid, so a one-sided line would come out centered on
+// the player; the counterweight zeroes the centroid so the line launches as
+// drawn, at the cost of one sacrificial probe.
 type Stack = {
     id: string
     axis: 'x' | 'y' | 'z'
@@ -92,8 +97,10 @@ const STACK_DIRS: Stack[] = [
 ]
 
 function stack(dir: Stack): FormationProbe[] {
-    return Array.from({ length: 8 }, (_, i) => {
-        const d = (i + 1) * 200 * dir.sign
+    const line = Array.from({ length: 7 }, (_, i) => (i + 1) * 200)
+    const counterweight = -line.reduce((sum, d) => sum + d, 0)
+    return [...line, counterweight].map((offset) => {
+        const d = offset * dir.sign
         return p(
             dir.axis === 'x' ? d : 0,
             dir.axis === 'y' ? d : 0,
