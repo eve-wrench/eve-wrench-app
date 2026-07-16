@@ -204,6 +204,13 @@ export default {
         allRanges: '全部范围',
         scale: '缩放',
         apply: '应用',
+        rotate: '旋转',
+        balance: '配平',
+        balanced: '已配平 — 按绘制位置发射',
+        offCenter: '偏心 — 发射时探针整体偏移 {offset}',
+        launchCenter: '发射中心',
+        balanceInfo:
+            'EVE 发射阵型时会以探针的平均位置为中心，把该点拉回到你的飞船上——偏心的布局会整体漂移向你。配平会在相反方向放置一个配重探针（8 个探针用满时改用最后一个探针），使平均位置落在飞船上，阵型即可完全按绘制的样子发射。',
         axisNS: '北 (+) / 南 (−) · 千米',
         axisWE: '西 (+) / 东 (−) · 千米',
         axisUD: '上 (+) / 下 (−) · 千米',

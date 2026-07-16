@@ -208,6 +208,13 @@ export default {
         allRanges: 'All ranges',
         scale: 'Scale by',
         apply: 'Apply',
+        rotate: 'Rotate',
+        balance: 'Balance',
+        balanced: 'Balanced — launches as drawn',
+        offCenter: 'Off-center — probes shift {offset} at launch',
+        launchCenter: 'launch center',
+        balanceInfo:
+            'EVE re-centers a launched formation on its average probe position, pulling that point onto your ship — an off-center layout drifts back toward you. Balance places a single counterweight probe on the opposite side (or repurposes the last probe when all 8 are used) so the average sits on your ship and the formation launches exactly as drawn.',
         axisNS: 'North (+) / South (−) · km',
         axisWE: 'West (+) / East (−) · km',
         axisUD: 'Up (+) / Down (−) · km',

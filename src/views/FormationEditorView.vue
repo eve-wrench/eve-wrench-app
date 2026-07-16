@@ -21,7 +21,15 @@ import {
     Sun,
     Moon,
     Compass,
+    Info,
+    Scale,
 } from 'lucide-vue-next'
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from '@/components/ui/tooltip'
 import { toast } from 'vue-sonner'
 import {
     DropdownMenu,
@@ -274,6 +282,35 @@ function applyScale() {
     }
 }
 
+// Rotate all probes around the ship along one compass axis. Right-handed
+// about the chosen axis, so positive degrees turn N→W around U/D. Rotation
+// is linear, so a balanced formation stays balanced.
+const rotateAxis = ref<Axis>('y')
+const rotateDegrees = ref(45)
+
+function applyRotation() {
+    const f = current.value
+    const deg = rotateDegrees.value
+    if (!f || !isFinite(deg) || deg % 360 === 0) return
+    const rad = (deg * Math.PI) / 180
+    const cos = Math.cos(rad)
+    const sin = Math.sin(rad)
+    // Cyclic pairs keep the rotation right-handed: x:(y,z) y:(z,x) z:(x,y)
+    const [a, b]: [Axis, Axis] =
+        rotateAxis.value === 'x'
+            ? ['y', 'z']
+            : rotateAxis.value === 'y'
+              ? ['z', 'x']
+              : ['x', 'y']
+    const round = (v: number) => Math.round(v * 1000) / 1000
+    for (const p of f.probes) {
+        const u = p[a]
+        const v = p[b]
+        p[a] = round(u * cos - v * sin)
+        p[b] = round(u * sin + v * cos)
+    }
+}
+
 function updateProbe(probe: EditProbe, key: keyof EditProbe, value: unknown) {
     const num = Number(value)
     if (isFinite(num)) probe[key] = num
@@ -294,6 +331,64 @@ function setAllRanges(value: unknown) {
     if (!current.value || !isFinite(num)) return
     for (const p of current.value.probes) {
         p.range = num
+    }
+}
+
+// ── Launch balancing ─────────────────────────────────────────────────────
+//
+// EVE re-centers a launched formation on its centroid (average probe
+// position), so only zero-centroid formations launch exactly as drawn. A
+// single counterweight probe on the opposite side zeroes the centroid.
+
+const centroid = computed(() => {
+    const probes = current.value?.probes ?? []
+    if (!probes.length) return { x: 0, y: 0, z: 0 }
+    const sum = { x: 0, y: 0, z: 0 }
+    for (const p of probes) {
+        sum.x += p.x
+        sum.y += p.y
+        sum.z += p.z
+    }
+    const n = probes.length
+    return { x: sum.x / n, y: sum.y / n, z: sum.z / n }
+})
+
+// How far every probe drifts at launch when EVE pulls the centroid onto the ship
+const launchShift = computed(() => {
+    const c = centroid.value
+    return Math.hypot(c.x, c.y, c.z)
+})
+
+// Sub-km drift is invisible at probe scales
+const isBalanced = computed(() => launchShift.value < 0.5)
+
+const canBalance = computed(
+    () => (current.value?.probes.length ?? 0) > 0 && !isBalanced.value
+)
+
+// Zero the centroid with one counterweight probe: append one if the launcher
+// has room, otherwise repurpose the last probe. The rest stay as drawn.
+function balanceFormation() {
+    const f = current.value
+    if (!f || !canBalance.value) return
+    const full = f.probes.length >= 8
+    const rest = full ? f.probes.slice(0, -1) : f.probes
+    const sum = { x: 0, y: 0, z: 0 }
+    for (const p of rest) {
+        sum.x += p.x
+        sum.y += p.y
+        sum.z += p.z
+    }
+    const round = (v: number) => Math.round(v * 1000) / 1000
+    const counterweight = {
+        x: round(-sum.x),
+        y: round(-sum.y),
+        z: round(-sum.z),
+    }
+    if (full) {
+        Object.assign(f.probes[f.probes.length - 1], counterweight)
+    } else {
+        f.probes.push({ ...counterweight, range: rest[0].range })
     }
 }
 
@@ -468,6 +563,15 @@ const projectedProbes = computed(() => {
             }
         })
         .sort((a, b) => a.depth - b.depth)
+})
+
+// Where EVE will pull the formation's center at launch; hidden when balanced
+const projectedCentroid = computed(() => {
+    if (!current.value || isBalanced.value) return null
+    const c = centroid.value
+    const s = previewScale.value
+    const p = project(c.x, c.y, c.z)
+    return { x: p.sx * s, y: p.sy * s }
 })
 
 function toggleTheme() {
@@ -815,55 +919,161 @@ function toggleTheme() {
                 <!-- Tools -->
                 <section
                     v-if="current"
-                    class="flex items-center gap-3 border-t px-4 py-2.5"
+                    class="flex flex-col gap-2 border-t px-4 py-2.5"
                 >
-                    <label class="flex items-center gap-1.5">
-                        <span
-                            class="text-[10px] uppercase tracking-wider text-muted-foreground"
-                        >
-                            {{ t('formationEditor.allRanges') }}
-                        </span>
-                        <select
-                            value=""
-                            class="h-7 rounded-md border border-input/50 bg-background/60 px-1.5 font-mono text-xs"
-                            @change="
-                                setAllRanges(
-                                    ($event.target as HTMLSelectElement).value
-                                )
-                                ;($event.target as HTMLSelectElement).value = ''
-                            "
-                        >
-                            <option value="" disabled>—</option>
-                            <option
-                                v-for="r in RANGE_OPTIONS"
-                                :key="r"
-                                :value="r"
+                    <div class="flex items-center gap-3">
+                        <label class="flex items-center gap-1.5">
+                            <span
+                                class="text-[10px] uppercase tracking-wider text-muted-foreground"
                             >
-                                {{ r }} AU
-                            </option>
-                        </select>
-                    </label>
-                    <label class="ml-auto flex items-center gap-1.5">
-                        <span
-                            class="text-[10px] uppercase tracking-wider text-muted-foreground"
+                                {{ t('formationEditor.allRanges') }}
+                            </span>
+                            <select
+                                value=""
+                                class="h-7 rounded-md border border-input/50 bg-background/60 px-1.5 font-mono text-xs"
+                                @change="
+                                    setAllRanges(
+                                        ($event.target as HTMLSelectElement)
+                                            .value
+                                    )
+                                    ;(
+                                        $event.target as HTMLSelectElement
+                                    ).value = ''
+                                "
+                            >
+                                <option value="" disabled>—</option>
+                                <option
+                                    v-for="r in RANGE_OPTIONS"
+                                    :key="r"
+                                    :value="r"
+                                >
+                                    {{ r }} AU
+                                </option>
+                            </select>
+                        </label>
+                        <label class="ml-auto flex items-center gap-1.5">
+                            <span
+                                class="text-[10px] uppercase tracking-wider text-muted-foreground"
+                            >
+                                {{ t('formationEditor.scale') }}
+                            </span>
+                            <Input
+                                type="number"
+                                step="0.5"
+                                class="h-7 w-16 border-input/50 bg-background/60 px-1.5 text-right font-mono text-xs tabular-nums"
+                                :model-value="scaleFactor"
+                                @update:model-value="
+                                    scaleFactor = Number($event)
+                                "
+                            />
+                        </label>
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            class="h-7"
+                            @click="applyScale"
                         >
-                            {{ t('formationEditor.scale') }}
-                        </span>
-                        <Input
-                            type="number"
-                            step="0.5"
-                            class="h-7 w-16 border-input/50 bg-background/60 px-1.5 text-right font-mono text-xs tabular-nums"
-                            :model-value="scaleFactor"
-                            @update:model-value="scaleFactor = Number($event)"
+                            {{ t('formationEditor.apply') }}
+                        </Button>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <label class="flex items-center gap-1.5">
+                            <span
+                                class="text-[10px] uppercase tracking-wider text-muted-foreground"
+                            >
+                                {{ t('formationEditor.rotate') }}
+                            </span>
+                            <select
+                                v-model="rotateAxis"
+                                class="h-7 rounded-md border border-input/50 bg-background/60 px-1.5 font-mono text-xs"
+                            >
+                                <option
+                                    v-for="axis in AXES"
+                                    :key="axis.key"
+                                    :value="axis.key"
+                                    :title="t(`formationEditor.${axis.tip}`)"
+                                >
+                                    {{ axis.pos }}/{{ axis.neg }}
+                                </option>
+                            </select>
+                        </label>
+                        <label class="ml-auto flex items-center gap-1">
+                            <Input
+                                type="number"
+                                step="15"
+                                class="h-7 w-16 border-input/50 bg-background/60 px-1.5 text-right font-mono text-xs tabular-nums"
+                                :model-value="rotateDegrees"
+                                @update:model-value="
+                                    rotateDegrees = Number($event)
+                                "
+                            />
+                            <span class="text-xs text-muted-foreground">
+                                °
+                            </span>
+                        </label>
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            class="h-7"
+                            @click="applyRotation"
+                        >
+                            {{ t('formationEditor.apply') }}
+                        </Button>
+                    </div>
+                </section>
+
+                <!-- Launch balance -->
+                <section
+                    v-if="current"
+                    class="flex items-center gap-2 border-t px-4 py-2.5"
+                >
+                    <TooltipProvider :delay-duration="150">
+                        <Tooltip>
+                            <TooltipTrigger as-child>
+                                <Info
+                                    class="size-3.5 shrink-0 cursor-help text-muted-foreground"
+                                />
+                            </TooltipTrigger>
+                            <TooltipContent side="top" class="max-w-72">
+                                {{ t('formationEditor.balanceInfo') }}
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+                    <span
+                        v-if="isBalanced"
+                        class="flex min-w-0 items-center gap-1.5 text-[11px] text-muted-foreground"
+                    >
+                        <span
+                            class="size-1.5 shrink-0 rounded-full bg-emerald-500"
                         />
-                    </label>
+                        <span class="truncate">
+                            {{ t('formationEditor.balanced') }}
+                        </span>
+                    </span>
+                    <span
+                        v-else
+                        class="flex min-w-0 items-center gap-1.5 text-[11px] text-amber-600 dark:text-amber-400"
+                    >
+                        <span
+                            class="size-1.5 shrink-0 rounded-full bg-amber-400"
+                        />
+                        <span class="truncate">
+                            {{
+                                t('formationEditor.offCenter', {
+                                    offset: formatDistance(launchShift),
+                                })
+                            }}
+                        </span>
+                    </span>
                     <Button
                         variant="outline"
                         size="sm"
-                        class="h-7"
-                        @click="applyScale"
+                        class="ml-auto h-7 shrink-0"
+                        :disabled="!canBalance"
+                        @click="balanceFormation"
                     >
-                        {{ t('formationEditor.apply') }}
+                        <Scale class="size-3.5" />
+                        {{ t('formationEditor.balance') }}
                     </Button>
                 </section>
 
@@ -1019,6 +1229,43 @@ function toggleTheme() {
                             y2="4"
                             stroke-width="0.75"
                         />
+                    </g>
+
+                    <!-- Launch center: the point EVE pulls onto the ship -->
+                    <g
+                        v-if="projectedCentroid"
+                        class="text-amber-600 dark:text-amber-400"
+                    >
+                        <line
+                            :x1="projectedCentroid.x"
+                            :y1="projectedCentroid.y"
+                            x2="0"
+                            y2="0"
+                            stroke="currentColor"
+                            stroke-width="0.75"
+                            stroke-dasharray="3 3"
+                            opacity="0.6"
+                        />
+                        <g
+                            :transform="`translate(${projectedCentroid.x} ${projectedCentroid.y})`"
+                        >
+                            <path
+                                d="M0 -4 L4 0 L0 4 L-4 0 Z"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1"
+                            />
+                            <text
+                                x="7"
+                                y="1"
+                                fill="currentColor"
+                                font-size="7"
+                                font-family="ui-monospace, monospace"
+                                dominant-baseline="middle"
+                            >
+                                {{ t('formationEditor.launchCenter') }}
+                            </text>
+                        </g>
                     </g>
 
                     <!-- Probes: tether to plane shadow, then glowing node -->
