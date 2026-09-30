@@ -1,28 +1,20 @@
 name: EVE Wrench
 processes:
-    Tauri dev:
-        command: npm run tauri dev
-        auto_start: false
-    Vite dev (frontend only):
-        command: npm run dev
-        auto_start: false
-    Typecheck frontend:
-        command: npx vue-tsc --noEmit
+    Run app:
+        command: cargo run -p eve-wrench
         auto_start: false
     Cargo check:
-        command: cargo check
-        working_dir: ./src-tauri
+        command: cargo check --workspace
         auto_start: false
     Cargo clippy:
-        command: cargo clippy --all-targets
-        working_dir: ./src-tauri
+        command: cargo clippy --workspace --all-targets
         auto_start: false
-    Lint:
-        command: npm run lint
+    Test:
+        command: cargo test --workspace
         auto_start: false
     Format:
-        command: npm run format
+        command: cargo fmt --all
         auto_start: false
-    Tauri build:
-        command: npm run tauri build
+    Package:
+        command: cargo packager --release -p eve-wrench
         auto_start: false
