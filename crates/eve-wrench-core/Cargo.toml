@@ -1,0 +1,16 @@
+[package]
+name = "eve-wrench-core"
+description = "EVE Online settings file handling for EVE Wrench"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+dirs.workspace = true
+blue-marshal = "1.0.1"
+filetime = "0.2.26"
+sha2 = "0.10"
+ureq = { version = "3", features = ["json"] }
+zip = { version = "2", default-features = false, features = ["deflate"] }

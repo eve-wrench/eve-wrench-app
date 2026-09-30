@@ -1,5 +1,0 @@
-{
-    "$schema": "https://unpkg.com/knip@5/schema.json",
-    "ignore": ["src/components/ui/**", "src-tauri/**"],
-    "ignoreExportsUsedInFile": true
-}

@@ -161,8 +161,8 @@ Grab the latest build from [**Releases**](https://github.com/eve-wrench/eve-wren
 | OS          | File                                    | Notes                                                                                                            |
 | ----------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | **macOS**   | `.dmg`                                  | Open and drag to Applications (Apple Silicon & Intel builds)                                                     |
-| **Windows** | `.msi` / `-setup.exe` / `-portable.exe` | Run an installer, or the portable `.exe` (no install; needs the WebView2 runtime that ships with modern Windows) |
-| **Linux**   | `.AppImage` / `.deb` / `.rpm`           | `chmod +x eve-wrench_*.AppImage && ./eve-wrench_*.AppImage`                                                      |
+| **Windows** | `.msi` / `-setup.exe` / `-portable.exe` | Run an installer, or the portable `.exe` (no install, no runtime dependencies) |
+| **Linux**   | `.AppImage` / `.deb`                    | `chmod +x eve-wrench_*.AppImage && ./eve-wrench_*.AppImage`                                                      |
 
 ## Quick start
 
@@ -211,33 +211,46 @@ settings_Default/
 
 ## Development
 
-**Prerequisites:** [Node.js](https://nodejs.org/) 18+, [Rust](https://rustup.rs/)
-stable, and the [Tauri prerequisites](https://tauri.app/start/prerequisites/) for
-your OS.
+**Prerequisites:** [Rust](https://rustup.rs/) stable. On Linux, GPUI also needs
+`clang libfontconfig-dev libwayland-dev libxkbcommon-x11-dev libx11-xcb-dev libssl-dev libzstd-dev libvulkan1`.
 
 ```bash
 git clone https://github.com/eve-wrench/eve-wrench-app.git
 cd eve-wrench-app
-npm install
-npm run tauri dev      # run in development
-npm run tauri build    # build a production bundle
+cargo run -p eve-wrench
 ```
 
-**Scripts**
+The workspace has two crates:
 
-| Command                           | Description                                  |
-| --------------------------------- | -------------------------------------------- |
-| `npm run tauri dev`               | Run the app in development                   |
-| `npm run build`                   | Type-check and build the frontend            |
-| `npm run typecheck`               | Type-check only (`vue-tsc`)                  |
-| `npm run lint` / `lint:check`     | ESLint (fix / check)                         |
-| `npm run format` / `format:check` | Prettier (write / check)                     |
-| `npm run knip`                    | Find unused files, exports, and dependencies |
+| Crate                     | Contents                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| `crates/eve-wrench-core`  | Settings discovery, backups, selective copy, formations, archives, ESI, updates |
+| `crates/eve-wrench`       | The desktop app, built with [GPUI](https://www.gpui.rs/) and [GPUI Kit](https://gpui-kit.com) |
 
-CI runs lint, type-check, knip, `cargo fmt`, `clippy -D warnings`, `test`, and a
-build on every push and PR.
+**Commands**
 
-**Tech stack:** Vue 3, TypeScript, Tailwind CSS, shadcn-vue, Rust, Tauri 2,
+| Command                                            | Description                        |
+| -------------------------------------------------- | ---------------------------------- |
+| `cargo run -p eve-wrench`                          | Run the app                        |
+| `cargo test --workspace`                           | Run all tests                      |
+| `cargo clippy --workspace --all-targets`           | Lint                               |
+| `cargo fmt --all`                                  | Format                             |
+| `cargo packager --release -p eve-wrench`           | Build installers ([cargo-packager](https://github.com/crabnebula-dev/cargo-packager)) |
+
+Translations live in `crates/eve-wrench/locales` (English and Simplified Chinese).
+
+CI runs `cargo fmt`, `clippy -D warnings`, and `test` on every push and PR.
+
+**Auto-updates.** Release builds install updates in place when the repository
+has an updater signing key. Generate one with
+`cargo packager signer generate --path eve-wrench-updater.key`, then add the
+public key as the `UPDATER_PUBKEY` Actions variable and the private key and its
+password as the `UPDATER_PRIVATE_KEY` and `UPDATER_PRIVATE_KEY_PASSWORD`
+secrets. The release workflow then signs every package and publishes
+`latest.json`. Without the key, the app still announces new releases and links
+to the download page.
+
+**Tech stack:** Rust, GPUI, GPUI Kit,
 [blue-marshal](https://github.com/TrueBrain/blue-marshal-rs), EVE ESI, Lucide.
 
 ## License
