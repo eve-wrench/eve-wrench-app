@@ -1770,7 +1770,7 @@ dependencies = [
 
 [[package]]
 name = "eve-wrench"
-version = "0.4.0-preview.1"
+version = "0.4.0"
 dependencies = [
  "cargo-packager-updater",
  "dirs 6.0.0",
@@ -1784,7 +1784,7 @@ dependencies = [
 
 [[package]]
 name = "eve-wrench-core"
-version = "0.4.0-preview.1"
+version = "0.4.0"
 dependencies = [
  "blue-marshal",
  "dirs 6.0.0",
