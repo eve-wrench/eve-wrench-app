@@ -120,7 +120,8 @@ jobs:
             export CARGO_PACKAGER_SIGN_PRIVATE_KEY="$SIGNING_KEY"
             export CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD="$SIGNING_KEY_PASSWORD"
           fi
-          cargo packager --release -p eve-wrench --target ${{ matrix.target }} --out-dir dist
+          # Relative paths resolve against the crate, so point at the repo root
+          cargo packager --release -p eve-wrench --target ${{ matrix.target }} --out-dir "$GITHUB_WORKSPACE/dist"
 
       - name: Create draft release
         shell: bash
@@ -142,7 +143,13 @@ jobs:
         run: |
           tag="v${{ steps.version.outputs.version }}"
           shopt -s nullglob
-          for file in dist/*.dmg dist/*.exe dist/*.msi dist/*.deb dist/*.AppImage; do
+          files=(dist/*.dmg dist/*.exe dist/*.msi dist/*.deb dist/*.AppImage)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "::error::No packages found in dist"
+            ls -la dist
+            exit 1
+          fi
+          for file in "${files[@]}"; do
             # GitHub rewrites spaces in asset names, which would break the
             # download URLs recorded in latest.json
             case "$file" in
