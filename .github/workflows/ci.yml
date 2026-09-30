@@ -12,46 +12,16 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    frontend:
-        name: Frontend
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-
-            - name: Setup Node
-              uses: actions/setup-node@v4
-              with:
-                  node-version: lts/*
-                  cache: 'npm'
-
-            - name: Install dependencies
-              run: npm ci
-
-            - name: Lint
-              run: npm run lint:check
-
-            - name: Format
-              run: npm run format:check
-
-            - name: Type-check
-              run: npm run typecheck
-
-            - name: Unused code, deps & exports
-              run: npm run knip
-
-            - name: Build
-              run: npm run build
-
     rust:
-        name: Rust
-        runs-on: ubuntu-22.04
+        name: Linux
+        runs-on: ubuntu-24.04
         steps:
             - uses: actions/checkout@v4
 
             - name: Install system dependencies
               run: |
                   sudo apt-get update
-                  sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+                  sudo apt-get install -y clang libfontconfig-dev libwayland-dev libxkbcommon-x11-dev libx11-xcb-dev libssl-dev libzstd-dev libvulkan1
 
             - name: Install Rust stable
               uses: dtolnay/rust-toolchain@stable
@@ -60,14 +30,41 @@ jobs:
 
             - name: Rust cache
               uses: swatinem/rust-cache@v2
-              with:
-                  workspaces: './src-tauri -> target'
 
             - name: Format
-              run: cargo fmt --all --manifest-path src-tauri/Cargo.toml -- --check
+              run: cargo fmt --all -- --check
 
             - name: Clippy
-              run: cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets -- -D warnings
+              run: cargo clippy --workspace --all-targets -- -D warnings
 
             - name: Test
-              run: cargo test --manifest-path src-tauri/Cargo.toml
+              run: cargo test --workspace
+
+    # GPUI renders natively per OS, so each platform compiles different code
+    platforms:
+        name: ${{ matrix.name }}
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - name: macOS
+                      os: macos-latest
+                    - name: Windows
+                      os: windows-latest
+        runs-on: ${{ matrix.os }}
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Install Rust stable
+              uses: dtolnay/rust-toolchain@stable
+              with:
+                  components: clippy
+
+            - name: Rust cache
+              uses: swatinem/rust-cache@v2
+
+            - name: Clippy
+              run: cargo clippy --workspace --all-targets -- -D warnings
+
+            - name: Test
+              run: cargo test --workspace

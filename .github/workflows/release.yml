@@ -42,7 +42,7 @@ jobs:
             echo CHANGELOG_EOF
           } >> "$GITHUB_OUTPUT"
 
-  publish-tauri:
+  publish:
     needs: changelog
     permissions:
       contents: write
@@ -51,71 +51,203 @@ jobs:
       matrix:
         include:
           - platform: "macos-latest"
-            args: "--target aarch64-apple-darwin"
+            target: "aarch64-apple-darwin"
+            updater: "macos-aarch64"
           - platform: "macos-latest"
-            args: "--target x86_64-apple-darwin"
-          - platform: "ubuntu-22.04"
-            args: ""
+            target: "x86_64-apple-darwin"
+            updater: "macos-x86_64"
+          - platform: "ubuntu-24.04"
+            target: "x86_64-unknown-linux-gnu"
+            updater: "linux-x86_64"
           - platform: "windows-latest"
-            args: ""
+            target: "x86_64-pc-windows-msvc"
+            updater: "windows-x86_64"
 
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
 
       - name: Install dependencies (Ubuntu only)
-        if: matrix.platform == 'ubuntu-22.04'
+        if: startsWith(matrix.platform, 'ubuntu')
         run: |
           sudo apt-get update
-          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+          sudo apt-get install -y clang libfontconfig-dev libwayland-dev libxkbcommon-x11-dev libx11-xcb-dev libssl-dev libzstd-dev libvulkan1 libfuse2t64
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: lts/*
+          python-version: "3.x"
 
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
         with:
-          targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
+          targets: ${{ matrix.target }}
 
       - name: Rust cache
         uses: swatinem/rust-cache@v2
         with:
-          workspaces: "./src-tauri -> target"
+          key: ${{ matrix.target }}
 
-      - name: Install frontend dependencies
-        run: npm install
+      - name: Install cargo-packager
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-packager
 
-      # A hyphenated semver (e.g. 0.3.0-preview.1) marks a pre-release, so the
-      # GitHub release is flagged accordingly and stable users aren't notified.
-      - name: Detect pre-release
+      - name: Read version
         id: version
         shell: bash
-        run: echo "prerelease=$(node -p "require('./src-tauri/tauri.conf.json').version.includes('-')")" >> "$GITHUB_OUTPUT"
+        run: |
+          version=$(cargo metadata --no-deps --format-version 1 | python -c "import json,sys; print(next(p['version'] for p in json.load(sys.stdin)['packages'] if p['name'] == 'eve-wrench'))")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          # A hyphenated semver (e.g. 0.3.0-preview.1) marks a pre-release, so the
+          # GitHub release is flagged accordingly and stable users aren't notified.
+          if [[ "$version" == *-* ]]; then echo "prerelease=true" >> "$GITHUB_OUTPUT"; else echo "prerelease=false" >> "$GITHUB_OUTPUT"; fi
 
-      - uses: tauri-apps/tauri-action@v0
+      # The target env makes the packager's own `cargo build` hook build for it too
+      # Auto-updates are enabled once the repository has the UPDATER_PUBKEY
+      # variable and the UPDATER_PRIVATE_KEY (+ _PASSWORD) secrets; the public
+      # key is compiled into the app and every package gets a .sig file.
+      - name: Package
+        shell: bash
+        env:
+          CARGO_BUILD_TARGET: ${{ matrix.target }}
+          # The AppImage tooling is itself an AppImage; runners have no FUSE mount
+          APPIMAGE_EXTRACT_AND_RUN: "1"
+          EVE_WRENCH_UPDATER_PUBKEY: ${{ vars.UPDATER_PUBKEY }}
+          SIGNING_KEY: ${{ secrets.UPDATER_PRIVATE_KEY }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.UPDATER_PRIVATE_KEY_PASSWORD }}
+        run: |
+          if [ -n "$EVE_WRENCH_UPDATER_PUBKEY" ] && [ -n "$SIGNING_KEY" ]; then
+            export CARGO_PACKAGER_SIGN_PRIVATE_KEY="$SIGNING_KEY"
+            export CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD="$SIGNING_KEY_PASSWORD"
+          fi
+          cargo packager --release -p eve-wrench --target ${{ matrix.target }} --out-dir dist
+
+      - name: Create draft release
+        shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tagName: v__VERSION__
-          releaseName: "EVE Wrench v__VERSION__"
-          releaseBody: ${{ needs.changelog.outputs.notes }}
-          releaseDraft: true
-          prerelease: ${{ steps.version.outputs.prerelease }}
-          args: ${{ matrix.args }}
+          NOTES: ${{ needs.changelog.outputs.notes }}
+        run: |
+          tag="v${{ steps.version.outputs.version }}"
+          if ! gh release view "$tag" > /dev/null 2>&1; then
+            flags=(--draft --title "EVE Wrench $tag" --notes "$NOTES")
+            if [ "${{ steps.version.outputs.prerelease }}" = "true" ]; then flags+=(--prerelease); fi
+            gh release create "$tag" "${flags[@]}" || gh release view "$tag" > /dev/null
+          fi
 
-      # The compiled binary is self-contained (the frontend is embedded), so
-      # ship it as a no-install portable build alongside the installers.
-      # Requires the WebView2 runtime, which ships with modern Windows.
-      - name: Upload portable Windows executable
-        if: matrix.platform == 'windows-latest'
+      - name: Upload packages
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          version=$(node -p "require('./src-tauri/tauri.conf.json').version")
-          exe=$(find src-tauri/target/release -maxdepth 1 -name '*.exe' | head -1)
-          dest="EVE-Wrench_${version}_x64-portable.exe"
-          cp "$exe" "$dest"
-          gh release upload "v${version}" "$dest" --clobber
+          tag="v${{ steps.version.outputs.version }}"
+          shopt -s nullglob
+          for file in dist/*.dmg dist/*.exe dist/*.msi dist/*.deb dist/*.AppImage; do
+            # GitHub rewrites spaces in asset names, which would break the
+            # download URLs recorded in latest.json
+            case "$file" in
+              *.dmg) name="EVE-Wrench_${{ steps.version.outputs.version }}_${{ matrix.target }}.dmg" ;;
+              *) name=$(basename "$file" | tr ' ' '-') ;;
+            esac
+            cp "$file" "$name"
+            gh release upload "$tag" "$name" --clobber
+          done
+
+      # The binary has no runtime dependencies (no WebView2), so ship it as a
+      # no-install portable build alongside the installers.
+      - name: Upload portable Windows executable
+        if: startsWith(matrix.platform, 'windows')
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          dest="EVE-Wrench_${{ steps.version.outputs.version }}_x64-portable.exe"
+          cp "target/${{ matrix.target }}/release/eve-wrench.exe" "$dest"
+          gh release upload "v${{ steps.version.outputs.version }}" "$dest" --clobber
+
+      - name: Upload update bundle
+        if: ${{ vars.UPDATER_PUBKEY != '' }}
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          version="${{ steps.version.outputs.version }}"
+          tag="v$version"
+          shopt -s nullglob
+          bundle=""
+          case "${{ matrix.updater }}" in
+            macos-*)
+              bundle="dist/EVE Wrench.app.tar.gz"
+              format=app
+              name="EVE-Wrench_${version}_${{ matrix.target }}.app.tar.gz"
+              cp "$bundle" "$name"
+              gh release upload "$tag" "$name" --clobber
+              ;;
+            linux-*)
+              bundle=$(find dist -maxdepth 1 -name '*.AppImage' | head -1)
+              format=appimage
+              name=$(basename "$bundle" | tr ' ' '-')
+              ;;
+            windows-*)
+              bundle=$(find dist -maxdepth 1 -name '*.exe' | head -1)
+              format=nsis
+              name=$(basename "$bundle" | tr ' ' '-')
+              ;;
+          esac
+          if [ ! -f "$bundle" ] || [ ! -f "$bundle.sig" ]; then
+            echo "::error::Signed update bundle not found for ${{ matrix.updater }}"
+            ls -la dist
+            exit 1
+          fi
+          python - "$bundle.sig" "$name" "$format" > "updater-${{ matrix.updater }}.json" <<'PY'
+          import json, sys, urllib.parse
+          sig_path, name, fmt = sys.argv[1:]
+          url = "https://github.com/${{ github.repository }}/releases/download/v${{ steps.version.outputs.version }}/" + urllib.parse.quote(name)
+          print(json.dumps({"signature": open(sig_path).read().strip(), "url": url, "format": fmt}))
+          PY
+
+      - name: Keep update bundle details
+        if: ${{ vars.UPDATER_PUBKEY != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: updater-${{ matrix.updater }}
+          path: updater-${{ matrix.updater }}.json
+
+  # Combines every platform's signed bundle into the manifest the app polls
+  # (releases/latest/download/latest.json).
+  updater-manifest:
+    needs: [changelog, publish]
+    if: ${{ vars.UPDATER_PUBKEY != '' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: updater-*
+          merge-multiple: true
+          path: updater
+
+      - name: Publish latest.json
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NOTES: ${{ needs.changelog.outputs.notes }}
+        run: |
+          version=$(cargo metadata --no-deps --format-version 1 | python3 -c "import json,sys; print(next(p['version'] for p in json.load(sys.stdin)['packages'] if p['name'] == 'eve-wrench'))")
+          python3 - "$version" > latest.json <<'PY'
+          import datetime, glob, json, os, sys
+          platforms = {}
+          for path in glob.glob("updater/updater-*.json"):
+              key = os.path.basename(path)[len("updater-"):-len(".json")]
+              platforms[key] = json.load(open(path))
+          print(json.dumps({
+              "version": sys.argv[1],
+              "notes": os.environ.get("NOTES", ""),
+              "pub_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "platforms": platforms,
+          }, indent=2))
+          PY
+          gh release upload "v$version" latest.json --clobber
