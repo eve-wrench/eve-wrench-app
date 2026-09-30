@@ -87,10 +87,10 @@ jobs:
         with:
           key: ${{ matrix.target }}
 
+      # Built from crates.io rather than a prebuilt mirror, since this tool
+      # handles the updater signing key
       - name: Install cargo-packager
-        uses: taiki-e/install-action@v2
-        with:
-          tool: cargo-packager
+        run: cargo install cargo-packager --version 0.11.8 --locked
 
       - name: Read version
         id: version
