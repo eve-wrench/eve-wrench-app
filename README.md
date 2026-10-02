@@ -14,7 +14,7 @@
 
 ---
 
-<img width="1112" height="712" alt="EVE Wrench" src="https://github.com/user-attachments/assets/8ed5f561-79ad-4162-bea2-e1461e152975" />
+<img width="1363" height="893" alt="EVE Wrench" src="https://github.com/user-attachments/assets/c8df4ab3-96cb-4bda-bc00-a72e43b43a51" />
 
 ## What it does
 
