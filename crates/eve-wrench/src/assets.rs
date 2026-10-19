@@ -14,6 +14,7 @@ gpui_kit::assets::icon_assets!(
         Compass,
         Crosshair,
         Download,
+        Drone,
         FilePlus,
         Grid2x2,
         Languages,

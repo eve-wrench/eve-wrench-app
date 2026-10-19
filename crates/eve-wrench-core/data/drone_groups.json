@@ -1,0 +1,876 @@
+{
+  "presets": [
+    {
+      "category": "light",
+      "group_id": 100,
+      "id": "acolyte",
+      "members": [
+        "Acolyte I",
+        "Acolyte II",
+        "'Integrated' Acolyte",
+        "'Augmented' Acolyte",
+        "Imperial Navy Acolyte"
+      ],
+      "name": "Acolyte",
+      "stats": {
+        "damage": "EM",
+        "dps": 86.6,
+        "speed": 5775.0
+      },
+      "type_id": 2205
+    },
+    {
+      "category": "light",
+      "group_id": 100,
+      "id": "hobgoblin",
+      "members": [
+        "Hobgoblin I",
+        "Hobgoblin II",
+        "'Integrated' Hobgoblin",
+        "'Augmented' Hobgoblin",
+        "Federation Navy Hobgoblin",
+        "Civilian Hobgoblin"
+      ],
+      "name": "Hobgoblin",
+      "stats": {
+        "damage": "Therm",
+        "dps": 99.0,
+        "speed": 4200.0
+      },
+      "type_id": 2456
+    },
+    {
+      "category": "light",
+      "group_id": 100,
+      "id": "hornet",
+      "members": [
+        "Hornet I",
+        "Hornet II",
+        "'Integrated' Hornet",
+        "'Augmented' Hornet",
+        "Caldari Navy Hornet"
+      ],
+      "name": "Hornet",
+      "stats": {
+        "damage": "Kin",
+        "dps": 92.8,
+        "speed": 4725.0
+      },
+      "type_id": 2466
+    },
+    {
+      "category": "light",
+      "group_id": 100,
+      "id": "warrior",
+      "members": [
+        "Warrior I",
+        "Warrior II",
+        "'Integrated' Warrior",
+        "'Augmented' Warrior",
+        "Republic Fleet Warrior"
+      ],
+      "name": "Warrior",
+      "stats": {
+        "damage": "Exp",
+        "dps": 80.4,
+        "speed": 6300.0
+      },
+      "type_id": 2488
+    },
+    {
+      "category": "medium",
+      "group_id": 100,
+      "id": "infiltrator",
+      "members": [
+        "Infiltrator I",
+        "Infiltrator II",
+        "'Integrated' Infiltrator",
+        "'Augmented' Infiltrator",
+        "Imperial Navy Infiltrator"
+      ],
+      "name": "Infiltrator",
+      "stats": {
+        "damage": "EM",
+        "dps": 138.6,
+        "speed": 3450.0
+      },
+      "type_id": 2175
+    },
+    {
+      "category": "medium",
+      "group_id": 100,
+      "id": "hammerhead",
+      "members": [
+        "Hammerhead I",
+        "Hammerhead II",
+        "'Integrated' Hammerhead",
+        "'Augmented' Hammerhead",
+        "Federation Navy Hammerhead"
+      ],
+      "name": "Hammerhead",
+      "stats": {
+        "damage": "Therm",
+        "dps": 158.4,
+        "speed": 2520.0
+      },
+      "type_id": 2185
+    },
+    {
+      "category": "medium",
+      "group_id": 100,
+      "id": "vespa",
+      "members": [
+        "Vespa I",
+        "Vespa II",
+        "'Integrated' Vespa",
+        "'Augmented' Vespa",
+        "Caldari Navy Vespa"
+      ],
+      "name": "Vespa",
+      "stats": {
+        "damage": "Kin",
+        "dps": 148.5,
+        "speed": 2835.0
+      },
+      "type_id": 21638
+    },
+    {
+      "category": "medium",
+      "group_id": 100,
+      "id": "valkyrie",
+      "members": [
+        "Valkyrie I",
+        "Valkyrie II",
+        "'Integrated' Valkyrie",
+        "'Augmented' Valkyrie",
+        "Republic Fleet Valkyrie"
+      ],
+      "name": "Valkyrie",
+      "stats": {
+        "damage": "Exp",
+        "dps": 128.7,
+        "speed": 3750.0
+      },
+      "type_id": 21640
+    },
+    {
+      "category": "heavy",
+      "group_id": 100,
+      "id": "praetor",
+      "members": [
+        "Praetor I",
+        "Praetor II",
+        "'Integrated' Praetor",
+        "'Augmented' Praetor",
+        "Imperial Navy Praetor"
+      ],
+      "name": "Praetor",
+      "stats": {
+        "damage": "EM",
+        "dps": 277.2,
+        "speed": 2070.0
+      },
+      "type_id": 2195
+    },
+    {
+      "category": "heavy",
+      "group_id": 100,
+      "id": "wasp",
+      "members": [
+        "Wasp I",
+        "Wasp II",
+        "'Integrated' Wasp",
+        "'Augmented' Wasp",
+        "Caldari Navy Wasp"
+      ],
+      "name": "Wasp",
+      "stats": {
+        "damage": "Kin",
+        "dps": 297.0,
+        "speed": 1688.0
+      },
+      "type_id": 2436
+    },
+    {
+      "category": "heavy",
+      "group_id": 100,
+      "id": "ogre",
+      "members": [
+        "Ogre I",
+        "Ogre II",
+        "'Integrated' Ogre",
+        "'Augmented' Ogre",
+        "Federation Navy Ogre"
+      ],
+      "name": "Ogre",
+      "stats": {
+        "damage": "Therm",
+        "dps": 316.8,
+        "speed": 1500.0
+      },
+      "type_id": 2446
+    },
+    {
+      "category": "heavy",
+      "group_id": 100,
+      "id": "berserker",
+      "members": [
+        "Berserker I",
+        "Berserker II",
+        "'Integrated' Berserker",
+        "'Augmented' Berserker",
+        "Republic Fleet Berserker"
+      ],
+      "name": "Berserker",
+      "stats": {
+        "damage": "Exp",
+        "dps": 257.4,
+        "speed": 2250.0
+      },
+      "type_id": 2478
+    },
+    {
+      "category": "sentry",
+      "group_id": 100,
+      "id": "warden",
+      "members": [
+        "Warden I",
+        "Warden II",
+        "Caldari Navy Warden"
+      ],
+      "name": "Warden",
+      "stats": {
+        "damage": "Kin",
+        "dps": 231.0,
+        "falloff": 42000.0,
+        "optimal": 75000.0
+      },
+      "type_id": 28209
+    },
+    {
+      "category": "sentry",
+      "group_id": 100,
+      "id": "garde",
+      "members": [
+        "Garde I",
+        "Garde II",
+        "Federation Navy Garde"
+      ],
+      "name": "Garde",
+      "stats": {
+        "damage": "Therm",
+        "dps": 272.3,
+        "falloff": 30000.0,
+        "optimal": 22500.0
+      },
+      "type_id": 28211
+    },
+    {
+      "category": "sentry",
+      "group_id": 100,
+      "id": "curator",
+      "members": [
+        "Curator I",
+        "Curator II",
+        "Imperial Navy Curator"
+      ],
+      "name": "Curator",
+      "stats": {
+        "damage": "EM",
+        "dps": 255.8,
+        "falloff": 12000.0,
+        "optimal": 52500.0
+      },
+      "type_id": 28213
+    },
+    {
+      "category": "sentry",
+      "group_id": 100,
+      "id": "bouncer",
+      "members": [
+        "Bouncer I",
+        "Bouncer II",
+        "Republic Fleet Bouncer"
+      ],
+      "name": "Bouncer",
+      "stats": {
+        "damage": "Exp",
+        "dps": 239.3,
+        "falloff": 54000.0,
+        "optimal": 45000.0
+      },
+      "type_id": 28215
+    },
+    {
+      "category": "special",
+      "group_id": 100,
+      "id": "gecko",
+      "members": [
+        "Gecko"
+      ],
+      "name": "Gecko",
+      "stats": {
+        "damage": "Omni",
+        "dps": 246.0,
+        "speed": 2275.0
+      },
+      "type_id": 33681
+    },
+    {
+      "category": "special",
+      "group_id": 100,
+      "id": "subverted-jvn-uc49",
+      "members": [
+        "'Subverted' JVN-UC49"
+      ],
+      "name": "'Subverted' JVN-UC49",
+      "stats": {
+        "damage": "Omni",
+        "dps": 255.0,
+        "speed": 2100.0
+      },
+      "type_id": 48744
+    },
+    {
+      "category": "special",
+      "group_id": 100,
+      "id": "aralez",
+      "members": [
+        "Aralez"
+      ],
+      "name": "Aralez",
+      "stats": {
+        "damage": "Kin/Therm",
+        "dps": 272.3,
+        "speed": 2250.0
+      },
+      "type_id": 60766
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "light-ecm",
+      "members": [
+        "Hornet EC-300",
+        "Inshore EC-300-I"
+      ],
+      "name": "Light ECM",
+      "stats": {
+        "effect": "1 jam",
+        "speed": 4000.0
+      },
+      "type_id": 23707
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "medium-ecm",
+      "members": [
+        "Vespa EC-600",
+        "Nertic EC-600-I"
+      ],
+      "name": "Medium ECM",
+      "stats": {
+        "effect": "1.5 jam",
+        "speed": 3438.0
+      },
+      "type_id": 23705
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "heavy-ecm",
+      "members": [
+        "Wasp EC-900",
+        "Humboldt EC-900-I"
+      ],
+      "name": "Heavy ECM",
+      "stats": {
+        "effect": "2 jam",
+        "speed": 2500.0
+      },
+      "type_id": 23473
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "light-tracking-disruptor",
+      "members": [
+        "Acolyte TD-300",
+        "Stellate TD-300-I"
+      ],
+      "name": "Light Tracking Disruptor",
+      "stats": {
+        "effect": "-5%",
+        "speed": 4000.0
+      },
+      "type_id": 23727
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "medium-tracking-disruptor",
+      "members": [
+        "Infiltrator TD-600",
+        "Immaculate TD-600-I"
+      ],
+      "name": "Medium Tracking Disruptor",
+      "stats": {
+        "effect": "-12%",
+        "speed": 3438.0
+      },
+      "type_id": 23725
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "heavy-tracking-disruptor",
+      "members": [
+        "Praetor TD-900",
+        "Torafugu TD-900-I"
+      ],
+      "name": "Heavy Tracking Disruptor",
+      "stats": {
+        "effect": "-25%",
+        "speed": 2500.0
+      },
+      "type_id": 23510
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "light-sensor-damp",
+      "members": [
+        "Hobgoblin SD-300",
+        "Stigmella SD-300-I"
+      ],
+      "name": "Light Sensor Damp",
+      "stats": {
+        "effect": "-8%",
+        "speed": 4000.0
+      },
+      "type_id": 23715
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "medium-sensor-damp",
+      "members": [
+        "Hammerhead SD-600",
+        "Luna SD-600-I"
+      ],
+      "name": "Medium Sensor Damp",
+      "stats": {
+        "effect": "-12%",
+        "speed": 3438.0
+      },
+      "type_id": 23713
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "heavy-sensor-damp",
+      "members": [
+        "Ogre SD-900",
+        "Atlas SD-900-I"
+      ],
+      "name": "Heavy Sensor Damp",
+      "stats": {
+        "effect": "-25%",
+        "speed": 2500.0
+      },
+      "type_id": 23506
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "light-target-painter",
+      "members": [
+        "Warrior TP-300",
+        "Skimmer TP-300-I"
+      ],
+      "name": "Light Target Painter",
+      "stats": {
+        "effect": "+4% sig",
+        "speed": 4000.0
+      },
+      "type_id": 23723
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "medium-target-painter",
+      "members": [
+        "Valkyrie TP-600",
+        "Darter TP-600-I"
+      ],
+      "name": "Medium Target Painter",
+      "stats": {
+        "effect": "+8% sig",
+        "speed": 3438.0
+      },
+      "type_id": 23721
+    },
+    {
+      "category": "ewar",
+      "group_id": 639,
+      "id": "heavy-target-painter",
+      "members": [
+        "Berserker TP-900",
+        "Meganeura TP-900-I"
+      ],
+      "name": "Heavy Target Painter",
+      "stats": {
+        "effect": "+20% sig",
+        "speed": 2500.0
+      },
+      "type_id": 23512
+    },
+    {
+      "category": "ewar",
+      "group_id": 544,
+      "id": "light-energy-neutralizer",
+      "members": [
+        "Acolyte EV-300",
+        "Tick EV-300-I"
+      ],
+      "name": "Light Energy Neutralizer",
+      "stats": {
+        "effect": "5 GJ",
+        "speed": 4000.0
+      },
+      "type_id": 23659
+    },
+    {
+      "category": "ewar",
+      "group_id": 544,
+      "id": "medium-energy-neutralizer",
+      "members": [
+        "Infiltrator EV-600",
+        "Mosquito EV-600-I"
+      ],
+      "name": "Medium Energy Neutralizer",
+      "stats": {
+        "effect": "10 GJ",
+        "speed": 3438.0
+      },
+      "type_id": 23702
+    },
+    {
+      "category": "ewar",
+      "group_id": 544,
+      "id": "heavy-energy-neutralizer",
+      "members": [
+        "Praetor EV-900",
+        "Tabanida EV-900-I"
+      ],
+      "name": "Heavy Energy Neutralizer",
+      "stats": {
+        "effect": "25 GJ",
+        "speed": 2500.0
+      },
+      "type_id": 22572
+    },
+    {
+      "category": "ewar",
+      "group_id": 641,
+      "id": "light-stasis-web",
+      "members": [
+        "Warrior SW-300",
+        "Orbweaver SW-300-I",
+        "'Aergia' Hobgoblin SW-300"
+      ],
+      "name": "Light Stasis Web",
+      "stats": {
+        "effect": "-5% speed",
+        "speed": 4000.0
+      },
+      "type_id": 23731
+    },
+    {
+      "category": "ewar",
+      "group_id": 641,
+      "id": "medium-stasis-web",
+      "members": [
+        "Valkyrie SW-600",
+        "Huntsman SW-600-I"
+      ],
+      "name": "Medium Stasis Web",
+      "stats": {
+        "effect": "-10% speed",
+        "speed": 3438.0
+      },
+      "type_id": 23729
+    },
+    {
+      "category": "ewar",
+      "group_id": 641,
+      "id": "heavy-stasis-web",
+      "members": [
+        "Berserker SW-900",
+        "Arabellata SW-900-I"
+      ],
+      "name": "Heavy Stasis Web",
+      "stats": {
+        "effect": "-20% speed",
+        "speed": 2500.0
+      },
+      "type_id": 23536
+    },
+    {
+      "category": "logistics",
+      "group_id": 640,
+      "id": "light-armor-maintenance-bot",
+      "members": [
+        "Light Armor Maintenance Bot I",
+        "Light Armor Maintenance Bot II"
+      ],
+      "name": "Light Armor Maintenance Bot",
+      "stats": {
+        "effect": "17.5hp/5s",
+        "speed": 4800.0
+      },
+      "type_id": 28201
+    },
+    {
+      "category": "logistics",
+      "group_id": 640,
+      "id": "light-shield-maintenance-bot",
+      "members": [
+        "Light Shield Maintenance Bot I",
+        "Light Shield Maintenance Bot II"
+      ],
+      "name": "Light Shield Maintenance Bot",
+      "stats": {
+        "effect": "18hp/5s",
+        "speed": 4800.0
+      },
+      "type_id": 28203
+    },
+    {
+      "category": "logistics",
+      "group_id": 640,
+      "id": "light-hull-maintenance-bot",
+      "members": [
+        "Light Hull Maintenance Bot I",
+        "Light Hull Maintenance Bot II"
+      ],
+      "name": "Light Hull Maintenance Bot",
+      "stats": {
+        "effect": "8.75hp/5s",
+        "speed": 4800.0
+      },
+      "type_id": 33712
+    },
+    {
+      "category": "logistics",
+      "group_id": 640,
+      "id": "medium-armor-maintenance-bot",
+      "members": [
+        "Medium Armor Maintenance Bot I",
+        "Medium Armor Maintenance Bot II"
+      ],
+      "name": "Medium Armor Maintenance Bot",
+      "stats": {
+        "effect": "35hp/5s",
+        "speed": 4125.0
+      },
+      "type_id": 28205
+    },
+    {
+      "category": "logistics",
+      "group_id": 640,
+      "id": "medium-shield-maintenance-bot",
+      "members": [
+        "Medium Shield Maintenance Bot I",
+        "Medium Shield Maintenance Bot II"
+      ],
+      "name": "Medium Shield Maintenance Bot",
+      "stats": {
+        "effect": "36hp/5s",
+        "speed": 4125.0
+      },
+      "type_id": 28207
+    },
+    {
+      "category": "logistics",
+      "group_id": 640,
+      "id": "medium-hull-maintenance-bot",
+      "members": [
+        "Medium Hull Maintenance Bot I",
+        "Medium Hull Maintenance Bot II"
+      ],
+      "name": "Medium Hull Maintenance Bot",
+      "stats": {
+        "effect": "20hp/5s",
+        "speed": 4125.0
+      },
+      "type_id": 33710
+    },
+    {
+      "category": "logistics",
+      "group_id": 640,
+      "id": "heavy-armor-maintenance-bot",
+      "members": [
+        "Heavy Armor Maintenance Bot I",
+        "Heavy Armor Maintenance Bot II"
+      ],
+      "name": "Heavy Armor Maintenance Bot",
+      "stats": {
+        "effect": "90hp/5s",
+        "speed": 3000.0
+      },
+      "type_id": 28197
+    },
+    {
+      "category": "logistics",
+      "group_id": 640,
+      "id": "heavy-shield-maintenance-bot",
+      "members": [
+        "Heavy Shield Maintenance Bot I",
+        "Heavy Shield Maintenance Bot II"
+      ],
+      "name": "Heavy Shield Maintenance Bot",
+      "stats": {
+        "effect": "90hp/5s",
+        "speed": 3000.0
+      },
+      "type_id": 28199
+    },
+    {
+      "category": "logistics",
+      "group_id": 640,
+      "id": "heavy-hull-maintenance-bot",
+      "members": [
+        "Heavy Hull Maintenance Bot I",
+        "Heavy Hull Maintenance Bot II"
+      ],
+      "name": "Heavy Hull Maintenance Bot",
+      "stats": {
+        "effect": "45hp/5s",
+        "speed": 3000.0
+      },
+      "type_id": 33708
+    },
+    {
+      "category": "industry",
+      "group_id": 101,
+      "id": "mining-drone",
+      "members": [
+        "Civilian Mining Drone",
+        "Mining Drone I",
+        "Mining Drone II",
+        "'Augmented' Mining Drone"
+      ],
+      "name": "Mining Drone",
+      "stats": {
+        "effect": "1.1m3/s",
+        "speed": 688.0
+      },
+      "type_id": 10250
+    },
+    {
+      "category": "industry",
+      "group_id": 1159,
+      "id": "salvage-drone",
+      "members": [
+        "Salvage Drone I",
+        "Salvage Drone II",
+        "'Dunk' Salvage Drone"
+      ],
+      "name": "Salvage Drone",
+      "stats": {
+        "speed": 1238.0
+      },
+      "type_id": 55760
+    },
+    {
+      "category": "industry",
+      "group_id": 101,
+      "id": "harvester-mining-drone",
+      "members": [
+        "Harvester Mining Drone"
+      ],
+      "name": "Harvester Mining Drone",
+      "stats": {
+        "effect": "1.3m3/s",
+        "speed": 438.0
+      },
+      "type_id": 3218
+    },
+    {
+      "category": "industry",
+      "group_id": 101,
+      "id": "excavator-mining-drone",
+      "members": [
+        "'Excavator' Mining Drone"
+      ],
+      "name": "'Excavator' Mining Drone",
+      "stats": {
+        "effect": "2.8m3/s",
+        "speed": 344.0
+      },
+      "type_id": 41030
+    },
+    {
+      "category": "industry",
+      "group_id": 101,
+      "id": "excavator-ice-harvesting-drone",
+      "members": [
+        "'Excavator' Ice Harvesting Drone"
+      ],
+      "name": "'Excavator' Ice Harvesting Drone",
+      "stats": {
+        "effect": "4.8m3/s",
+        "speed": 124.0
+      },
+      "type_id": 43681
+    },
+    {
+      "category": "industry",
+      "group_id": 101,
+      "id": "prototype-pluto-mining-drone",
+      "members": [
+        "Prototype 'Pluto' Mining Drone"
+      ],
+      "name": "Prototype 'Pluto' Mining Drone",
+      "stats": {
+        "effect": "2.2m3/s",
+        "speed": 344.0
+      },
+      "type_id": 93143
+    },
+    {
+      "category": "industry",
+      "group_id": 101,
+      "id": "prototype-pluto-ice-harvesting-drone",
+      "members": [
+        "Prototype 'Pluto' Ice Harvesting Drone"
+      ],
+      "name": "Prototype 'Pluto' Ice Harvesting Drone",
+      "stats": {
+        "effect": "3.8m3/s",
+        "speed": 124.0
+      },
+      "type_id": 93145
+    },
+    {
+      "category": "industry",
+      "group_id": 101,
+      "id": "ice-harvesting-drone",
+      "members": [
+        "Ice Harvesting Drone I",
+        "Ice Harvesting Drone II",
+        "'Augmented' Ice Harvesting Drone"
+      ],
+      "name": "Ice Harvesting Drone",
+      "stats": {
+        "effect": "4.9m3/s",
+        "speed": 344.0
+      },
+      "type_id": 43700
+    }
+  ],
+  "schema": 1,
+  "sde_build": 3607705
+}

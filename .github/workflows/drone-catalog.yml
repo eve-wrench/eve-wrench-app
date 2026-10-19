@@ -1,0 +1,57 @@
+name: Drone catalog
+
+# Regenerates the drone group presets when CCP publishes a new SDE build.
+# Installed apps fetch the committed file from main, so a new catalog reaches
+# users without a release.
+on:
+    schedule:
+        # The SDE is published after downtime (11:00 UTC)
+        - cron: "30 12 * * *"
+    workflow_dispatch:
+
+concurrency:
+    group: drone-catalog
+    cancel-in-progress: false
+
+permissions:
+    contents: write
+
+jobs:
+    update:
+        name: Update
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Compare SDE builds
+              id: sde
+              run: |
+                  latest=$(curl -sf https://developers.eveonline.com/static-data/tranquility/latest.jsonl | jq -r 'select(._key == "sde") | .buildNumber')
+                  current=$(jq -r .sde_build crates/eve-wrench-core/data/drone_groups.json)
+                  echo "SDE build $latest, catalog built from $current"
+                  echo "latest=$latest" >> "$GITHUB_OUTPUT"
+                  if [ -n "$latest" ] && [ "$latest" != "$current" ]; then
+                      echo "changed=true" >> "$GITHUB_OUTPUT"
+                  fi
+
+            # rustup installs the nightly pinned in the tool's rust-toolchain.toml
+            - name: Rust cache
+              if: steps.sde.outputs.changed == 'true'
+              uses: swatinem/rust-cache@v2
+              with:
+                  workspaces: tools/drone-catalog
+
+            - name: Generate catalog
+              if: steps.sde.outputs.changed == 'true'
+              working-directory: tools/drone-catalog
+              run: cargo run --release
+
+            - name: Commit catalog
+              if: steps.sde.outputs.changed == 'true'
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git add crates/eve-wrench-core/data/drone_groups.json
+                  git diff --cached --quiet && exit 0
+                  git commit -m "chore(drones): update drone catalog to SDE build ${{ steps.sde.outputs.latest }}"
+                  git push

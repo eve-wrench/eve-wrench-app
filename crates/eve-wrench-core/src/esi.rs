@@ -1,4 +1,6 @@
 use std::collections::HashMap;
+use std::fs;
+use std::path::Path;
 use std::sync::{Arc, LazyLock, Mutex};
 use std::time::Duration;
 
@@ -112,4 +114,42 @@ pub fn fetch_character_details(ids: &[i64]) -> HashMap<i64, CharacterDetails> {
             .flatten()
             .collect()
     })
+}
+
+// 64px item icons from the image server as PNG bytes, cached in `cache_dir`
+// since they only change when CCP redraws an item. Failed downloads are left
+// out so the caller shows a placeholder.
+pub fn type_icons(type_ids: &[i64], cache_dir: &Path) -> HashMap<i64, Arc<[u8]>> {
+    const WORKERS: usize = 8;
+    let _ = fs::create_dir_all(cache_dir);
+    let chunk_size = type_ids.len().div_ceil(WORKERS).max(1);
+    std::thread::scope(|scope| {
+        let handles: Vec<_> = type_ids
+            .chunks(chunk_size)
+            .map(|chunk| {
+                scope.spawn(move || {
+                    chunk
+                        .iter()
+                        .filter_map(|&id| type_icon(id, cache_dir).map(|bytes| (id, bytes)))
+                        .collect::<Vec<_>>()
+                })
+            })
+            .collect();
+        handles
+            .into_iter()
+            .filter_map(|h| h.join().ok())
+            .flatten()
+            .collect()
+    })
+}
+
+fn type_icon(type_id: i64, cache_dir: &Path) -> Option<Arc<[u8]>> {
+    let cached = cache_dir.join(format!("{type_id}_64.png"));
+    if let Ok(bytes) = fs::read(&cached) {
+        return Some(bytes.into());
+    }
+    let url = format!("https://images.evetech.net/types/{type_id}/icon?size=64");
+    let bytes = AGENT.get(&url).call().ok()?.body_mut().read_to_vec().ok()?;
+    let _ = fs::write(&cached, &bytes);
+    Some(bytes.into())
 }

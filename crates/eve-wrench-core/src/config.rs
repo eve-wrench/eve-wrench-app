@@ -16,6 +16,9 @@ pub struct Config {
     pub theme: Option<ThemePreference>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub locale: Option<String>,
+    // None means the built-in default pattern
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub drone_group_pattern: Option<String>,
     #[serde(flatten)]
     other: serde_json::Map<String, serde_json::Value>,
 }
@@ -38,6 +41,7 @@ impl Default for Config {
             auto_backup: true,
             theme: None,
             locale: None,
+            drone_group_pattern: None,
             other: serde_json::Map::new(),
         }
     }
