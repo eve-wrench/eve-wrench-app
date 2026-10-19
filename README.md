@@ -134,8 +134,8 @@ groups to the account in three steps.
   drones into them in game. Your own groups are left alone, and a group that
   already holds drones is never removed
 
-The drone data is regenerated automatically after each EVE patch and picked up
-by the app without an update.
+The drone data is regenerated after each EVE patch and picked up by the app
+without an update.
 
 ### 🗂️ Import & export
 
@@ -265,8 +265,11 @@ Translations live in `crates/eve-wrench/locales` (English and Simplified Chinese
 `tools/drone-catalog`, which downloads the SDE and simulates every drone with
 refine. The tool is not part of the workspace: refine needs the nightly pinned in
 its `rust-toolchain.toml`, and it is AGPL licensed, so it is never linked into
-the app. Run `cargo run --release` in that folder to regenerate the file; the
-_Drone catalog_ workflow does this daily when CCP publishes a new SDE build.
+the app. Run `cargo run --release` in that folder to regenerate the file. The
+_Drone catalog_ workflow checks daily for a new SDE build and opens a pull
+request with the regenerated file; apps pick it up from `main` once merged.
+It needs _Allow GitHub Actions to create and approve pull requests_ enabled in
+the repository's Actions settings.
 
 CI runs `cargo fmt`, `clippy -D warnings`, and `test` on every push and PR.
 
