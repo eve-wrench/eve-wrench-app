@@ -1,0 +1,71 @@
+name: Drone catalog
+
+# Regenerates the drone group presets when CCP publishes a new SDE build and
+# opens a pull request with them. Installed apps fetch the file from main, so a
+# merged catalog reaches users without a release.
+on:
+    schedule:
+        # The SDE is published after downtime (11:00 UTC)
+        - cron: "30 12 * * *"
+    workflow_dispatch:
+
+concurrency:
+    group: drone-catalog
+    cancel-in-progress: false
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+    update:
+        name: Update
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Compare SDE builds
+              id: sde
+              run: |
+                  latest=$(curl -sf https://developers.eveonline.com/static-data/tranquility/latest.jsonl | jq -r 'select(._key == "sde") | .buildNumber')
+                  current=$(jq -r .sde_build crates/eve-wrench-core/data/drone_groups.json)
+                  echo "SDE build $latest, catalog built from $current"
+                  branch="drone-catalog/sde-$latest"
+                  echo "latest=$latest" >> "$GITHUB_OUTPUT"
+                  echo "branch=$branch" >> "$GITHUB_OUTPUT"
+                  # A pull request for this build is already open
+                  if git ls-remote --exit-code --heads origin "$branch" > /dev/null; then
+                      echo "$branch already exists"
+                  elif [ -n "$latest" ] && [ "$latest" != "$current" ]; then
+                      echo "changed=true" >> "$GITHUB_OUTPUT"
+                  fi
+
+            # rustup installs the nightly pinned in the tool's rust-toolchain.toml
+            - name: Rust cache
+              if: steps.sde.outputs.changed == 'true'
+              uses: swatinem/rust-cache@v2
+              with:
+                  workspaces: tools/drone-catalog
+
+            - name: Generate catalog
+              if: steps.sde.outputs.changed == 'true'
+              working-directory: tools/drone-catalog
+              run: cargo run --release
+
+            - name: Open pull request
+              if: steps.sde.outputs.changed == 'true'
+              env:
+                  GH_TOKEN: ${{ github.token }}
+                  BRANCH: ${{ steps.sde.outputs.branch }}
+                  BUILD: ${{ steps.sde.outputs.latest }}
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git switch -c "$BRANCH"
+                  git add crates/eve-wrench-core/data/drone_groups.json
+                  git diff --cached --quiet && exit 0
+                  title="chore(drones): update drone catalog to SDE build $BUILD"
+                  git commit -m "$title"
+                  git push -u origin "$BRANCH"
+                  gh pr create --base main --head "$BRANCH" --title "$title" \
+                      --body "Regenerated from SDE build $BUILD. Apps pick it up from main once merged."

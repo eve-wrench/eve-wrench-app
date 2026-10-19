@@ -628,17 +628,25 @@ impl MainView {
             .dropdown_menu_with_anchor(Anchor::TopRight, move |menu, window, cx| {
                 let menu = menu
                     .when(entry.kind == SettingsKind::User, |menu| {
-                        let entry = entry.clone();
+                        let formations_entry = entry.clone();
+                        let drones_entry = entry.clone();
                         menu.item(
                             PopupMenuItem::new(t!("actions.editFormations").to_string())
                                 .icon(IconName::Radar)
                                 .on_click(move |_, _, cx| {
                                     crate::formation_editor::open(
-                                        entry.path.clone(),
-                                        entry.display_name.clone(),
+                                        formations_entry.path.clone(),
+                                        formations_entry.display_name.clone(),
                                         cx,
                                     )
                                 }),
+                        )
+                        .item(
+                            PopupMenuItem::new(t!("actions.editDroneGroups").to_string())
+                                .icon(IconName::Drone)
+                                .on_click(view_action(&view, move |this, window, cx| {
+                                    this.edit_drone_groups(drones_entry.clone(), window, cx)
+                                })),
                         )
                     })
                     .item(

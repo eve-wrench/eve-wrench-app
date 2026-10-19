@@ -1,0 +1,4 @@
+# refine needs unstable features; this is the nightly SheetStorm builds it with.
+[toolchain]
+channel = "nightly-2026-07-21"
+components = ["rustfmt", "clippy"]

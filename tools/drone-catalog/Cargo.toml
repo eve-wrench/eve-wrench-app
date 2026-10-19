@@ -1,0 +1,16 @@
+# Not a workspace member: refine needs the nightly pinned in rust-toolchain.toml.
+[package]
+name = "drone-catalog"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+refine-rs = { git = "https://github.com/DarkFenX/refine.git", rev = "9ed793e821d9e88a8973cb59760d189e804f1eb1", features = ["serde", "edh-phb-fs", "adc-fs"] }
+tokio = { version = "1", features = ["rt", "macros"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+ureq = { version = "3", features = ["json"] }
+zip = { version = "2", default-features = false, features = ["deflate"] }

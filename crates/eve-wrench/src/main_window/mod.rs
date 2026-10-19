@@ -2,6 +2,7 @@ mod actions;
 mod browser;
 mod copy_panel;
 mod dialogs;
+mod drone_groups;
 mod settings_panel;
 mod title_bar;
 
@@ -202,6 +203,15 @@ impl MainView {
             }),
         ];
 
+        // A newer drone catalog only matters the next time the picker opens,
+        // so failures stay silent and the built-in one keeps working
+        let data_dir = store.read(cx).locations().data_dir().to_path_buf();
+        cx.background_spawn(async move {
+            eve_wrench_core::drone_groups::load_cached_catalog(&data_dir);
+            let _ = eve_wrench_core::drone_groups::refresh_catalog(&data_dir);
+        })
+        .detach();
+
         cx.spawn_in(window, async move |this, cx| {
             let update = cx.background_spawn(async { crate::updater::check() }).await;
             if let Ok(Some(info)) = update {
@@ -246,7 +256,6 @@ impl MainView {
         let Some(data) = self.store.read(cx).data() else {
             return;
         };
-
         self.source = match self.source.take() {
             Some(Source::Entry(e)) => data.find_entry(&e.path).cloned().map(Source::Entry),
             Some(Source::Backup(b)) => data
