@@ -173,6 +173,24 @@ jobs:
           cp "target/${{ matrix.target }}/release/eve-wrench.exe" "$dest"
           gh release upload "v${{ steps.version.outputs.version }}" "$dest" --clobber
 
+      # Plain binary plus desktop entry and icons, for distro packages (the
+      # AUR package is built from it) and anyone the AppImage doesn't suit.
+      - name: Upload Linux tarball
+        if: startsWith(matrix.platform, 'ubuntu')
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          name="eve-wrench_${{ steps.version.outputs.version }}_x86_64-linux"
+          mkdir -p "$name/icons"
+          cp "target/${{ matrix.target }}/release/eve-wrench" "$name/"
+          cp packaging/linux/eve-wrench.desktop "$name/"
+          cp assets/icons/32x32.png assets/icons/128x128.png "$name/icons/"
+          cp assets/icons/128x128@2x.png "$name/icons/256x256.png"
+          cp assets/icons/icon.svg "$name/icons/eve-wrench.svg"
+          tar -czf "$name.tar.gz" "$name"
+          gh release upload "v${{ steps.version.outputs.version }}" "$name.tar.gz" --clobber
+
       - name: Upload update bundle
         if: ${{ vars.UPDATER_PUBKEY != '' }}
         shell: bash

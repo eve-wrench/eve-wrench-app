@@ -1,0 +1,57 @@
+name: AUR
+
+# Publishes eve-wrench-bin to the AUR when a stable release goes public. The
+# package installs the Linux tarball attached to the release, so this runs on
+# publish rather than with the build (drafts have no public download URLs).
+#
+# Needs the AUR_SSH_PRIVATE_KEY secret, the private half of a key registered on
+# the AUR account that maintains the package.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag to publish, e.g. v0.5.0
+        required: true
+
+jobs:
+  publish:
+    name: Publish
+    if: github.event_name == 'workflow_dispatch' || !github.event.release.prerelease
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      # Skipped until the AUR account exists and the key is added
+      - name: Check for AUR key
+        id: key
+        env:
+          AUR_SSH_PRIVATE_KEY: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+        run: |
+          if [ -n "$AUR_SSH_PRIVATE_KEY" ]; then
+              echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+              echo "::notice::AUR_SSH_PRIVATE_KEY is not set, skipping the AUR publish"
+          fi
+
+      - name: Set version
+        if: steps.key.outputs.present == 'true'
+        env:
+          TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: |
+          version="${TAG#v}"
+          sed -i "s/^pkgver=.*/pkgver=$version/; s/^pkgrel=.*/pkgrel=1/" packaging/aur/PKGBUILD
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+
+      # updpkgsums downloads the tarball and fills in its checksum
+      - uses: KSXGitHub/github-actions-deploy-aur@v4.2.0
+        if: steps.key.outputs.present == 'true'
+        with:
+          pkgname: eve-wrench-bin
+          pkgbuild: packaging/aur/PKGBUILD
+          updpkgsums: true
+          commit_username: Tim Kunze
+          commit_email: tim.kunze@applify.at
+          ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+          commit_message: Update to ${{ env.VERSION }}

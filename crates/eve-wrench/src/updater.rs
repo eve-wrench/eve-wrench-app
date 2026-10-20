@@ -32,6 +32,11 @@ pub fn check() -> Result<Option<AvailableUpdate>, String> {
 // notice describes (the manifest tracks the latest stable release, while
 // preview builds are also told about newer previews).
 fn installer_for(version: &str) -> Option<Update> {
+    // On Linux only the AppImage updates itself; package manager installs
+    // (.deb, AUR, the tarball) link to the release page instead
+    if cfg!(target_os = "linux") && std::env::var_os("APPIMAGE").is_none() {
+        return None;
+    }
     let pubkey = PUBLIC_KEY.filter(|key| !key.is_empty())?;
     let config = Config {
         endpoints: vec![MANIFEST_URL.parse().ok()?],
