@@ -184,7 +184,19 @@ Grab the latest build from [**Releases**](https://github.com/eve-wrench/eve-wren
 | ----------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | **macOS**   | `.dmg`                                  | Open and drag to Applications (Apple Silicon & Intel builds)                                                     |
 | **Windows** | `.msi` / `-setup.exe` / `-portable.exe` | Run an installer, or the portable `.exe` (no install, no runtime dependencies) |
-| **Linux**   | `.AppImage` / `.deb`                    | `chmod +x eve-wrench_*.AppImage && ./eve-wrench_*.AppImage`                                                      |
+| **Linux**   | `.AppImage` / `.deb` / `.tar.gz`        | `chmod +x eve-wrench_*.AppImage && ./eve-wrench_*.AppImage`, or the tarball's plain binary                       |
+
+On Arch-based distros, build a package from the bundled PKGBUILD:
+
+```bash
+git clone https://github.com/eve-wrench/eve-wrench-app.git
+cd eve-wrench-app/packaging/aur
+makepkg -si
+```
+
+If the app doesn't start, run it from a terminal with `RUST_LOG=debug` and include
+the output in your issue. The same log is written to `eve-wrench.log` in the data
+folder (`~/.local/share/com.timkunze.eve-wrench/` on Linux).
 
 ## Quick start
 
