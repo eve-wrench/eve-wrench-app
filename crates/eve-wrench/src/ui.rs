@@ -291,6 +291,8 @@ pub fn notify_error(
     window: &mut Window,
     cx: &mut App,
 ) {
+    let (title, message) = (title.into(), message.into());
+    log::error!("{title}: {message}");
     window.push_notification(Notification::error(message).title(title), cx);
 }
 

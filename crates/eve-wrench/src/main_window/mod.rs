@@ -208,17 +208,23 @@ impl MainView {
         let data_dir = store.read(cx).locations().data_dir().to_path_buf();
         cx.background_spawn(async move {
             eve_wrench_core::drone_groups::load_cached_catalog(&data_dir);
-            let _ = eve_wrench_core::drone_groups::refresh_catalog(&data_dir);
+            if let Err(e) = eve_wrench_core::drone_groups::refresh_catalog(&data_dir) {
+                log::warn!("Drone catalog refresh failed: {e}");
+            }
         })
         .detach();
 
         cx.spawn_in(window, async move |this, cx| {
             let update = cx.background_spawn(async { crate::updater::check() }).await;
-            if let Ok(Some(info)) = update {
-                this.update_in(cx, |this, window, cx| {
-                    this.show_update_dialog(info, window, cx)
-                })
-                .ok();
+            match update {
+                Ok(Some(info)) => {
+                    this.update_in(cx, |this, window, cx| {
+                        this.show_update_dialog(info, window, cx)
+                    })
+                    .ok();
+                }
+                Ok(None) => {}
+                Err(e) => log::warn!("Update check failed: {e}"),
             }
         })
         .detach();
