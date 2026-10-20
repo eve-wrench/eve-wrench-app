@@ -4,7 +4,7 @@
 # fills in pkgver and the checksum for each release.
 
 pkgname=eve-wrench-bin
-pkgver=0.5.0
+pkgver=0.6.0
 pkgrel=1
 pkgdesc="EVE Online settings manager - backup, restore, and sync settings"
 arch=('x86_64')
