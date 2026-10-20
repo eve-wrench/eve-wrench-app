@@ -2,6 +2,7 @@
 
 mod assets;
 mod formation_editor;
+mod logging;
 mod main_window;
 mod store;
 mod table;
@@ -20,6 +21,8 @@ actions!(eve_wrench, [Quit]);
 pub const LOCALES: [(&str, &str); 2] = [("en", "English"), ("zh-CN", "中文")];
 
 fn main() {
+    logging::init();
+
     gpui_kit::application()
         .with_assets(assets::AppAssets)
         .run(|cx| {

@@ -26,6 +26,8 @@ jobs:
 
             - name: Compare SDE builds
               id: sde
+              env:
+                  GH_TOKEN: ${{ github.token }}
               run: |
                   latest=$(curl -sf https://developers.eveonline.com/static-data/tranquility/latest.jsonl | jq -r 'select(._key == "sde") | .buildNumber')
                   current=$(jq -r .sde_build crates/eve-wrench-core/data/drone_groups.json)
@@ -33,9 +35,10 @@ jobs:
                   branch="drone-catalog/sde-$latest"
                   echo "latest=$latest" >> "$GITHUB_OUTPUT"
                   echo "branch=$branch" >> "$GITHUB_OUTPUT"
-                  # A pull request for this build is already open
-                  if git ls-remote --exit-code --heads origin "$branch" > /dev/null; then
-                      echo "$branch already exists"
+                  # A pull request for this build is already open. The branch alone
+                  # is not enough, since a run can push it and then fail.
+                  if [ -n "$(gh pr list --head "$branch" --state open --json number --jq '.[].number')" ]; then
+                      echo "Pull request for $branch already open"
                   elif [ -n "$latest" ] && [ "$latest" != "$current" ]; then
                       echo "changed=true" >> "$GITHUB_OUTPUT"
                   fi
@@ -66,6 +69,6 @@ jobs:
                   git diff --cached --quiet && exit 0
                   title="chore(drones): update drone catalog to SDE build $BUILD"
                   git commit -m "$title"
-                  git push -u origin "$BRANCH"
+                  git push --force -u origin "$BRANCH"
                   gh pr create --base main --head "$BRANCH" --title "$title" \
                       --body "Regenerated from SDE build $BUILD. Apps pick it up from main once merged."

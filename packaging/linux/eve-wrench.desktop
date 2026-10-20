@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=EVE Wrench
+Comment=EVE Online Settings Manager - Backup, restore, and sync settings
+Exec=eve-wrench
+Icon=eve-wrench
+Categories=Utility;
+Terminal=false

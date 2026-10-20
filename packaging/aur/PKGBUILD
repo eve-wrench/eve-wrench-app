@@ -1,0 +1,29 @@
+# Maintainer: Tim Kunze <tim.kunze@applify.at>
+#
+# Published to the AUR as eve-wrench-bin by .github/workflows/aur.yml, which
+# fills in pkgver and the checksum for each release.
+
+pkgname=eve-wrench-bin
+pkgver=0.6.0
+pkgrel=1
+pkgdesc="EVE Online settings manager - backup, restore, and sync settings"
+arch=('x86_64')
+url="https://github.com/eve-wrench/eve-wrench-app"
+license=('MIT')
+depends=('gcc-libs' 'glibc' 'libxcb' 'libxkbcommon' 'libxkbcommon-x11' 'fontconfig' 'vulkan-icd-loader')
+optdepends=('vulkan-driver: GPU accelerated rendering')
+provides=('eve-wrench')
+conflicts=('eve-wrench')
+options=('!debug' '!strip')
+source=("$url/releases/download/v$pkgver/eve-wrench_${pkgver}_x86_64-linux.tar.gz")
+sha256sums=('SKIP')
+
+package() {
+    cd "eve-wrench_${pkgver}_x86_64-linux"
+    install -Dm755 eve-wrench "$pkgdir/usr/bin/eve-wrench"
+    install -Dm644 eve-wrench.desktop "$pkgdir/usr/share/applications/eve-wrench.desktop"
+    install -Dm644 icons/32x32.png "$pkgdir/usr/share/icons/hicolor/32x32/apps/eve-wrench.png"
+    install -Dm644 icons/128x128.png "$pkgdir/usr/share/icons/hicolor/128x128/apps/eve-wrench.png"
+    install -Dm644 icons/256x256.png "$pkgdir/usr/share/icons/hicolor/256x256/apps/eve-wrench.png"
+    install -Dm644 icons/eve-wrench.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/eve-wrench.svg"
+}
