@@ -56,3 +56,13 @@ fn installer_for(version: &str) -> Option<Update> {
 pub fn install(update: &Update) -> Result<(), String> {
     update.download_and_install().map_err(|e| format!("{}", e))
 }
+
+// An AppImage runs from a mount or extracted copy of itself, and restarting
+// that binary brings back the old version. The updater replaced the file
+// `APPIMAGE` points at, so relaunch that instead.
+pub fn restart_path() -> Option<std::path::PathBuf> {
+    cfg!(target_os = "linux")
+        .then(|| std::env::var_os("APPIMAGE"))
+        .flatten()
+        .map(Into::into)
+}
