@@ -403,7 +403,12 @@ impl UpdateDialog {
                 .background_spawn(async move { crate::updater::install(&installer) })
                 .await;
             this.update_in(cx, |this, window, cx| match result {
-                Ok(()) => cx.restart(),
+                Ok(()) => {
+                    if let Some(path) = crate::updater::restart_path() {
+                        cx.set_restart_path(path);
+                    }
+                    cx.restart()
+                }
                 Err(e) => {
                     this.installing = false;
                     ui::notify_error(t!("update.installFailed"), e, window, cx);
