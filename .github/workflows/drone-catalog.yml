@@ -43,20 +43,48 @@ jobs:
                       echo "changed=true" >> "$GITHUB_OUTPUT"
                   fi
 
+            # A build whose drones match the catalog gets no pull request, so
+            # remember it was checked instead of regenerating it every day
+            - name: Restore checked build
+              if: steps.sde.outputs.changed == 'true'
+              id: checked
+              uses: actions/cache/restore@v4
+              with:
+                  path: .sde-checked
+                  key: drone-catalog-checked-${{ steps.sde.outputs.latest }}
+
             # rustup installs the nightly pinned in the tool's rust-toolchain.toml
             - name: Rust cache
-              if: steps.sde.outputs.changed == 'true'
+              if: steps.sde.outputs.changed == 'true' && steps.checked.outputs.cache-hit != 'true'
               uses: swatinem/rust-cache@v2
               with:
                   workspaces: tools/drone-catalog
 
             - name: Generate catalog
-              if: steps.sde.outputs.changed == 'true'
+              if: steps.sde.outputs.changed == 'true' && steps.checked.outputs.cache-hit != 'true'
+              id: generate
               working-directory: tools/drone-catalog
-              run: cargo run --release
+              run: |
+                  file=../../crates/eve-wrench-core/data/drone_groups.json
+                  git show HEAD:crates/eve-wrench-core/data/drone_groups.json > /tmp/old.json
+                  cargo run --release
+                  # The build number alone changes with every SDE release
+                  if [ "$(jq -S 'del(.sde_build)' /tmp/old.json)" = "$(jq -S 'del(.sde_build)' "$file")" ]; then
+                      echo "Drones unchanged in build ${{ steps.sde.outputs.latest }}"
+                  else
+                      echo "drones=true" >> "$GITHUB_OUTPUT"
+                  fi
+                  echo "${{ steps.sde.outputs.latest }}" > ../../.sde-checked
+
+            - name: Save checked build
+              if: steps.generate.outcome == 'success' && steps.generate.outputs.drones != 'true'
+              uses: actions/cache/save@v4
+              with:
+                  path: .sde-checked
+                  key: drone-catalog-checked-${{ steps.sde.outputs.latest }}
 
             - name: Open pull request
-              if: steps.sde.outputs.changed == 'true'
+              if: steps.generate.outputs.drones == 'true'
               env:
                   GH_TOKEN: ${{ github.token }}
                   BRANCH: ${{ steps.sde.outputs.branch }}
@@ -66,9 +94,14 @@ jobs:
                   git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
                   git switch -c "$BRANCH"
                   git add crates/eve-wrench-core/data/drone_groups.json
-                  git diff --cached --quiet && exit 0
                   title="chore(drones): update drone catalog to SDE build $BUILD"
                   git commit -m "$title"
                   git push --force -u origin "$BRANCH"
-                  gh pr create --base main --head "$BRANCH" --title "$title" \
-                      --body "Regenerated from SDE build $BUILD. Apps pick it up from main once merged."
+                  url=$(gh pr create --base main --head "$BRANCH" --title "$title" \
+                      --body "Regenerated from SDE build $BUILD. Apps pick it up from main once merged.")
+                  # Older catalog pull requests are superseded by this one
+                  gh pr list --state open --json number,headRefName \
+                      --jq ".[] | select(.headRefName | startswith(\"drone-catalog/\")) | select(.headRefName != \"$BRANCH\") | .number" |
+                      while read -r number; do
+                          gh pr close "$number" --delete-branch --comment "Superseded by $url"
+                      done
