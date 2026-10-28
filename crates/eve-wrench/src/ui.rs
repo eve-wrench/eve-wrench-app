@@ -244,6 +244,50 @@ pub fn section_title(text: impl Into<SharedString>) -> Div {
     div().child(text.into().to_uppercase())
 }
 
+// Uppercase title, an optional count and a hairline running to the edge, for
+// sections inside dialogs and panels.
+pub fn section_divider(title: impl Into<SharedString>, count: Option<String>, cx: &App) -> Div {
+    let theme = cx.theme();
+    h_flex()
+        .gap_2()
+        .py_1()
+        .text_xs()
+        .font_medium()
+        .text_color(theme.muted_foreground)
+        .child(section_title(title))
+        .when_some(count, |this, count| {
+            this.child(
+                div()
+                    .text_color(theme.muted_foreground.opacity(0.6))
+                    .child(count),
+            )
+        })
+        .child(div().flex_1().h(px(1.)).bg(theme.border.opacity(0.6)))
+}
+
+// A filled accent dot with a check when selected, an empty ring otherwise.
+pub fn check_mark(selected: bool, cx: &App) -> Div {
+    let accent = target_color();
+    div()
+        .flex()
+        .flex_none()
+        .items_center()
+        .justify_center()
+        .size(px(16.))
+        .rounded_full()
+        .map(|this| {
+            if selected {
+                this.bg(accent).child(
+                    Icon::new(IconName::Check)
+                        .xsmall()
+                        .text_color(cx.theme().background),
+                )
+            } else {
+                this.border_1().border_color(cx.theme().border)
+            }
+        })
+}
+
 // Edge-to-edge list row with a hover wash. Source and target rows are marked
 // with a leading accent bar instead of a card highlight.
 pub fn list_row(id: impl Into<ElementId>, marker: Option<Hsla>, cx: &App) -> Stateful<Div> {

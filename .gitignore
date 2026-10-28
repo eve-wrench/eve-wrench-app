@@ -6,3 +6,4 @@
 .idea
 .DS_Store
 /tools/drone-catalog/target
+/tools/dialog-catalog/target

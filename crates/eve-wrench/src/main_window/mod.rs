@@ -1,5 +1,6 @@
 mod actions;
 mod browser;
+mod confirmations;
 mod copy_panel;
 mod dialogs;
 mod drone_groups;

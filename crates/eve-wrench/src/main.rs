@@ -2,6 +2,8 @@
 
 mod assets;
 mod formation_editor;
+mod history;
+mod layout_editor;
 mod logging;
 mod main_window;
 mod store;
@@ -41,6 +43,7 @@ fn main() {
             .detach();
 
             formation_editor::init(cx);
+            layout_editor::init(cx);
             let store = Store::init(cx);
             let config = store.read(cx).config().clone();
             if let Some(locale) = config.locale.as_deref() {

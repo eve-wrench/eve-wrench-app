@@ -1,0 +1,3991 @@
+{
+  "client_build": 3654997,
+  "dialogs": [
+    {
+      "answer": 6,
+      "body": {
+        "en": "… … in your fleet will not be linked to the trace.\nAre you sure you want to continue?",
+        "zh": "舰队内的…艘…将无法追踪。\n你确定要继续吗？"
+      },
+      "key": "AcceptActivateRandomJumpWithoutMembers",
+      "kind": "question",
+      "title": {
+        "en": "Activate filament without all members?",
+        "zh": "是否在有成员缺席的情况下激活纤维？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "The following capsuleers in your fleet will not be linked to the trace.\n…\nAre you sure you want to continue?",
+        "zh": "舰队内的下列克隆飞行员将无法追踪。\n…\n你确定要继续吗？"
+      },
+      "key": "AcceptActivateRandomJumpWithoutMembersName",
+      "kind": "question",
+      "title": {
+        "en": "Activate filament without all members?",
+        "zh": "是否在有成员缺席的情况下激活纤维？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "… … in your fleet cannot jump. Are you sure you want to continue and leave them behind?",
+        "zh": "你舰队中的…艘…无法进行跳跃。你确定放弃这些舰船并继续吗？"
+      },
+      "key": "AcceptRandomJumpWithoutMembers",
+      "kind": "question",
+      "title": {
+        "en": "Jump without all linked ships?",
+        "zh": "是否放弃所有链接舰船进行跳跃？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Please note that it takes at least 24 hours for an accepted application to become effective.",
+        "zh": "请注意，已接受申请至少需要24小时才能生效。"
+      },
+      "key": "AcceptedApplicationsTake24HoursToBecomeEffective",
+      "kind": "notice",
+      "title": {
+        "en": "Application Accepted",
+        "zh": "申请已接受"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to activate …?\n\n\nActivating … will consume the item and give … a … day permission to apply the … SKIN to the following ships: …\n\n\nNote that you can not deactivate and retrieve the item again after activating it.",
+        "zh": "你确定要激活…吗？\n\n\n\n激活…将消耗该物品并给予…对如下舰船使用…涂装的…天使用许可：…\n\n\n\n注意该物品一旦激活，不能取回。"
+      },
+      "key": "ActivateSkinLicenseLimited",
+      "kind": "question",
+      "title": {
+        "en": "Activate SKIN?",
+        "zh": "激活涂装？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to activate …?\n\n\nActivating … will consume the item and give … permanent permission to apply the … SKIN to the following ships: …\n\n\nNote that you can not deactivate and retrieve the item again after activating it.",
+        "zh": "你确定要激活…吗？\n\n\n\n激活…将消耗该物品并给予…对如下舰船使用…涂装的永久许可：…\n\n\n\n注意该物品一旦激活，不能取回。"
+      },
+      "key": "ActivateSkinLicensePermanent",
+      "kind": "question",
+      "title": {
+        "en": "Activate SKIN?",
+        "zh": "激活涂装？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to activate …?\n\n\nActivating … will consume the item and give … the ability to apply the … SKIN to the following ships: …\n\n\nIf a ship is destroyed with a Volatile SKIN applied to it, the SKIN is removed from your activated collection.\n\n\n\nPlease note that you may not deactivate and retrieve the item again after activating it.",
+        "zh": "你确定要激活…吗？\n\n\n\n激活…将消耗该物品并给予…对如下舰船使用…涂装的许可：…\n\n\n\n如果舰船被摧毁时带有不稳定的涂装，则该涂装会被从你的可用涂装中移除。\n\n\n\n\n\n请注意该物品一旦激活，不能取回。"
+      },
+      "key": "ActivateSkinLicenseSingleUse",
+      "kind": "question",
+      "title": {
+        "en": "Activate SKIN?",
+        "zh": "激活涂装？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to activate …?\n\n\nActivating … will consume the item and give … the ability to apply the … SKIN to the following structures: …\n\n\nIf a structure is destroyed with a Volatile SKIN applied to it, the SKIN is removed from your activated collection.\n\n\nPlease note that you may not deactivate and retrieve the item again after activating it.",
+        "zh": "你确定要激活…吗？\n\n\n\n激活…将消耗该物品并给予…对如下建筑使用…涂装的许可：…\n\n\n\n如果建筑被摧毁时带有不稳定的涂装，则该涂装会被从你的可用涂装中移除。\n\n\n\n请注意该物品一旦激活，不能取回。"
+      },
+      "key": "ActivateStructureSkinLicenseSingleUse",
+      "kind": "question",
+      "title": {
+        "en": "Activate Volatile Structure SKIN?",
+        "zh": "激活不稳定的建筑涂装？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "If you decline or fail a mission from an agent he/she might become displeased and lower your standing towards him/her. You can decline a mission every four hours without penalty.",
+        "zh": "如果你的任务失败或者多次拒绝同一代理人的任务，那会势必引起他/她对你的不满，导致其对你的声望降低。但如果你连续拒绝的时间间隔超过4小时，则不会受到声望惩罚。"
+      },
+      "key": "AgtMissionOfferWarning",
+      "kind": "warning",
+      "title": {
+        "en": "Important Information",
+        "zh": "重要信息"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Proceeding with this action will aid your criminal flagged target and will result in a security status penalty for you and might bring CONCORD to enforce the law by destroying your ship. Are you sure you want to activate this module on your target?",
+        "zh": "你的目标目前被标注为犯罪分子。继续该行动将被视为协助犯罪行为，这将导致你的安全等级下降，而统合部可能会因此依法摧毁你的飞船。你确定要对目标激活该装备吗？"
+      },
+      "key": "AidGlobalCriminalEmpire",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to commit a crime",
+        "zh": "警告 - 你将要犯罪"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Proceeding with this action will aid your criminal flagged target and will result in a security status penalty for you and might bring CONCORD to enforce the law by destroying your ship. Are you sure you want to activate this module on …?",
+        "zh": "你的目标目前被标注为犯罪分子。继续该行动将被视为协助犯罪行为，这将导致你的安全等级下降，而统合部可能会因此依法摧毁你的飞船。你确定要对…使用该装备吗？"
+      },
+      "key": "AidGlobalCriminalEmpire2",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to commit a crime",
+        "zh": "警告 - 你将要犯罪"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Proceeding with this action will aid your outlawed target and will result in a security status penalty for you and might bring CONCORD to enforce the law by destroying your ship. Are you sure you want to activate this module on your target?",
+        "zh": "你的目标目前被标注为犯罪分子。继续该行动将被视为协助犯罪行为，这将导致你的安全等级下降，而统合部可能会因此依法摧毁你的飞船。你确定要对目标激活该装备吗？"
+      },
+      "key": "AidOutlawEmpire",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to commit a crime",
+        "zh": "警告 - 你将要犯罪"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Proceeding with this action will aid your outlawed target and will result in a security status penalty for you and might bring CONCORD to enforce the law by destroying your ship. Are you sure you want to activate this module on …?",
+        "zh": "你的目标目前被标注为犯罪分子。继续该行动将被视为协助犯罪行为，这将导致你的安全等级下降，而统合部可能会因此依法摧毁你的飞船。你确定要对…激活该装备吗？"
+      },
+      "key": "AidOutlawEmpire2",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to commit a crime",
+        "zh": "警告 - 你将要犯罪"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Proceeding with this action will aid your target who has enemies present, the activation will be considered an aggression towards your targets enemies. You will be flagged as a criminal towards his enemies for up to 15 minutes from your last aiding activation. Are you sure you want to activate this module on your target?",
+        "zh": "继续这个行动将帮助你的目标，而他的宣战敌人就在跟前，他们将视其为侵犯行为。在此之后15分钟，他的宣战敌人会将你标记为他们的侵犯者，可以对你进行合法攻击。你确定要对目标激活该装备吗？"
+      },
+      "key": "AidWithEnemiesEmpire",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to aid someone at war",
+        "zh": "警告 - 援助交战方"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Proceeding with this action will aid your target who has enemies present, the activation will be considered an aggression towards your targets enemies. You will be flagged as a criminal towards his enemies for up to 15 minutes from your last aiding activation. Are you sure you want to activate this module on …?",
+        "zh": "继续这个行动将帮助你的目标，而他的宣战敌人就在跟前，他们将视其为侵犯行为。在此之后15分钟，他的宣战敌人会将你标记为他们的侵犯者，可以对你进行合法攻击。你确定要对…激活该装备吗？"
+      },
+      "key": "AidWithEnemiesEmpire2",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to aid someone at war",
+        "zh": "警告 - 援助交战方"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Proceeding with this action will aid your target who is at war with members of your own Militia! The activation will be considered an aggression towards the enemies of your target some of whom will be marked friendly as \"In your militia\" in your overview. You will be flagged as a criminal towards all his enemies for up to 15 minutes from your last aiding activation. Are you sure you want to activate this module on …?",
+        "zh": "对方与你的国民卫队的队员处于正式交战状态，继续此操作会对对方进行援助。该操作会被对方的所有敌人视作侵犯行为，这些人包括目前在你总览中显示为“本方国民卫队”的队友。侵犯行为的认定时效是自你最近一次援助行为算起之后15分钟。你确定要对…使用该装备吗？"
+      },
+      "key": "AidWithEnemiesEmpire2_OwnFaction",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to aid someone at war",
+        "zh": "警告 - 援助交战方"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Your skill training speed is currently receiving a …%% bonus that will expire when you reach … skill points. Unallocated skill points do not take this bonus into account and are best applied after it has expired.\n\nAre you sure you want to apply your points while the bonus is still active?",
+        "zh": "你目前技能的学习速度比正常情况下快…%%，当你技能点达到…点之后，技能学习速度将恢复正常。尚未分配的技能点最好是等技能学习速度正常之后再使用。\n\n你确定要在享受技能学习加速的情况下使用尚未分配的技能点吗？"
+      },
+      "key": "ApplyPointsWhenBonusActive",
+      "kind": "question",
+      "title": {
+        "en": "Bonus is active",
+        "zh": "技能学习正处于加速状态"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Your escape pod has no cargo hold. Do you wish to activate a ship?",
+        "zh": "你的逃生舱没有货柜舱。你想激活一艘飞船吗？"
+      },
+      "key": "AskActivateShip",
+      "kind": "question",
+      "title": {
+        "en": "Activate Ship?",
+        "zh": "激活飞船？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are about to make an act of aggression towards something. This may result in security status penalties and/or changes in the standings various factions and corporations have towards you. Are you sure you wish to go through with this action?",
+        "zh": "你正要对某物体进行侵略行为。这可能会导致安全等级降低和/或改变你在多个势力和军团中的声望。你确定要进行这项行动吗？"
+      },
+      "key": "AskApproveOffense",
+      "kind": "question",
+      "title": {
+        "en": "Accept the Consequences?",
+        "zh": "接受后果？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You already have the location \"…\" saved to the folder \"…\" under \"…\". Do you want to proceed with saving this location?",
+        "zh": "你已经在\"…\"文件夹中保存了地点\"…\"，命名为\"…\"。你确定要继续保存这个地点吗？"
+      },
+      "key": "AskBookmarkExistingLocation",
+      "kind": "question",
+      "title": {
+        "en": "Proceed?",
+        "zh": "继续？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "These changes will discard your former selections for this and the following steps. Are you sure?\n\nClick OK to activate new changes and discard old choices.\nSelect Cancel to discard new changes and keep old choices.",
+        "zh": "这些更改将会取消你之前对当前步骤和接下来步骤的选择。你确定吗？\n\n点击“确定”激活新的更改，取消旧的选择。\n选择“取消”取消新的更改，保持旧的选择。"
+      },
+      "key": "AskCancelContinuation",
+      "kind": "question",
+      "title": {
+        "en": "Discard Selections?",
+        "zh": "放弃选择？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You have unsaved changes in your Skill Plan which will be discarded if you proceed. Are you sure you want to do this?",
+        "zh": "你对技能方案的更改还未保存。你确定要这样做吗？"
+      },
+      "key": "AskCloseSkillPlanEditor",
+      "kind": "question",
+      "title": {
+        "en": "Discard Skill Plan Changes?",
+        "zh": "放弃保存技能方案？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Do you want to close all the windows which are in this stack of windows",
+        "zh": "你想关闭该组中的所有窗口吗？"
+      },
+      "key": "AskCloseWindowsInStack",
+      "kind": "question",
+      "title": {
+        "en": "Close All?",
+        "zh": "全部关闭？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to delete a Favorite group called '…'. Are you sure you want to do that?",
+        "zh": "你将要删除收藏夹组'…'。你确定要继续吗？"
+      },
+      "key": "AskDeleteFavoritePointerGroup",
+      "kind": "question",
+      "title": {
+        "en": "Delete Pointer Group?",
+        "zh": "删除光标组？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to log off and return to the login screen?",
+        "zh": "你确定要注销并立即返回登录窗口吗？"
+      },
+      "key": "AskLogoffGame",
+      "kind": "question",
+      "title": {
+        "en": "Log off",
+        "zh": "注销"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Do you really want to log off and return to the character selection screen now?",
+        "zh": "你确定要注销并立即返回人物选择窗口？"
+      },
+      "key": "AskLogoffToCharacterSelection",
+      "kind": "question",
+      "title": {
+        "en": "Log off",
+        "zh": "注销"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to quit the game?",
+        "zh": "你确定要退出游戏吗？"
+      },
+      "key": "AskQuitGame",
+      "kind": "question",
+      "title": {
+        "en": "Quit Game",
+        "zh": "退出游戏"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "… has been flagged for resculpting.\nSelecting Yes will redirect you to the resculpting mode in Character Customization, where you can alter your character's weight, facial bone structure, gender, and skin complexion.\nSelecting No will take you into the normal customization mode, where you can change your character's clothing, hair and pose.\n\nResculpting is a one-time-only process.\n\nWould you like to resculpt your character now?",
+        "zh": "…已被标记为需要重塑。\n选择“是”将跳转至“人物定制”中的重塑模式，你可以在该模式下调整人物的体重、面部骨骼结构、性别和肤色。\n选择“否”将进入普通定制模式，你可以在该模式下更改人物的服装、发型和姿势。\n只有一次重塑人物的机会。\n你现在就要重塑人物吗？"
+      },
+      "key": "AskRecustomizeCharacter",
+      "kind": "question",
+      "title": {
+        "en": "Resculpt Character",
+        "zh": "重塑人物"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "… has been flagged for re-customization. Clicking Yes will redirect you to Character Creation. Would you like to do this now?",
+        "zh": "…已被系统认定需要重塑。点击“是”进行人物创建。你想马上就这样做吗？"
+      },
+      "key": "AskRecustomizeCharacterChangeBloodline",
+      "kind": "question",
+      "title": {
+        "en": "Race Change",
+        "zh": "种族变更"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Selling later on will require paying another fee.\nAre you sure you want to remove listing?",
+        "zh": "再次出售时需要支付额外费用。\n你确定要移除上架物品吗？"
+      },
+      "key": "AskRemoveSkinListing",
+      "kind": "question",
+      "title": {
+        "en": "Remove Listing?",
+        "zh": "是否移除上架物品？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "By skipping this tutorial, you may lack useful information later on. Would you like to do that now?",
+        "zh": "跳过教程有可能让你今后缺少有用的信息。你现在真的想这么做吗？"
+      },
+      "key": "AskSkipPartOfTutorial",
+      "kind": "question",
+      "title": {
+        "en": "Skip this tutorial?",
+        "zh": "跳过教程？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Do you really want to remove all modules from your ship?",
+        "zh": "你真的想卸下船上所有装备吗？"
+      },
+      "key": "AskStripShip",
+      "kind": "question",
+      "title": {
+        "en": "Strip Ship",
+        "zh": "卸载飞船装备"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to undock from a station whose owner, … does not like you. Doing so will prevent you from docking back, trapping you outside in a possible hostile environment. Are you sure you want to do this?",
+        "zh": "你即将离开一座空间站，但该站的拥有者，…，不喜欢你。你离开后就无法再回来，很有可能导致你被置于一个危险境地。你确定要这样做吗？"
+      },
+      "key": "AskUndockInEnemySystem",
+      "kind": "question",
+      "title": {
+        "en": "Confirm undocking",
+        "zh": "确认出站"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You corporation or alliance is currently involved in a formal war. During a formal war members of opposing corporations and/or alliances can shoot you in high security space without CONCORD interference. It is good idea to always fly ships that you can afford to lose in New Eden, and this tip is especially important during formal wars.\nAre you sure you want to undock at this time?",
+        "zh": "你的军团或联盟目前正身处一场战争中。战争进行时，敌对军团或联盟的成员可以在高安星系攻击你而不会招致统合部的干预。不要把鸡蛋放在一个篮子里是新伊甸的通行法则，这一点在战争期间尤其重要。\n你确定现在要离站吗？"
+      },
+      "key": "AskUndockInHighSecWhileAtWar",
+      "kind": "question",
+      "title": {
+        "en": "Undock While at War?",
+        "zh": "进行战争时离站？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "One or more module on your ship is offline. This may be due to you not having the skill requirements for operating the module. Modules have no functionality while offline. Penalties may still apply.",
+        "zh": "你的舰船上的一个或多个装备无法上线。这可能是因为你不满足操作该装备的技能要求。装备在下线状态不工作。但惩罚仍然生效。"
+      },
+      "key": "AskUndockWithModulesLackingSkill",
+      "kind": "question",
+      "title": {
+        "en": "Confirm undocking",
+        "zh": "确认出站"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you wish to untrack this Skill Plan and its Milestones?",
+        "zh": "你确定不再追踪这个技能方案以及它的里程碑吗？"
+      },
+      "key": "AskUntrackPlan",
+      "kind": "question",
+      "title": {
+        "en": "Untrack Skill Plan?",
+        "zh": "不再跟踪技能方案？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "This module activates an effect in the area around you and will be considered as an attack to all targets with in the field of the effect, if there any innocent targets within the area effect you will receive a security status penalty and might bring CONCORD to enforce the law by destroying your ship. Are you sure you want to activate this module?",
+        "zh": "此装备将在你周围产生效力，该效力范围内的所有目标都会将其视为一种攻击行为。如果效力范围内有任何无辜目标，你的安全等级将降低，统合部也可能依法击毁你的飞船。你真的要启动这个装备吗？"
+      },
+      "key": "AttackAreaEmpire",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to activate an area of effect module",
+        "zh": "警告 - 你将要启动范围效果(AOE)装备"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "This module activates an effect in the area around you and will be considered as an attack to all targets with in the field of the effect, if there any innocent targets within the area effect you will receive a security status penalty and might bring CONCORD to enforce the law by destroying your ship. Are you sure you want to activate this module?",
+        "zh": "此装备将在你周围产生效力，该效力范围内的所有目标都会将其视为一种攻击行为。如果效力范围内有任何无辜目标，你的安全等级将降低，统合部也可能依法击毁你的飞船。你真的要启动这个装备吗？"
+      },
+      "key": "AttackAreaEmpire2",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to activate an area of effect module",
+        "zh": "警告 - 你将要启动范围效果(AOE)装备"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Use of offensive area of effect weapons in Empire space can result in criminal flagging resulting in a CONCORD response, even when hitting cloaked ships. Use with extreme caution. Are you sure you want to activate this module?",
+        "zh": "在帝国空间内使用攻击性范围效果武器，即使是针对隐形舰船，也将被认为是犯罪，并导致统合部的干涉。使用须万分小心。你真的要启动这个装备吗？"
+      },
+      "key": "AttackAreaEmpire3",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to activate an area of effect module",
+        "zh": "警告 - 你将要启动范围效果(AOE)装备"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Use of offensive area of effect weapons in Empire space can result in criminal flagging resulting in a CONCORD response, even when hitting cloaked ships. Use with extreme caution.\n\nDo you wish to proceed with this dangerous action?",
+        "zh": "在帝国空间内使用攻击性范围效果武器，即使是针对隐形舰船，也将被认为是犯罪，并导致统合部的干涉。使用须万分小心。\n\n你还要继续进行此项危险行为吗？"
+      },
+      "key": "AttackAreaEmpireAbort1",
+      "kind": "question",
+      "title": {
+        "en": "Proceed with this dangerous act?",
+        "zh": "继续此项危险行为？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Use of offensive area of effect weapons can result in criminal flagging, even when hitting cloaked ships. Use with extreme caution.\n\nDo you wish to proceed with this dangerous action?",
+        "zh": "使用大面积杀伤性武器，即使是针对隐形舰船，也可能被视为犯罪。使用须谨慎。\n\n你还想进行如此危险的行为吗？"
+      },
+      "key": "AttackAreaNonEmpireAbort1",
+      "kind": "question",
+      "title": {
+        "en": "Proceed with this dangerous act?",
+        "zh": "继续此项危险行为？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Activating this module on your target will result in faction status penalty for you towards the corporation of your target and will also cause your target to attack back. Are you sure you want to activate this module on your target?",
+        "zh": "对你的目标使用这个装备将降低目标军团对你的评价，也会导致目标对你的反击。你真的要对目标激活该装备吗？"
+      },
+      "key": "AttackGoodNPC",
+      "kind": "question",
+      "title": {
+        "en": "Warning - Attacking a peaceful civilian",
+        "zh": "警告 - 攻击平民"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Aggression against this peaceful entity may have consequences such as a standings penalty or returned aggression. It is recommended that you reconsider.\n\n\nDo you wish to proceed?",
+        "zh": "对此平民设施施暴将产生声望降低或被反击之类的后果。建议三思而后行。\n\n\n\n你要这样做吗？"
+      },
+      "key": "AttackGoodNPCAbort1",
+      "kind": "question",
+      "title": {
+        "en": "Proceed with this dangerous act?",
+        "zh": "继续进行此危险行为？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "This module activates an attack on your target and will result in a security status penalty for you and might bring CONCORD to enforce the law by destroying your ship. Are you sure you want to activate this module on your target?",
+        "zh": "启动这个装备将攻击你的目标，这将导致你的安全等级下降，而统合部可能会因此依法摧毁你的飞船。你真的要对目标激活该装备吗？"
+      },
+      "key": "AttackInnocentEmpire",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to commit a crime",
+        "zh": "警告 - 你将要犯罪"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "This module activates an attack on your target and will result in a security status penalty for you and might bring CONCORD to enforce the law by destroying your ship. Are you sure you want to activate this module on …?",
+        "zh": "启动这个装备将攻击你的目标，这将导致你的安全等级下降，而统合部可能会因此依法摧毁你的飞船。你真的要对…激活该装备吗？"
+      },
+      "key": "AttackInnocentEmpire2",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to commit a crime",
+        "zh": "警告 - 你即将犯罪"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "This action is an attack on your target. Attacking this target is a crime, will result in a security status penalty for you and will bring CONCORD to enforce the law by destroying your ship should you enter high-security space soon.\n\nDo you wish to proceed with this dangerous action?",
+        "zh": "此行为是对对方的攻击行为。攻击对方是犯罪行为，将导致你的安全等级下降，统合部也会依法摧毁你的飞船。\n\n你还想进行如此危险的行为吗？"
+      },
+      "key": "AttackInnocentEmpireAbort1",
+      "kind": "question",
+      "title": {
+        "en": "Proceed with this dangerous act?",
+        "zh": "继续此项危险行为？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Activating this module on your target is an aggression towards a player and might result in destruction of his ship. Are you sure you want to activate this module on your target?",
+        "zh": "对你的目标激活这个装备就是对此玩家的侵犯，而且可能会摧毁他的飞船。你真的要对目标激活该装备吗？"
+      },
+      "key": "AttackNonEmpire",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to attack another player",
+        "zh": "警告 - 你将要攻击另一个玩家"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Activating this module on your target is an aggression towards a player and might result in destruction of his ship. Are you sure you want to activate this module on …?",
+        "zh": "对你的目标激活这个装备就是对此玩家的侵犯，而且可能会摧毁他的飞船。你确定要对…使用该装备吗？"
+      },
+      "key": "AttackNonEmpire2",
+      "kind": "question",
+      "title": {
+        "en": "Warning - You are about to attack another player",
+        "zh": "警告 - 你将要攻击另一个玩家"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Continuing this action on your target is an aggression towards a player and might result in destruction of his ship.\n\nDo you wish to proceed with this dangerous action?",
+        "zh": "继续对目标进行这些行为是对玩家的一种敌对行为，可能会导致此玩家飞船的毁灭。\n\n你真想继续此项危险行为吗？"
+      },
+      "key": "AttackNonEmpireAbort1",
+      "kind": "question",
+      "title": {
+        "en": "Proceed with this dangerous act?",
+        "zh": "继续进行此危险行为？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "To conserve CPU and memory the dynamic state of the sound engine is not kept when it is turned off. You might not get the full audio experience until you restart your client.",
+        "zh": "为节约CPU和内存效能，禁用后音效引擎的动态模式也将关闭。除非重启客户端，否则你将无法享受到完整的声音效果体验。"
+      },
+      "key": "AudioEngineOnWarning",
+      "kind": "warning",
+      "title": {
+        "en": "Restart required.",
+        "zh": "需要重启。"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Autopilot cannot calculate route to … because that waypoint is in your Avoidance List.\n\nYou must uncheck \"Avoid systems in your Avoidance List\" in your autopilot settings to be able to set a route to this waypoint.",
+        "zh": "自动导航不能计算到达…的路线，因为这个星系处在你的规避列表中。\n\n\n你必须要在你的自动导航设定的规避列表中取消避开该星系的复选框，这样才能把这个星系设定为航标。"
+      },
+      "key": "AutopilotNoRouteFoundAvoidance",
+      "kind": "notice",
+      "title": {
+        "en": "Waypoint is in Avoidance List",
+        "zh": "航标在规避列表中"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to board a structure, which will leave your current ship unprotected in space. Are you sure you want to do that?",
+        "zh": "你将要登入一座建筑，这会使得你当前驾驶的舰船处于在太空中无人保护的状态。你确定要继续吗？"
+      },
+      "key": "BoardingFlexStructure",
+      "kind": "question",
+      "title": {
+        "en": "Boarding flex structure"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The web browser cache has been successfully cleared.",
+        "zh": "浏览器缓存已被清空。"
+      },
+      "key": "BrowserCacheCleared",
+      "kind": "notice",
+      "title": {
+        "en": "Cache Cleared",
+        "zh": "缓存已清空"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You cannot create an event in the past. The date of this event will default to today.",
+        "zh": "你不能创建一个发生在过去的活动。该活动的日期将默认为今天。"
+      },
+      "key": "CalendarCannotPlanThePast2",
+      "kind": "notice",
+      "title": {
+        "en": "Cannot Plan The Past",
+        "zh": "无法计划过去"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to cancel this order?",
+        "zh": "你确定取消此订单吗？"
+      },
+      "key": "CancelMarketOrder",
+      "kind": "question",
+      "title": {
+        "en": "Cancel Order",
+        "zh": "取消订单"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Cannot save blank filter",
+        "zh": "不能保存空白的过滤条件"
+      },
+      "key": "CannotSaveBlankFilter",
+      "kind": "notice",
+      "title": {
+        "en": "Blank Filter",
+        "zh": "空白的过滤条件"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "This item cannot be trashed.",
+        "zh": "这个物品无法被销毁。"
+      },
+      "key": "CannotTrashItem",
+      "kind": "notice",
+      "title": {
+        "en": "Item cannot be trashed",
+        "zh": "无法销毁的物品"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "… cannot be deployed further away than … from the Control Tower",
+        "zh": "…不能被锚定在距控制塔…之外的地方"
+      },
+      "key": "CantDeployTooFarFromControlTower",
+      "kind": "notice",
+      "title": {
+        "en": "Cant deploy too far from control tower"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to do this?\n\nRemember, you can always access this screen again through your Help window.",
+        "zh": "你确定要这样做吗？\n\n别忘了你还可以再通过“帮助”窗口打开此页面。"
+      },
+      "key": "CareerFunnelClose",
+      "kind": "question",
+      "title": {
+        "en": "Close Career Funnel",
+        "zh": "关闭职业引导窗口"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The changes you make don't take effect until you click \"Apply\"",
+        "zh": "只有在你点击“应用”之后，更改才会生效"
+      },
+      "key": "CertificateVisibiltyNotSaved",
+      "kind": "notice",
+      "title": {
+        "en": "Visibility of certificates not set",
+        "zh": "尚未设定证书是否可见"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to change the owner for your sovereignty hub? Changing the owner closes the Sovereignty Hub Management Window.",
+        "zh": "你确定要更改主权中心的所有者吗？更改所有者将关闭主权中心管理窗口。"
+      },
+      "key": "ChangingOwnerForIH",
+      "kind": "question",
+      "title": {
+        "en": "Changing IH settings",
+        "zh": "更改基础设施中心设置"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to change the reinforced mode exit time and owner for your sovereignty hub? Changing the owner closes the Sovereignty Hub Management Window.",
+        "zh": "你确定要更改主权中心增强模式的结束时间及其所有者吗？更改所有者将关闭主权中心管理窗口。"
+      },
+      "key": "ChangingTimeAndOwnerForIH",
+      "kind": "question",
+      "title": {
+        "en": "Changing IH settings",
+        "zh": "更改基础设施中心设置"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to change the reinforced mode exit time for your sovereignty hub?",
+        "zh": "你确定要更改主权中心增强模式的结束时间吗？"
+      },
+      "key": "ChangingTimeForIH",
+      "kind": "question",
+      "title": {
+        "en": "Changing IH settings",
+        "zh": "更改基础设施中心设置"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "If you proceed, you will lose all changes you have made to your character. Are you sure you wish to do this?",
+        "zh": "如果继续，那你就将失去对人物已实施的所有更改。确定要这样做吗？"
+      },
+      "key": "CharCreationLoseChangeAll",
+      "kind": "question",
+      "title": {
+        "en": "Lose Character Creation Changes?",
+        "zh": "放弃人物创建更改？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "This module is in a group and proceeding with that action will clear the group. Are you sure you want to do that?",
+        "zh": "该装备处于一武器组中，继续那操作的话会导致整个组都被清空。你确定要继续吗？"
+      },
+      "key": "ClearGroupModule",
+      "kind": "question",
+      "title": {
+        "en": "Clear Module Group?",
+        "zh": "清除装备组？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to cancel?",
+        "zh": "你确定取消吗？"
+      },
+      "key": "ConAreYouSureYouWantToCancel",
+      "kind": "question",
+      "title": {
+        "en": "Cancel Create Contract?",
+        "zh": "取消创建合同？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to complete this contract?",
+        "zh": "你确定要完成这份合同吗？"
+      },
+      "key": "ConConfirmComplete",
+      "kind": "question",
+      "title": {
+        "en": "Really Complete?",
+        "zh": "真的要完成？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to create this contract? Make sure you have read the information on the confirmation page carefully before clicking 'yes'. Any fees that are incurred with setting up this contract are non-refundable.",
+        "zh": "你确定要创建这份合同吗？你务必要已经认真阅读确认页面的信息，然后再点击“是”。这份合同中所涉及的各种费用都不会退还。"
+      },
+      "key": "ConConfirmCreateContract",
+      "kind": "question",
+      "title": {
+        "en": "Really create contract?",
+        "zh": "真要创建合同？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "… are about to place a bid of … on the following contract: ….\n…\nAre you sure you want to do this?",
+        "zh": "…对合同“…”的出价将是…。\n…\n你确定要这么做吗？"
+      },
+      "key": "ConConfirmPlaceBid",
+      "kind": "question",
+      "title": {
+        "en": "Confirm Bid",
+        "zh": "确认出价"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to reject the contract, … issued to you by …?",
+        "zh": "你确定要拒绝这份由…派发给你的合同…吗？"
+      },
+      "key": "ConConfirmRejectContract",
+      "kind": "question",
+      "title": {
+        "en": "Reject Contract?",
+        "zh": "拒绝合同？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to reject the contract, … issued to your alliance by …?\n\nNote: If you reject this contract on behalf of your alliance then no one within your alliance will be able to accept it.",
+        "zh": "你确定要拒绝这份由…派发给你联盟的合同…吗？\n\n\n注：如果你代表你的联盟拒绝这份合同，那么你联盟的任何人都无法接受它。"
+      },
+      "key": "ConConfirmRejectContractAlliance",
+      "kind": "question",
+      "title": {
+        "en": "Reject Alliance Contract?",
+        "zh": "拒绝联盟合同？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to reject the contract, … issued to your corporation by …?\n\nNote: If you reject this contract on behalf of your corporation then no one within your corporation will be able to accept it.",
+        "zh": "你确定要拒绝这份由…派发给你军团的合同…吗？\n\n\n注：如果你代表你的军团拒绝这份合同，那么你军团的任何人都无法接受它。"
+      },
+      "key": "ConConfirmRejectContractCorp",
+      "kind": "question",
+      "title": {
+        "en": "Reject Corp Contract?",
+        "zh": "拒绝军团合同？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You are copying contract that contains a blueprint. The wizard cannot differentiate between blueprint copies and blueprint originals so you will need to be careful that the wrong type of blueprint is not picked.",
+        "zh": "你正在复制含有蓝图的合同。向导不能区分蓝图原本与蓝图拷贝，因此请注意不要选错蓝图类型。"
+      },
+      "key": "ConCopyContractBlueprint",
+      "kind": "notice",
+      "title": {
+        "en": "Contract contains a blueprint",
+        "zh": "合同中含有蓝图"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You are copying a courier contract which doesn't have information about the contents.\n\nTherefore will need to add the items into the contract yourself.",
+        "zh": "你在复制一份没有内容物信息的快递合同。因此你需要自己将物品添加到合同里。"
+      },
+      "key": "ConCopyContractCourier",
+      "kind": "notice",
+      "title": {
+        "en": "Copy Courier Contract",
+        "zh": "复制快递合同"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The following items could not be found in your hangar:\n…\nYou will need to add the items into the contract yourself.",
+        "zh": "无法在你的机库中找到下列物品：\n…\n你需要自己将这些物品添加到合同里。"
+      },
+      "key": "ConCopyContractMissingItems",
+      "kind": "notice",
+      "title": {
+        "en": "Some items missing",
+        "zh": "缺少某些物品"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The crate has been delivered and your courier contract has been completed.",
+        "zh": "货箱已送达，你的快递任务完成了。"
+      },
+      "key": "ConCourierContractDelivered",
+      "kind": "notice",
+      "title": {
+        "en": "Crate Delivered",
+        "zh": "货箱已送达"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "The loan contract you are about to view is issued by a person outside your corporation and alliance. It might be dangerous for you to accept it!\n\nAre you sure you want to continue and view this contract?",
+        "zh": "你要查看的租赁合同是由你所属军团或联盟以外的人发布的。接受这样的合同可能有危险！\n\n\n你确定要继续并查看该合同吗？"
+      },
+      "key": "ConDangerousContractLoan",
+      "kind": "warning",
+      "title": {
+        "en": "Dangerous Contract!",
+        "zh": "危险的合同！"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Do you want to use the estimated price for your items which is …?\n\nThis price is automatically calculated for your items and might not give an accurate representation of their actual worth.\n\nNote that any items enclosed in containers are not taken into account.",
+        "zh": "你确定对你的物品使用…的预估价格吗？\n\n\n\n此价格是根据你的物品自动计算得出，可能无法精确代表它们的实际价值。\n\n注意，任何存放在货柜中的物品都没有被计算在内。"
+      },
+      "key": "ConEstPrice",
+      "kind": "question",
+      "title": {
+        "en": "Use Estimated Price?",
+        "zh": "使用预估价格？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are contracting … … containing a total of  … …. Do you want to continue?",
+        "zh": "你正在为…艘…创建合同，  其中共有…个…。你想要继续吗？"
+      },
+      "key": "ConMultiContractConfirmShipNumAndContent",
+      "kind": "question",
+      "title": {
+        "en": "Non-Empty Ships",
+        "zh": "非空舰船"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "This courier contract has … m3 worth of merchandise. Only a ship with an exceptionally large cargo hold will be able to transport this cargo.\nAre you sure you want to continue?",
+        "zh": "这份快递合同涉及运送… m3的商品。只有带有异常庞大货柜舱的飞船才能将其运走。\n你确定要继续吗？"
+      },
+      "key": "ConNeedFreighter",
+      "kind": "question",
+      "title": {
+        "en": "Large Cargo Warning",
+        "zh": "大货柜提醒"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are entering a non-empty container into this contract. The container and all its items will be entered into the contract.\n\nThe container … contains the following items:\n…\n\nThe volume of the items in this container is … m3.\n\nAre you sure you want to continue?",
+        "zh": "你要把一个非空货柜添加入这份合同。货柜和其中的所有物品都会被添加入这份合同。\n\n货柜…装有下列物品：\n…\n\n\n这个货柜中的物品体积为… m³。\n\n\n你确定要继续吗？"
+      },
+      "key": "ConNonEmptyContainer2",
+      "kind": "question",
+      "title": {
+        "en": "Non-Empty Container!",
+        "zh": "非空货柜！"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are entering a non-empty ship into this contract. The ship and all its items will be entered into the contract.\n\nThe ship … contains the following items:\n…\n\nThe volume of the items in this ship is … m3.\n\nAre you sure you want to continue?",
+        "zh": "你要把一个非空舰船添加入这份合同。该舰船和其中的所有物品都会被添加入这份合同。\n\n舰船…装有下列物品：\n…\n\n\n这艘舰船中的物品体积为…m³。\n\n\n你确定要继续吗？"
+      },
+      "key": "ConNonEmptyShip",
+      "kind": "question",
+      "title": {
+        "en": "Non-Empty Ship!",
+        "zh": "舰船中有物品！"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to load a template and override the text you have already written in the Description field?",
+        "zh": "你确定要加载模板来覆盖你已经在描述栏内输入的所有文本吗？"
+      },
+      "key": "ConOverrideDescription",
+      "kind": "question",
+      "title": {
+        "en": "Override Description?",
+        "zh": "覆盖描述？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "……\nAre you sure you want to continue?",
+        "zh": "……\n你确定要继续吗？"
+      },
+      "key": "ConStationIsPOS",
+      "kind": "warning",
+      "title": {
+        "en": "Station may not be accessible!",
+        "zh": "空间站可能无法进入！"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure about it?",
+        "zh": "你确定吗？"
+      },
+      "key": "ConfirmAbandonDrone",
+      "kind": "question",
+      "title": {
+        "en": "Abandon Drone",
+        "zh": "放弃无人机"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Abandoning the … will declare the contents free for all, any pilot will be legally allowed to claim the contents. Do you wish to proceed?",
+        "zh": "放弃…意味着别人可以合法占据它们。你要这样做吗？"
+      },
+      "key": "ConfirmAbandonLoot",
+      "kind": "question",
+      "title": {
+        "en": "Abandon loot?",
+        "zh": "放弃战利品？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Abandoning containers of type … will declare the contents of all these containers in your vicinity free for all. Do you wish to proceed?",
+        "zh": "放弃…这种箱子将使你周围所有这类箱子里的物品都能被他人随意拾取。你要这样做吗？"
+      },
+      "key": "ConfirmAbandonLootAll",
+      "kind": "question",
+      "title": {
+        "en": "Abandon all loot?",
+        "zh": "放弃全部战利品？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to pause training this skill?",
+        "zh": "你确定要暂停该技能的训练吗？"
+      },
+      "key": "ConfirmAbortSkillTraining",
+      "kind": "question",
+      "title": {
+        "en": "Pause Training?",
+        "zh": "暂停训练？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "IRIS is offering you the opportunity to receive:\n\n…\n\nfor just …\n\n\nWARNING: This Emblem will be auto-injected and cannot be traded or transferred.\n\n\n\nDo you wish to proceed?",
+        "zh": "艾瑞丝向你提供：\n\n…\n\n价格仅为…\n\n\n\n警告：这个纹章将自动使用，不能交易或转手。\n\n\n\n\n\n你要继续吗？"
+      },
+      "key": "ConfirmAcceptEmblemLPOffer",
+      "kind": "question",
+      "title": {
+        "en": "Accept Offer?",
+        "zh": "接受提议？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are about to accept an offer for:\n\n….\n\nThis will cost you:\n\n…\n\nAre you sure you want to accept this offer?",
+        "zh": "你正要接受一份报价：\n\n…。\n\n这将使你花费：\n\n…\n\n\n\n你确定要接受这份报价吗？"
+      },
+      "key": "ConfirmAcceptLPOffer",
+      "kind": "question",
+      "title": {
+        "en": "Accept Offer?",
+        "zh": "接受提议？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are about to accept an offer for:\n\n….\n\nThis will cost you:\n\n…\n\nLP and ISK will be spent from the corporation wallets. Any required items will be taken from your personal hangar.\n\nAre you sure you want to accept this offer?",
+        "zh": "你正要接受一份提议：\n…。\n这将使你花费：\n…\n忠诚点和星币将从军团钱包中扣除。所有需要的物品都将取自你的个人机库。\n你确定要接受这份提议吗？"
+      },
+      "key": "ConfirmAcceptLPOfferUsingCorpWallet",
+      "kind": "question",
+      "title": {
+        "en": "Accept offer using corporation funds?",
+        "zh": "使用军团资金接受提议？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You are adding a locked item to this audit container. You do not have the config equipment role in your corporation and you will therefore not be able to unlock it or retrieve it.\n\nAre you sure you want to continue?",
+        "zh": "你正在添加一件锁定物品到这个审计货柜。你没有所属军团中配置设备的权限，因此你无法将它解锁或者重新获得它。\n\n你确定要继续吗？"
+      },
+      "key": "ConfirmAddLockedItemToAuditContainer",
+      "kind": "question",
+      "title": {
+        "en": "Adding a locked item",
+        "zh": "正在添加一个锁定的物品"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "… is marked as aggressive to other capsuleers and is vulnerable to attack. Proceeding with this action will mark you with this same vulnerability for up to 15 minutes after your last activation. Are you sure you want to activate this module on …?",
+        "zh": "…已被标记为具有攻击行为，其他飞行员可以对其进行攻击。这样做会使你在停止动作后的15分钟之内同样可以被别人攻击。你确定要对…使用该装备吗？"
+      },
+      "key": "ConfirmAidFlaggedPersonInEmpire",
+      "kind": "question",
+      "title": {
+        "en": "Confirm Aid Of A Flagged Character",
+        "zh": "确定了对一个被标记人物的援助行为"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you wish to unanchor this …?\n\nUnanchoring this structure will abort all installed jobs, and possibly cause materials to be destroyed.",
+        "zh": "你确定要解锚该…吗？\n\n解锚这个建筑会取消所有正在进行中的建设工作，并可能会导致原材料遭到损毁。"
+      },
+      "key": "ConfirmAssemblyArrayUnanchor",
+      "kind": "question",
+      "title": {
+        "en": "Unanchor structure?",
+        "zh": "解除建筑锚定？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Are you sure you want to cancel this trade session?",
+        "zh": "你真的要取消这个交易进程？"
+      },
+      "key": "ConfirmCancelTrade",
+      "kind": "question",
+      "title": {
+        "en": "Cancel Session?",
+        "zh": "取消进程？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to remove all the text in the input field?",
+        "zh": "你确定要清除输入框内的所有文本吗？"
+      },
+      "key": "ConfirmClearText",
+      "kind": "question",
+      "title": {
+        "en": "Clear Text?",
+        "zh": "清除文字？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You have pending modifications to the Upgrades layout. Proceeding without saving will result in the loss of all edits made to the upgrades layout.\nWould you like to continue without saving?",
+        "zh": "你对升级件的布局有未完成的修改。如果选择不保存，你对升级件布局的所有修改都将丢失。\n是否确定在不保存的情况下继续？"
+      },
+      "key": "ConfirmCloseSovHubWnd",
+      "kind": "question",
+      "title": {
+        "en": "Close Without Committing?",
+        "zh": "是否在不提交的情况下关闭？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You have already reached the maximum amount of … online personal location folders. Do you want to create the folder as an offline folder?",
+        "zh": "你已经达到了在线个人地点文件夹数量的上限…个。你想要将该文件夹创建为离线文件夹吗？"
+      },
+      "key": "ConfirmCreateAsInactivePersonalFolder",
+      "kind": "question",
+      "title": {
+        "en": "Confirm Create As Offline Folder",
+        "zh": "确认创建为离线文件夹"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You have already reached the maximum amount of … online shared location folders. Do you want to create the folder as an offline folder?",
+        "zh": "你已经达到了在线共享地点文件夹数量的上限…个。你想要将该文件夹创建为离线文件夹吗？"
+      },
+      "key": "ConfirmCreateAsInactiveSharedFolder",
+      "kind": "question",
+      "title": {
+        "en": "Confirm Create As Offline Folder",
+        "zh": "确认创建为离线文件夹"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "This name is already used by a different folder which is known to you. Are you sure you want to use this name again?",
+        "zh": "这个名字已经被其他文件夹占用了，你确定要再次使用这个名字吗？"
+      },
+      "key": "ConfirmCreateFolderWithDuplicateName",
+      "kind": "question",
+      "title": {
+        "en": "Confirm create folder with duplicate name"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you wish to decommission this …? The structure will remain usable for the next …, after which it will automatically unanchor and be available to scoop into your cargo. You may cancel the decommissioning at anytime.",
+        "zh": "你确定要废除该…吗？接下来…内该建筑还可以使用，之后它将自动解锚并回收到你的货舱中。你可以在任何时候取消此废除程序。"
+      },
+      "key": "ConfirmDecommissionStructure",
+      "kind": "question",
+      "title": {
+        "en": "Decommission structure?",
+        "zh": "废除建筑？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to delete this bulletin?",
+        "zh": "你确定要删除此消息吗？"
+      },
+      "key": "ConfirmDeleteBulletin",
+      "kind": "question",
+      "title": {
+        "en": "Are you sure?",
+        "zh": "你确定吗？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to delete this folder and all of its content?",
+        "zh": "你确定要删除这个文件夹和其中所有内容吗？"
+      },
+      "key": "ConfirmDeleteFolder",
+      "kind": "question",
+      "title": {
+        "en": "Delete Folder?",
+        "zh": "删除文件夹？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to delete this folder and all of its contents? It might contain locations, which you cannot see, as the server did not send some locations due to exceeding limits. Please restart the client to fetch everything fresh after reducing the amount of locations.",
+        "zh": "你确定要删除这个文件夹和其中所有内容吗？它可能含有由于超出数量上限而无法显示出来的地点。请在削减地点数量之后重启客户端来正确刷新内容。"
+      },
+      "key": "ConfirmDeleteFolderPartiallyLoaded",
+      "kind": "question",
+      "title": {
+        "en": "Delete Partially Loaded Folder?",
+        "zh": "删除未加载完整的文件夹？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Are you sure you want to delete this filter preset?",
+        "zh": "你确定删除该预置过滤条件？"
+      },
+      "key": "ConfirmDeleteLPStoreFilterPreset",
+      "kind": "question",
+      "title": {
+        "en": "Delete Filter Preset?",
+        "zh": "删除预置过滤条件？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to delete this subfolder and all of its contents?",
+        "zh": "你确定要删除这个子文件夹和其中所有内容吗？"
+      },
+      "key": "ConfirmDeleteSubfolder",
+      "kind": "question",
+      "title": {
+        "en": "Delete Subfolder?",
+        "zh": "删除子文件夹？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to delete this subfolder and all of its contents? It might contain locations, which you cannot see, as the server did not send some locations earlier due to exceeding limits. Please restart the client to fetch everything fresh after reducing the amount of locations.",
+        "zh": "你确定要删除这个子文件夹和其中所有内容吗？它可能含有由于超出数量上限而无法显示出来的地点。请在削减地点数量之后重启客户端来正确刷新内容。"
+      },
+      "key": "ConfirmDeleteSubfolderPartiallyLoaded",
+      "kind": "question",
+      "title": {
+        "en": "Delete Partially Loaded Subfolder?",
+        "zh": "删除未加载完整的子文件夹？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "This action is irreversible. It will remove the Upgrade from the Sovereignty Hub and destroy it.",
+        "zh": "此操作不可撤销。此操作会移除主权中心上的升级件，然后将其摧毁。"
+      },
+      "key": "ConfirmDestroyUpgrade",
+      "kind": "question",
+      "title": {
+        "en": "Destroy Upgrade?",
+        "zh": "是否摧毁升级件？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to disconnect from this folder?",
+        "zh": "你确认要终止连接这个文件夹吗？"
+      },
+      "key": "ConfirmForgetFolder",
+      "kind": "question",
+      "title": {
+        "en": "Disconnect from Folder?",
+        "zh": "终止连接文件夹？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "This is your only ship at this station. Unless you get a new ship, you may not be able to undock anymore. Are you sure you want to give it away?",
+        "zh": "这是你在此空间站唯一的飞船。除非你弄到一艘新飞船，否则你将再也无法离站。你真的要放弃它吗？"
+      },
+      "key": "ConfirmGiveAwayOnlyShip",
+      "kind": "question",
+      "title": {
+        "en": "Give Away Only Ship",
+        "zh": "放弃唯一的飞船"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you wish to unanchor this …? Unanchoring this structure will destroy all installed upgrades.",
+        "zh": "你确定要解锚该…吗？解锚该建筑将会摧毁所有已安装的升级件。"
+      },
+      "key": "ConfirmInfrastructureHubUnanchor",
+      "kind": "question",
+      "title": {
+        "en": "Unanchor structure?",
+        "zh": "解除建筑锚定？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure about it?",
+        "zh": "你确定吗？"
+      },
+      "key": "ConfirmJettison",
+      "kind": "question",
+      "title": {
+        "en": "Jettison",
+        "zh": "投弃"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Warning! This star system has been secured by EDENCOM forces. Pilots with negative EDENCOM standings enter at their own risk!",
+        "zh": "警告！这个星系受到伊甸联合防御阵线的保护。对伊甸联合防御阵线声望为负的飞行员进入星系需自行承担后果！"
+      },
+      "key": "ConfirmJumpToEdencomSS",
+      "kind": "warning",
+      "title": {
+        "en": "EDENCOM Forces",
+        "zh": "伊甸联合防御阵线舰队"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The star system you are about to enter is in a pirate insurgency zone and under the effects of maximum corruption. The system should be considered very hazardous for general traffic. The rules of engagement in this system have been changed and CONCORD response forces may not be relied upon in all cases. Sentry gun systems and lockouts on some warp scrambling area effect devices may have been disrupted. Great care should be taken when traversing the star system.\n\nDo you want to proceed at your own risk?",
+        "zh": "你将要进入的星系处于海盗叛乱区域，该区域正处于最高级腐蚀阶段。对于一般交通，该星系应被视为非常危险。该星系的交战规则已经改变，你可能无法在所有情况下都指望统合部的机动部队。岗哨炮系统和某些跃迁扰频区域效果设备上的锁定装置可能已被干扰。在星系中穿梭时要格外小心。你要继续吗？后果自负。"
+      },
+      "key": "ConfirmJumpToMaxCorruption",
+      "kind": "question",
+      "title": {
+        "en": "CONCORD Advisory",
+        "zh": "统合部顾问"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The star system you are about to enter is in a pirate insurgency zone and under the effects of maximum suppression. The system should be considered hazardous for general traffic. The rules of engagement in this system may have been changed and powerful sentry gun systems may be emplaced at strategic locations across the star system. Great care should be taken when traversing the star system.\n\nDo you want to proceed at your own risk?",
+        "zh": "你将要进入的星系处于海盗叛乱区域，该区域正处于最高级镇压阶段。对于一般交通，该星系应被视为危险。该星系的交战规则可能已经改变，整个星系的战略要地处可能已部署了强大的岗哨炮系统。在星系中穿梭时要格外小心。你要继续吗？后果自负。"
+      },
+      "key": "ConfirmJumpToMaxSuppression",
+      "kind": "question",
+      "title": {
+        "en": "CONCORD Advisory",
+        "zh": "统合部顾问"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The destination system is under Elevated Security protocols. All violence between capsuleers is prohibited and you will not be able to disable your ship’s safety.",
+        "zh": "目标星系处于高级安全协议之下。禁止克隆飞行员之间发生任何暴力行为，你无法关闭舰船的安全系统。"
+      },
+      "key": "ConfirmJumpToSafeSec",
+      "kind": "question",
+      "title": {
+        "en": "Elevated Security System",
+        "zh": "高级安全星系"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Danger! This star system has been invaded by Triglavian forces. Enter at your own risk!",
+        "zh": "危险！此星系已被三神裔势力入侵。冒险进入要自行承担后果！"
+      },
+      "key": "ConfirmJumpToTriglavianSS",
+      "kind": "question",
+      "title": {
+        "en": "Triglavian Forces",
+        "zh": "三神裔舰队"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The destination system is … security status. This is extremely dangerous and CONCORD police can not guarantee your safety there. Do you want to proceed?",
+        "zh": "目标星系的安全等级为…。这是极其危险的，统合部警方无法保证你在那里的安全。你确定要继续吗？"
+      },
+      "key": "ConfirmJumpToUnsafeSS",
+      "kind": "question",
+      "title": {
+        "en": "Low Security System",
+        "zh": "低安全等级星系"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are carrying goods that are considered illicit by …, which is the controlling faction at your jump destination.\n\nThe illicit goods include: ….\n\nAre you sure you would like to make this jump?",
+        "zh": "你所搭载的物品中包括…所禁止运送的物资，而你跳跃的目标星系正是处于…所管辖地区。\n\n违禁物品包括：…。\n\n你确定想要进行此次跳跃吗？"
+      },
+      "key": "ConfirmJumpWithIllicitGoods",
+      "kind": "warning",
+      "title": {
+        "en": "Illicit Goods Onboard",
+        "zh": "违禁物品搭载"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You are leaving Exordium for the wider New Eden cluster, where capsuleers act freely and every choice shapes the future.\n\nExordium remains accessible, but beyond its limits greater opportunities and risks await.\n\nThis shipcaster sends you deep into this faction’s territory, many jumps from the gate back to Exordium.\n\nThe stars are only the beginning. Good luck, Captain.",
+        "zh": "你即将离开始源星域，前往更广阔的新伊甸宇宙。在那里，克隆飞行员可以自由行动，每一个选择都将塑造未来。你仍然可以回到始源星域，但在这之外，更大的机遇与冒险正等待着你。这个舰船弹射台会将你送到该势力领土的深处，距离返回始源星域需要进行多次跳跃。群星只是起点。祝你好运，舰长。"
+      },
+      "key": "ConfirmLeaveStarterSpace",
+      "kind": "question",
+      "title": {
+        "en": "A NEW CHAPTER BEGINS",
+        "zh": "新篇章伊始"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to make … the fleet boss?",
+        "zh": "你确定要任命…为舰队统帅吗？"
+      },
+      "key": "ConfirmMakeFleetBoss",
+      "kind": "question",
+      "title": {
+        "en": "Make Fleet Boss?",
+        "zh": "是否任命舰队统帅？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "This market order will cost … in broker's fees and … in Exordium Tax to set up. Are you sure you want to continue?",
+        "zh": "下发这份市场订单需要缴纳…的中介费和…始源星域税费。你确定要继续吗？"
+      },
+      "key": "ConfirmMarketOrder",
+      "kind": "question",
+      "title": {
+        "en": "Confirm Order",
+        "zh": "订单确认"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are about to wager … ISK on this game of …. The amount will be deducted from your wallet. Are you sure you want to continue?",
+        "zh": "你将在…游戏中下注…星币，这笔钱会从你的钱包中扣除。你确定要继续吗？"
+      },
+      "key": "ConfirmMinigameBet",
+      "kind": "warning",
+      "title": {
+        "en": "Place bet",
+        "zh": "下注"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "The Access List selected for Admin access for this folder does not include you. As a result, you will have no access to configure the folder in future.\n\nAre you sure you want to do this?",
+        "zh": "为这个文件夹选择的管理权限列表并不包括你。这样的话，你将来就不能对这个文件夹进行设置。\n\n你确定要这样做吗？"
+      },
+      "key": "ConfirmNoAdminAccess",
+      "kind": "question",
+      "title": {
+        "en": "Configure Folder Without Admin Access?",
+        "zh": "不设置文件夹访问组？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You may not be able to take this back. Are you sure you want to move it there?",
+        "zh": "你可能无法再将它取回。你真的要把它移到那里吗？"
+      },
+      "key": "ConfirmOneWayItemMove",
+      "kind": "question",
+      "title": {
+        "en": "One Way Move",
+        "zh": "单向移动"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You are about to overwrite this filter preset with your current selections. The old filters in the preset will be lost.\n\nAre you sure you want to do this?",
+        "zh": "你正要以你当前的选择覆盖预置过滤条件。预置的过滤条件将会丢失。\n\n你确定要这样做吗？"
+      },
+      "key": "ConfirmOverwriteLPStoreFilterPreset",
+      "kind": "question",
+      "title": {
+        "en": "Overwrite Filter Preset?",
+        "zh": "覆盖预置过滤条件？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "There is a version mismatch with the server, would you like to check for a patch ?",
+        "zh": "版本和服务器不匹配，你想要查找补丁吗？"
+      },
+      "key": "ConfirmPatch",
+      "kind": "question",
+      "title": {
+        "en": "Check for patch?",
+        "zh": "检查补丁？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Implants are lost when unplugged and when you die. Are you sure you want to use this one now?",
+        "zh": "植入体在被取出或在你死亡后将丢失。你现在确定要使用它吗？"
+      },
+      "key": "ConfirmPlugInImplant",
+      "kind": "question",
+      "title": {
+        "en": "Use implant?",
+        "zh": "使用植入体？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to turn in the following items from your cargohold to fuel the sovereignty hub:\n…\n\nAre you sure you want to do that?",
+        "zh": "你将从自己的货柜舱中上交以下物品，作为主权中心的燃料：\n…\n\n你确定要继续吗？"
+      },
+      "key": "ConfirmReagentDepositFromCargo",
+      "kind": "question",
+      "title": {
+        "en": "Deposit Reagents?",
+        "zh": "存放试剂？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are about to turn in the following items from the infrastructure hold to fuel the sovereignty hub:\n…\n\nAre you sure you want to do that?",
+        "zh": "你将从基础设施舱中上交以下物品，作为主权中心的燃料：\n…\n\n你确定要继续吗？"
+      },
+      "key": "ConfirmReagentDepositFromReagentBay",
+      "kind": "question",
+      "title": {
+        "en": "Deposit Reagents?",
+        "zh": "存放试剂？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "The … you are about to purchase … located in a different station. If purchased, the … will be delivered to your Item Hangar in ….\nAre you sure you want you continue?",
+        "zh": "你将要购买的…位于另一座空间站中。购买后，…将会被送到…的物品机库中。\n你确定要继续吗？"
+      },
+      "key": "ConfirmRemoteBuy",
+      "kind": "question",
+      "title": {
+        "en": "Buy Remotely?",
+        "zh": "远程购买？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Repackaging a ship which has upgrades fitted will result in the loss of those upgrades.\n\nDo you wish to proceed with this wasteful action?",
+        "zh": "将装配有改装件的船拆卸装箱会使那些改装件销毁。\n\n你确定要继续此项浪费的操作吗？"
+      },
+      "key": "ConfirmRepackageSomethingWithUpgrades",
+      "kind": "question",
+      "title": {
+        "en": "Repackage upgraded ship?",
+        "zh": "将装有改装件的船只拆卸装箱？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Reprocessing a ship which has upgrades fitted will result in the loss of those upgrades.\n\nDo you wish to proceed with this wasteful action?",
+        "zh": "提炼装配有改装件的船会使那些改装件销毁。\n\n你确定要继续此项浪费的操作吗？"
+      },
+      "key": "ConfirmReprocessSomethingWithUpgrades",
+      "kind": "question",
+      "title": {
+        "en": "Reprocess upgraded ship?",
+        "zh": "提炼装有改装件的船只？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to reset all of your shortcuts to their default setting?",
+        "zh": "你确定要将所有快捷键重置为默认设置？"
+      },
+      "key": "ConfirmResetAllShortcuts",
+      "kind": "question",
+      "title": {
+        "en": "Are you sure?",
+        "zh": "你确定要这样做吗？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "This container contains goods that are considered illicit by …, which is the controlling faction of the solar system you are in.\nAre you sure you would like to scoop this container?",
+        "zh": "这个货柜中装有被…认为是违法物品的物资，而你所处的星系正是他们的管辖区域。\n你确定要回收这个货柜吗？"
+      },
+      "key": "ConfirmScoopWithIllicitGoods",
+      "kind": "warning",
+      "title": {
+        "en": "Illicit Goods Inside Container",
+        "zh": "货柜里有违法物资"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You are about to sell … …, please confirm you wish to proceed.",
+        "zh": "你将要出售…个…，请确认你要这样做。"
+      },
+      "key": "ConfirmSellingItems",
+      "kind": "question",
+      "title": {
+        "en": "Selling items",
+        "zh": "出售物品"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "This operation may take a long time, are you sure you want to show all closed votes?",
+        "zh": "该操作会花一点时间，你确定要显示所有已终止的投票活动吗？"
+      },
+      "key": "ConfirmShowAllClosedVotes",
+      "kind": "question",
+      "title": {
+        "en": "Show all votes?",
+        "zh": "显示所有的投票活动？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "This operation may take a long time, are you sure you want to show all alliances?",
+        "zh": "该操作可能会花一点时间，你确定要显示所有联盟吗？"
+      },
+      "key": "ConfirmShowAllRankedAlliances",
+      "kind": "question",
+      "title": {
+        "en": "Show all alliances?",
+        "zh": "显示所有联盟？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "This operation may take a long time, are you sure you want to show all actions that are not in effect, including expired actions?",
+        "zh": "这个操作将会花费较长时间，你确定要显示所有不产生影响的行为，包括已经过期的行为么？"
+      },
+      "key": "ConfirmShowAllSanctionableActions",
+      "kind": "question",
+      "title": {
+        "en": "Show all sanctionable actions?",
+        "zh": "显示所有授权的行为？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You are currently training … to level …. If you start training this skill, it will go to the top of the training queue. If that causes any skills to fall outside the queue's timeframe, those skills will be dropped from the queue.\n\nDoing this will not cause you to lose any of the skill points you have already gained while training … to level ….\n\nAre you sure you want to continue?",
+        "zh": "你正在将…训练到等级…。如果你要学习此技能，那它就会被安排在队列首位。如果这导致有任何一项技能超出了技能训练时间范围，那超出的技能将从队列中被移除。\n\n你的…技能在练至…级过程中已获点数不会发生任何损失。\n\n你确定要继续吗？"
+      },
+      "key": "ConfirmSkillTrainingNow",
+      "kind": "question",
+      "title": {
+        "en": "Switch Skill Training?",
+        "zh": "切换要学习的技能？"
+      }
+    },
+    {
+      "answer": null,
+      "key": "ConfirmSkyhookSovManagement",
+      "kind": "question",
+      "title": {
+        "en": "Manage Orbital Skyhooks?",
+        "zh": "是否管理轨道天钩？"
+      }
+    },
+    {
+      "answer": null,
+      "key": "ConfirmSovHubUpgradeChanges",
+      "kind": "question",
+      "title": {
+        "en": "Commit Changes?",
+        "zh": "是否提交更改？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure that you want to start this moon extraction process? You may not have permission to cancel the extraction once started.",
+        "zh": "你确定要开始此次卫星开采？一旦开始，你可能没有权限来取消开采。"
+      },
+      "key": "ConfirmStartMoonminingEventWithoutRolesToStop",
+      "kind": "question",
+      "title": {
+        "en": "Start Moon Extraction?",
+        "zh": "开始卫星开采？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are about to steal items from …. If you continue, … and … corporation will be free to attack you!\nAre you sure you want to continue?",
+        "zh": "你这是在窃取…的物品。如果你继续，…和…所属的军团成员有权攻击你！\n你确定要继续吗？"
+      },
+      "key": "ConfirmStealItem",
+      "kind": "warning",
+      "title": {
+        "en": "Confirm Steal Item",
+        "zh": "确认窃取物品"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you wish to eject from your ship and store it in the …?",
+        "zh": "你确定你要从舰船中弹出然后将它储藏在…里吗？"
+      },
+      "key": "ConfirmStoreVesselInShip",
+      "kind": "question",
+      "title": {
+        "en": "Store Vessel?",
+        "zh": "储藏船只？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you wish to eject from your ship and store it in the …?",
+        "zh": "你确定你要从舰船中弹出然后将它储藏在…里吗？"
+      },
+      "key": "ConfirmStoreVesselInStructure",
+      "kind": "question",
+      "title": {
+        "en": "Store Vessel?",
+        "zh": "储藏船只?"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you wish to anchor this …?",
+        "zh": "你确定要锚定…吗？"
+      },
+      "key": "ConfirmStructureAnchor",
+      "kind": "question",
+      "title": {
+        "en": "Anchor structure?",
+        "zh": "锚定建筑？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you wish to put this … offline? Remember it can take a long time to bring it back online.",
+        "zh": "你真的想停用这个…吗？再次启用它可能需要很长时间。"
+      },
+      "key": "ConfirmStructureOffline",
+      "kind": "question",
+      "title": {
+        "en": "Offline structure?",
+        "zh": "停用建筑？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you wish to unanchor this …? Remember it can take a long time to anchor it again.",
+        "zh": "你确定要解锚该…吗？再次锚定它可能需要很长时间。"
+      },
+      "key": "ConfirmStructureUnanchor",
+      "kind": "question",
+      "title": {
+        "en": "Unanchor structure?",
+        "zh": "解除建筑锚定？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are trying to take goods that are considered illicit by …, which is the controlling faction of the solar system you are in. Possession of these goods could provoke a hostile response from local customs officials.\nAre you sure you wish to take these items?",
+        "zh": "你正在试图装运被…认为是违禁品的物资，而你所处的星系正是其管辖区域。持有此类物品可能会招致当地海关的敌对行为。\n你确定要装运这些物品吗？"
+      },
+      "key": "ConfirmTakeIllicitGoods",
+      "kind": "warning",
+      "title": {
+        "en": "Illicit Goods in Selection",
+        "zh": "选择了违禁品"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you wish to put this … offline? Remember it can take a long time to bring it back online, and taking it offline takes all the structures anchored around it offline as well.",
+        "zh": "你真的想停用这个…吗？再次启用它可能需要很长时间，而且停用它也将使锚定在它周围的所有建筑全部停用。"
+      },
+      "key": "ConfirmTowerOffline",
+      "kind": "question",
+      "title": {
+        "en": "Offline tower?",
+        "zh": "停用控制塔？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You have not assigned all the available points. The remaining points will be lost.\n\nAre you sure you want to proceed?",
+        "zh": "你没有分配全部可用点数。你会失去剩余的可用点数。\n\n你真的要继续吗？"
+      },
+      "key": "ConfirmTrashAttributePoints",
+      "kind": "question",
+      "title": {
+        "en": "Trash Attribute Points?",
+        "zh": "属性点作废？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You have not used all of your available points. The remaining points will be lost, and for that you will forever be laughed at. Are you sure you want to proceed?",
+        "zh": "你没有使用你的全部可用点数。你会失去剩余点数，也会因此而永远被嘲笑。你真的要继续吗？"
+      },
+      "key": "ConfirmTrashPhysicalTraitPoints",
+      "kind": "question",
+      "title": {
+        "en": "Trash Points?",
+        "zh": "让点数作废？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "The link you are creating is too long and will not fit into the edit field. The link is … characters long but you only have space for … characters.\n\nIf you continue the link will be truncated.\n\nWould you like to continue?",
+        "zh": "你创建的链接太长，无法在现有框中全部显示。该链接长达…个字符而现有框只允许最多…个字符。\n\n如果你继续，那这链接只能遭裁剪了。\n\n\n你还要继续吗？"
+      },
+      "key": "ConfirmTruncateLink",
+      "kind": "question",
+      "title": {
+        "en": "Truncate Link?",
+        "zh": "裁剪链接？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Implants are lost when unplugged. Are you sure you want to remove this …?",
+        "zh": "植入体在被取出后将丢失。你确定要移除…？"
+      },
+      "key": "ConfirmUnPlugInImplant",
+      "kind": "question",
+      "title": {
+        "en": "Discard implant?",
+        "zh": "丢弃植入体？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to turn in the following items from your cargohold to help build an item in space:\n……\n\nAre you sure you want to do that?",
+        "zh": "你将从自己的货柜舱中交出上交以下物品，以帮助在太空中建造一件物品：\n……\n\n你确定要继续吗？"
+      },
+      "key": "ConfirmUnderConstructionDeposit",
+      "kind": "question",
+      "title": {
+        "en": "Turn In Items",
+        "zh": "上交物品"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Do you wish to activate these … Design Elements?\n\nThis will move it from your inventory to your SKINR collection.\n\nThis process cannot be reversed.",
+        "zh": "你确定要激活这…个设计元素吗？ 这将把它从你的仓库移至SKINR收藏列表。 此过程不可撤销。"
+      },
+      "key": "ConsumeMultipleSkinDesignComponents",
+      "kind": "question",
+      "title": {
+        "en": "Activate Multiple Design Elements?",
+        "zh": "是否激活多个设计元素？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Do you wish to activate …?\n\nThis will move it from your inventory to your SKINR collection.\n\nThis process cannot be reversed.",
+        "zh": "你想激活…吗？ 这将把它从你的仓库移至SKINR收藏列表。 此过程不可撤销。"
+      },
+      "key": "ConsumeSkinDesignComponent",
+      "kind": "question",
+      "title": {
+        "en": "Activate Design Element?",
+        "zh": "是否激活该设计元素？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "There was a problem downloading the content upgrade.\nPress Yes if you want further instructions on how to manually download the content upgrade.",
+        "zh": "内容补丁下载出错。\n如果你需要关于手动下载升级内容的指导，请点击“是”。"
+      },
+      "key": "ContentDownloadError",
+      "kind": "question",
+      "title": {
+        "en": "Content Upgrade Error",
+        "zh": "内容升级错误"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Your computer hardware does not qualify for new art content in EVE.\n\nPress Yes to go to the system requirements page for more information.",
+        "zh": "你的电脑不能运行EVE的豪华图形内容。\n\n点击“是”，进入系统要求页面寻找更多信息。"
+      },
+      "key": "ContentDownloadNoQualifyAskGoSysReq",
+      "kind": "question",
+      "title": {
+        "en": "Art Content Upgrade",
+        "zh": "美术内容升级"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Your computer hardware qualifies for new art content in EVE but you are unable to start downloading it in the background.\n\nPress Yes if you want further instructions on how to manually download the art content upgrade.",
+        "zh": "你的电脑能够运行EVE豪华图形内容，但你现在无法在后台下载相关内容。\n\n如果你需要关于手动下载升级内容的指导，请点击“是”。"
+      },
+      "key": "ContentDownloadQualifyAskDownloadNoBITS",
+      "kind": "question",
+      "title": {
+        "en": "Art Content Upgrade Available",
+        "zh": "美术内容升级可用"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to remove this advert? Any fees that are incurred with setting up this advert are non-refundable. The advert will be deleted, and this action is not reversible.",
+        "zh": "你确定要删除这条广告吗？当初发布它时所涉及的各种费用都是不会退还的。本广告一经删除便永久消失。"
+      },
+      "key": "CorpAdsAreYouSureYouWantToDelete",
+      "kind": "question",
+      "title": {
+        "en": "Remove advert?",
+        "zh": "删除广告？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to create this advert? Any fees that are incurred with setting up this contract are non-refundable.",
+        "zh": "你确定要创建这条广告吗？这份合同中所涉及的各种费用都不会退还。"
+      },
+      "key": "CorpAdsConfirmCreateAdvert",
+      "kind": "question",
+      "title": {
+        "en": "Confirm advert posting?",
+        "zh": "确定发布广告？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to change this advert?",
+        "zh": "你确定要更改这条广告吗？"
+      },
+      "key": "CorpAdsConfirmEditAdvert",
+      "kind": "question",
+      "title": {
+        "en": "Confirm advert edit?",
+        "zh": "确定修改广告？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to delete this bulletin?",
+        "zh": "你确定要删除此消息吗？"
+      },
+      "key": "CorpConfirmDeleteBulletin",
+      "kind": "question",
+      "title": {
+        "en": "Are you sure?",
+        "zh": "你确定吗？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You have … … going on. If corporation members leave the corporation during wartime, they will not be able to rejoin the corp until these wars have been concluded or until one week has passed, whichever comes first.",
+        "zh": "你有…场…正在进行中。如果军团成员在战争期间离开军团，直到战争结束，或一周后才能再次加入军团，以先到来的为准。"
+      },
+      "key": "CorpMemberKickActiveWarConfirm",
+      "kind": "question",
+      "title": {
+        "en": "Are you sure?",
+        "zh": "你确定吗？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to undock without the cargo required for your in-progress courier mission, …. Are you sure you want to undock now?",
+        "zh": "你将要在不能满足正在进行的快递任务…的货柜需求的情况下离开空间站。你确定要现在出站吗？"
+      },
+      "key": "CourierUndockMissingCargo",
+      "kind": "question",
+      "title": {
+        "en": "Missing Cargo Warning",
+        "zh": "货柜缺失警告"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Training … to level … will take you … skill points above the … skill point bonus limit so it will not be trained at bonus speeds, nor will any skills after that.",
+        "zh": "技能训练提速加成的上限是…技能点。将…训练到…级将使你的技能点总数超过该上限…点。该技能的训练因此将不再享受提速加成，之后的技能也不再享有这一加成。"
+      },
+      "key": "CrossingSkillBoundaries",
+      "kind": "question",
+      "title": {
+        "en": "Bonus expiry",
+        "zh": "加成失效"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "The location you are trying to reach is no longer available.",
+        "zh": "你试图到达的地点已不再可用。"
+      },
+      "key": "CustomAgencyContentNoLongerAvailable",
+      "kind": "warning",
+      "title": {
+        "en": "Location Unavailable",
+        "zh": "地点不可用"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you would like to delete the … filter?",
+        "zh": "你要删除…过滤条件。"
+      },
+      "key": "DeleteFilter",
+      "kind": "question",
+      "title": {
+        "en": "Delete filter?",
+        "zh": "删除过滤条件？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to delete this fitting?",
+        "zh": "你确定要删除此装配方案吗？"
+      },
+      "key": "DeleteFitting",
+      "kind": "question",
+      "title": {
+        "en": "Delete Fitting?",
+        "zh": "删除装配方案？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to delete the … formation?",
+        "zh": "你要删除…阵型。"
+      },
+      "key": "DeleteFormation",
+      "kind": "question",
+      "title": {
+        "en": "Delete formation?",
+        "zh": "删除阵型？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to delete this result?",
+        "zh": "你确定要删除这个结果吗？"
+      },
+      "key": "DeleteScanResult",
+      "kind": "question",
+      "title": {
+        "en": "Delete result?",
+        "zh": "删除结果？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to proceed?",
+        "zh": "你确定要继续吗？"
+      },
+      "key": "DeleteSkillPlan",
+      "kind": "question",
+      "title": {
+        "en": "Delete Skill Plan",
+        "zh": "删除技能方案"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you wish to destroy all of your active probes?",
+        "zh": "你确实想摧毁所有启用的探针吗？"
+      },
+      "key": "DestroyProbes",
+      "kind": "question",
+      "title": {
+        "en": "Destroy Probes?",
+        "zh": "摧毁探针？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you would like to destroy selected probe(s)?",
+        "zh": "你确实想摧毁选好的探针吗？"
+      },
+      "key": "DestroySelectedProbes",
+      "kind": "question",
+      "title": {
+        "en": "Destroy Probes?",
+        "zh": "摧毁探针？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Recustomize your character now?",
+        "zh": "你现在要重塑你的人物吗？"
+      },
+      "key": "EnterCharacterCustomizationCQ",
+      "kind": "question",
+      "title": {
+        "en": "Enter Character Customization?",
+        "zh": "打开人物定制？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are about to discard the changes you have made to the welcome mail. Are you sure you want to do that?",
+        "zh": "你要放弃对欢迎邮件已做的更改。确定要这样做吗？"
+      },
+      "key": "EveMailDiscardWelcomeMail",
+      "kind": "question",
+      "title": {
+        "en": "Discard welcome mail changes",
+        "zh": "放弃欢迎邮件的更改"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to mark all your mails as read. Are you sure you want to do that?",
+        "zh": "你要将这组里所有的通知都标注为已读。确定要这样做吗？"
+      },
+      "key": "EvemailMailMarkAllRead",
+      "kind": "question",
+      "title": {
+        "en": "Read all mails",
+        "zh": "所有邮件已读"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to mark all the mails that have this label (…) as read. Are you sure you want to do that?",
+        "zh": "你要把所有带有该标签(…)的邮件都标为已读。确定要这样做吗？"
+      },
+      "key": "EvemailMailReadLabelGroup",
+      "kind": "question",
+      "title": {
+        "en": "Read all in label",
+        "zh": "标签中的所有邮件已读"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to mark all the mails to this mailing list (…) as read. Are you sure you want to do that?",
+        "zh": "你要把所有在此邮件列表（…）上的邮件都标为已读。确定要这样做吗？"
+      },
+      "key": "EvemailMailReadMailinglistGroup",
+      "kind": "question",
+      "title": {
+        "en": "Read all in mailing list",
+        "zh": "所有邮件列表里的邮件都已读"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to restore all your trashed mail. Are you sure you want to do that?",
+        "zh": "你要恢复垃圾箱中的所有邮件。你确定要这样做吗？"
+      },
+      "key": "EvemailMailRestoreAll",
+      "kind": "question",
+      "title": {
+        "en": "Restore all mail",
+        "zh": "恢复所有邮件"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to trash all your mails. Are you sure you want to do that?",
+        "zh": "你要把所有的邮件都丢入垃圾箱。确定要这样做吗？"
+      },
+      "key": "EvemailMailTrashAll",
+      "kind": "question",
+      "title": {
+        "en": "Trash all mail",
+        "zh": "将所有邮件都放入垃圾箱"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to trash all the mails that have this label (…). Are you sure you want to do that?",
+        "zh": "你要把所有带有该标签（…）的邮件都丢进垃圾箱。确定要这样做吗？"
+      },
+      "key": "EvemailMailTrashLabelGroup",
+      "kind": "question",
+      "title": {
+        "en": "Trash all in label",
+        "zh": "将标签中的所有邮件都丢进垃圾箱"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to trash all the mails to this mailing list (…). Are you sure you want to do that?",
+        "zh": "你要把所有在此邮件列表（…）上的邮件都丢进垃圾箱。确定要这样做吗？"
+      },
+      "key": "EvemailMailTrashMailinglistGroup",
+      "kind": "question",
+      "title": {
+        "en": "Trash all in mailing list",
+        "zh": "将列表中所有邮件转入垃圾箱"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to permanently delete all your trashed mails. Are you sure you want to do that?",
+        "zh": "你要把垃圾箱里所有的邮件都彻底删除。确定要这样做吗？"
+      },
+      "key": "EvemailMaillDeleteAll",
+      "kind": "question",
+      "title": {
+        "en": "Delete all trashed mails",
+        "zh": "清空垃圾箱里的邮件"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to delete all your communications. Are you sure you want to do that?",
+        "zh": "你要删除所有的通讯。你确定要这样做吗？"
+      },
+      "key": "EvemailNotificationsDeleteAll",
+      "kind": "question",
+      "title": {
+        "en": "Delete all communications",
+        "zh": "删除所有通讯"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to delete all the communications in this group. Are you sure you want to do that?",
+        "zh": "你将要删除这个组里的所有通讯。你确定要这样做吗？"
+      },
+      "key": "EvemailNotificationsDeleteGroup",
+      "kind": "question",
+      "title": {
+        "en": "Delete all communications in group",
+        "zh": "删除组里的所有通讯"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to mark all your communications as read. Are you sure you want to do that?",
+        "zh": "你要将你的所有通讯标记为已读。你确定要这样做吗？"
+      },
+      "key": "EvemailNotificationsMarkAllRead",
+      "kind": "question",
+      "title": {
+        "en": "Read all communications",
+        "zh": "标记所有通讯为已读"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to mark all the communications in this group as read. Are you sure you want to do that?",
+        "zh": "你要将这个组里的所有通讯都标记为已读。你确定要这样做吗？"
+      },
+      "key": "EvemailNotificationsMarkGroupRead",
+      "kind": "question",
+      "title": {
+        "en": "Read all communications in group",
+        "zh": "将组里的通讯全部标为已读"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are about to exit simulation mode. Any progress you have made on your currently simulated ship will be lost.\n\nAre you sure you want to continue?",
+        "zh": "你将要退出模拟模式，你目前模拟的舰船所做的任何更改将会丢失。\n\n你确定要继续吗？"
+      },
+      "key": "ExitSimulationWarning",
+      "kind": "question",
+      "title": {
+        "en": "Exit Simulation?",
+        "zh": "退出模拟？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The link you clicked will open in your default browser.\n\n…",
+        "zh": "点击的链接会在默认浏览器中打开。\n\n…"
+      },
+      "key": "ExternalLinkWarning",
+      "kind": "warning",
+      "title": {
+        "en": "External Link",
+        "zh": "外部链接"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Undocking from this station will result in you being immediately attacked by the faction Navy of our enemy. Are you sure you wish to undock?",
+        "zh": "飞出该空间站将导致你立即被敌方海军追击。你确定要离站吗？"
+      },
+      "key": "FacWarWarningUndock",
+      "kind": "question",
+      "title": {
+        "en": "Undock Confirmation",
+        "zh": "离站确认"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "This saved fitting includes rigs. Once fitted they cannot be removed again without destroying them. If you choose to not fit the rigs, they will be added to the ship's cargo hold instead.\nAre you sure you want to fit the rigs?",
+        "zh": "这个装配方案中含有改装件。改装件一旦装配，无法卸载，除非将其摧毁。如果你选择不安装改装件，它们会被放入你舰船的货柜舱中。\n你确定要安装改装件吗？"
+      },
+      "key": "FitRigs",
+      "kind": "question",
+      "title": {
+        "en": "Fit Rigs?",
+        "zh": "安装改装件？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "The pilot that you wish to add to your fleet is at war with the corporation …. Confirming that you want them to join your fleet might make all your fleet members vulnerable to this corporation, however they will not be vulnerable to other members of your fleet that are not at war with this corporation unless they decide to attack you. Are you sure you want to add this pilot to your fleet?",
+        "zh": "你想要添加进舰队的飞行员与…军团正处于交战状态。你若是确认让他加入你的舰队，那么你舰队的所有成员都能受到这个军团的攻击，但是该军团却不能受到你舰队中未与他们处于交战状态的成员的攻击，除非该军团决定攻击你们。你确定让这位飞行员加入你的舰队吗？"
+      },
+      "key": "FleetCandidateDodgy1",
+      "kind": "question",
+      "title": {
+        "en": "Fleet Candidate Dodgy",
+        "zh": "危险的舰队候选成员"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "The pilot that you wish to add to your fleet is at war with these corporations …. Confirming that you want them to join your fleet might make all your fleet members vulnerable to these corporations, however they will not be vulnerable to other members of your fleet that are not associated with war with these corporations unless they decide to attack you. Are you sure you want to add this pilot to your fleet?",
+        "zh": "你想要添加进舰队的飞行员与这些军团处于交战状态：…。你若是确认让其加入你的舰队，那么你舰队的所有成员都容易受到这些军团的攻击，但是这些军团却不容易受到你舰队中未与他们处于交战状态的成员的攻击，除非这些军团决定攻击你。你确定让这位飞行员加入你的舰队吗？"
+      },
+      "key": "FleetCandidateDodgyN",
+      "kind": "question",
+      "title": {
+        "en": "Fleet Candidate Dodgy",
+        "zh": "危险的舰队候选成员"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Do you want to request that all the current and future members of this fleet join the fleet audio channels for voice communication?\n\nNote that each fleet member can choose not to join audio if you select this option. Additionally, even though this option is not selected each member can manually join audio channels in the fleet.",
+        "zh": "你想要求当前和未来的此舰队成员都加入舰队语音频道来进行语音交流吗？\n\n\n请注意，如果你选中了此项，那么每名舰队成员都可以选择是否加入语音频道。另外，即使你没有选中此项，每名舰队成员还是可以手动加入舰队语音频道。"
+      },
+      "key": "FleetConfirmVoiceEnable",
+      "kind": "question",
+      "title": {
+        "en": "Voice Enable Fleet?",
+        "zh": "无法提供服务"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The Fleet data has been exported as … in the folder …",
+        "zh": "舰队数据已导出为…文件夹下的…文件。"
+      },
+      "key": "FleetExportInfo",
+      "kind": "notice",
+      "title": {
+        "en": "Data Exported",
+        "zh": "数据已导出"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "… wants you to join their fleet, do you accept?\n\nThis fleet has members that are at war with the corporation …. Confirming that you will join this fleet will make you vulnerable to this corporation, however they will not be vulnerable to you unless they decide to attack you. Are you sure you want to join this fleet?\n\nNOTE: Attacking members of your fleet is not a CONCORD sanctioned activity and may result in security status loss and a police response.",
+        "zh": "…希望你加入他们的舰队，你接受吗？\n\n该舰队目前有些成员与…军团处于交战状态。若你确认加入这支舰队，那么你会很容易受到该军团的攻击。但除非该军团决定攻击你，否则他们不能受到你的攻击。你确定要加入这支舰队吗？\n\n注意：攻击自己舰队的成员是统合部禁止的行为，可能会导致安全等级的降低和警方的介入。"
+      },
+      "key": "FleetMembersDodgy1",
+      "kind": "question",
+      "title": {
+        "en": "Join Warring Fleet?",
+        "zh": "加入交战中的舰队？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "… wants you to join their fleet, do you accept?\n\nThis fleet has members that are associated with war with these corporations …. Confirming that you will join this fleet will make you vulnerable to these corporations, however they will not be vulnerable to you unless they decide to attack you. Are you sure you want to join this fleet?\n\nNOTE: Attacking members of your gang is not a CONCORD sanctioned activity and may result in security status loss and a police response.",
+        "zh": "…希望你加入他们的舰队，你接受吗？\n\n该舰队目前有些成员与这些军团处于交战状态：…。若你确认加入这支舰队，那么你会很容易受到这些军团的攻击，但是这些军团却不容易受到你的攻击，除非这些军团决定攻击你。你确定要加入这支舰队吗？\n\n注意：攻击自己的舰队成员是统合部禁止的行为，可能会导致安全等级的降低和警方的介入。"
+      },
+      "key": "FleetMembersDodgyN",
+      "kind": "question",
+      "title": {
+        "en": "Join Warring Fleet?",
+        "zh": "加入交战中的舰队？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to remove your fleet advert from the Fleet Finder?",
+        "zh": "你确定要将你舰队的宣传信息从舰队搜寻器中移除吗？"
+      },
+      "key": "FleetRemoveFleetFinderAd",
+      "kind": "question",
+      "title": {
+        "en": "Remove Fleet Advert",
+        "zh": "不进行舰队宣传"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Please note that changes will only take full effect once the game has been restarted.",
+        "zh": "请注意，需要重新启动客户端才能使更改完全生效。"
+      },
+      "key": "FontSizeChange",
+      "kind": "notice",
+      "title": {
+        "en": "Font Size Changed",
+        "zh": "字体已更改"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "The fee for using this stargate is …. This fee is based on the mass of your ship.\n\nAre you sure you want to use this stargate?",
+        "zh": "使用这个星门的费用为…。本费用由你舰船的质量而定。\n\n你确定要使用这个星门吗？"
+      },
+      "key": "GateTollConfirmAligned",
+      "kind": "question",
+      "title": {
+        "en": "Accept Fee",
+        "zh": "接受费用"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "The fee for using this stargate is …. This fee is based on the mass of your ship and is applied at this rate because you are not enlisted with any of the following:\n\n…\n\nAre you sure you want to use this gate?",
+        "zh": "使用这个星门的费用为…。本费用由你舰船的质量而定，而由于你未加入以下任意组织，收费基准有所上调：\n\n…\n\n你确定要使用这座轨道吗？"
+      },
+      "key": "GateTollConfirmUnAligned",
+      "kind": "question",
+      "title": {
+        "en": "Accept Fee",
+        "zh": "接受费用"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Our Help Center will open in your default system browser. Please ensure your character and ship are out of harm’s way before proceeding.",
+        "zh": "帮助中心将在你的默认系统浏览器中打开，请确保人物和船只安全后进行操作。"
+      },
+      "key": "HelpCenterOpenWarning",
+      "kind": "warning",
+      "title": {
+        "en": "Open up External Browser",
+        "zh": "打开外部浏览器"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "The selected ship will be insured for 12 weeks. The contract will be considered void if the ship is:\n\n\n- Repackaged.\n\n- Placed in a non-corporate item exchange or auction contract.\n\n- Destroyed while in the possession of somebody else.\n\n- Destroyed while the pilot is being actively pursued by CONCORD.\n\nDo you accept the above terms and still want to insure the selected ship?",
+        "zh": "选定的舰船将获保12周。如舰船出现下列情况则合同视为无效：\n\n\n- 拆卸装箱\n\n- 被放入一个非军团发布的物品交换或拍卖合同\n\n- 被其他人持有时被摧毁\n\n- 在飞行员被统合部通缉时被摧毁\n\n您接受以上条款，打算为所选舰船投保吗？"
+      },
+      "key": "InsAskAcceptTerms",
+      "kind": "question",
+      "title": {
+        "en": "Insurance Terms",
+        "zh": "保险条款"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "This ship will be corporation insured from your corporation's master wallet. The selected item will be insured while in your possession for 12 weeks. The contract will be considered void if the ship is:\n\n\n- Repackaged.\n\n- Placed in a non-corporate item exchange or auction contract.\n\n- Destroyed while being in the possession of somebody not in your corporation.\n\n- Destroyed while the pilot is being actively pursued by CONCORD.\n\n\nShould the ship be destroyed within the insurance period the payout will be made to your corporations master wallet. Do you accept the above terms and still want to insure the selected ship?",
+        "zh": "这艘飞船将由你军团的通用账户对其进行军团投保。投保物品只有在你的所有权下才能享受12周的契约保障。如舰船出现下列情况则合同视为无效：\n\n\n\n- 拆卸装箱\n\n- 被放入一个非军团发布的物品交换或拍卖合同\n\n- 被非你军团成员的某人持有时被摧毁\n\n- 在飞行员被统合部通缉时被摧毁\n\n\n\n若飞船在保险期内毁坏，赔偿金将汇入你军团的通用账户。您接受以上条款，打算为所选舰船投保吗？"
+      },
+      "key": "InsAskAcceptTermsCorp",
+      "kind": "question",
+      "title": {
+        "en": "Insurance Terms",
+        "zh": "保险条款"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The typeface recommend for East Asian languages is not found on your computer. To install files for East Asian languages click OK and check \"Install files for East Asian languages\".\nWould you like to do it now?",
+        "zh": "在你的电脑中没有找到推荐的东亚语言字体。要安装东亚语言文件，请点击确定并选择“安装东亚语言文件”。你想现在这么做吗？"
+      },
+      "key": "InstallAsianFont",
+      "kind": "notice",
+      "title": {
+        "en": "Recommended font not found!",
+        "zh": "推荐的字体没有找到！"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "The typeface recommend for East Asian languages is not found on your computer. To install files for East Asian languages click OK and check \"Install files for East Asian languages\".\nWould you like to do it now?",
+        "zh": "你电脑中没有找到推荐的东亚语言字体。要安装东亚语言文件，请点击确定 并选择“安装东亚语言文件”。你想现在这么做吗？"
+      },
+      "key": "InstallAsianFontModal",
+      "kind": "warning",
+      "title": {
+        "en": "Recommended font not found!",
+        "zh": "推荐的字体没有找到！"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Please run EVE with administrator rights to complete data migration.",
+        "zh": "请以管理员权限运行EVE，以完成数据转移。"
+      },
+      "key": "InsufficientPrivileges",
+      "kind": "notice",
+      "title": {
+        "en": "Insufficient privileges",
+        "zh": "权限不够"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "The progression you try to access is not exist.",
+        "zh": "你要访问的进度不存在。"
+      },
+      "key": "InvalidProgression",
+      "kind": "warning",
+      "title": {
+        "en": "Invalid Progression",
+        "zh": "进度无效"
+      }
+    },
+    {
+      "answer": null,
+      "key": "InvasionWarningUndock",
+      "kind": "question",
+      "title": {
+        "en": "Invasion warning undock"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Please note that adding a large number of tracks to a playlist may take a while. Make sure that you are out of harms way before proceeding.",
+        "zh": "注意，添加大量歌曲可能需花点时间。请在继续之前先确保自身安全"
+      },
+      "key": "JukeboxAddTracks",
+      "kind": "notice",
+      "title": {
+        "en": "Add tracks to playlist",
+        "zh": "向播放列表添加曲目"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "This clone jump will transport your consciousness to your clone at the structure, which could be destroyed if attacked.\nAre you sure you want to proceed with a clone jump to this structure?",
+        "zh": "这个远距克隆会将你的意识传输到建筑中的克隆体，如果该建筑被攻击它可能会被毁掉。\n你确定要远距克隆到这个建筑吗？"
+      },
+      "key": "JumpCheckIntoStructure",
+      "kind": "question",
+      "title": {
+        "en": "Jump to structure?",
+        "zh": "远距克隆到建筑？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "The fee to return through the gate you are jumping to will be considerably more expensive than using this gate. You are paying … units/liquid ozone for this jump, but the fee for the return trip is …/liquid ozone.\n\nAre you sure you want to go through with this jump?",
+        "zh": "利用你将要跳跃的星门返回所需要的费用要远高于你此次使用它的费用。此次跳跃你要支付…个单位的液态臭氧，但返回则需要…液态臭氧。\n\n你确定要进行此次跳跃吗？"
+      },
+      "key": "JumpWithExpensiveReturnTrip",
+      "kind": "question",
+      "title": {
+        "en": "Jump Despite Higher Return Fee?",
+        "zh": "即使回程昂贵也要跳跃？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to jump to a gate which doesn't allow you to jump back to this gate.\n\nAre you sure you want to do this?",
+        "zh": "你将要使用一座星门进行跳跃，但是你并没有使用这座星门返回的权限。\n\n你确定要这样做吗？"
+      },
+      "key": "JumpWithoutAccessToJumpBack",
+      "kind": "question",
+      "title": {
+        "en": "Jump without access back?",
+        "zh": "无法返回也要进行跳跃？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are about to load up a simulated ship. Any progress you have made on your currently simulated ship will be lost.\n\nAre you sure you want to continue?",
+        "zh": "你将要加载一艘模拟舰船。你目前模拟的舰船所做的任何更改将会丢失。\n\n你确定要继续吗？"
+      },
+      "key": "LoadSimulatedShip",
+      "kind": "question",
+      "title": {
+        "en": "Load Simulated Ship?",
+        "zh": "加载模拟舰船？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You have chosen to lock the overload state, please unlock it and try again.",
+        "zh": "你已选择锁定超载状态，请解锁后再尝试。"
+      },
+      "key": "LockedOverloadState",
+      "kind": "notice",
+      "title": {
+        "en": "Overload State is Locked",
+        "zh": "超载状态锁定"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Your client has waited … minutes for a remote call to complete.\n\nThis could mean that the server is very loaded.\n\n\nPlease be patient, chances are that the call will complete eventually but depending on the load it might be considerable time.\n\n\nClick here to see the remote call debug viewer",
+        "zh": "你的客户端等待一个远程调用的响应已经有…分钟。\n\n\n\n现在服务器的负载可能很高。\n\n\n\n请耐心等待。很可能服务器最后还是会给予响应，但根据负载程度，这或许还需要好一段时间。\n\n\n\n点击这里查看远程调用调试窗口"
+      },
+      "key": "LongWaitForRemoteCall",
+      "kind": "notice",
+      "title": {
+        "en": "Server Delayed.",
+        "zh": "服务器延迟。"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Using this selection may result in the autopilot plotting EXTREMELY long routes between waypoints.",
+        "zh": "使用这个选项可能导致自动导航系统选择一条极长的路线。"
+      },
+      "key": "MapAutoPilotAvoidEdencomSystems",
+      "kind": "warning",
+      "title": {
+        "en": "Avoiding EDENCOM Systems",
+        "zh": "避开伊甸联合防御阵线星系"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Using this selection may result in the autopilot plotting EXTREMELY long routes between waypoints.",
+        "zh": "使用这个选项可能导致自动导航系统选择一条极长的路线。"
+      },
+      "key": "MapAutoPilotAvoidPodkillZones",
+      "kind": "warning",
+      "title": {
+        "en": "Avoiding pod killing zones",
+        "zh": "避开逃生舱被毁地区"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Using this selection may result in the autopilot plotting EXTREMELY long routes between waypoints.",
+        "zh": "使用这个选项可能导致自动导航系统选择一条极长的路线。"
+      },
+      "key": "MapAutoPilotAvoidSystems",
+      "kind": "warning",
+      "title": {
+        "en": "Avoiding systems on Avoidance List",
+        "zh": "避开在规避列表中出现的星系"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Using this selection may result in the autopilot plotting EXTREMELY long routes between waypoints.",
+        "zh": "使用这个选项可能导致自动导航系统选择一条极长的路线。"
+      },
+      "key": "MapAutoPilotAvoidTriglavianTales",
+      "kind": "warning",
+      "title": {
+        "en": "Avoiding Triglavian Minor Victory Systems",
+        "zh": "避开三神裔小胜星系"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "… sell orders and … buy orders for … were exported to the file … in the directory …",
+        "zh": "已经将…张出售订单和…张购买订单导出至…目录下的…文件中。"
+      },
+      "key": "MarketExportInfo",
+      "kind": "notice",
+      "title": {
+        "en": "Market Export Information",
+        "zh": "市场信息导出"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You have just accepted a mission. In order to complete the mission you will have to perform the objectives requested.\nIn order to complete an objective you need to view the mission and click the appropriate button for the objective.\nIf you are starting a courier mission you might be able to complete the first objective now, if the item you need to transport is located at this station.",
+        "zh": "你刚刚接受了一项任务。若要完成任务，你必须完成所有提出的任务目标。\n为了完成目标，你必须查看任务，点击正确的按钮以查看目标。\n如果你正着手一项运输任务，而你需要运输的物品就在这个空间站里，那么你现在就有能力完成第一个目标了。"
+      },
+      "key": "MissMissionAcceptedHelp",
+      "kind": "notice",
+      "title": {
+        "en": "Mission Accepted",
+        "zh": "任务已接受"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Purchasing PLEX with Corporation funds will not automatically transfer to PLEX Vault. Purchased PLEX will need to be delivered to a Corporation Member then moved to a PLEX Vault from there.\n\nPLEX being purchased may be located in a different station.\n\nWould you like to proceed?",
+        "zh": "用军团资金购买的伊甸币不会自动转移到伊甸币保险库。购买的伊甸币需要先发放给军团成员，然后才能转移到伊甸币保险库。已购买的伊甸币可能位于不同的空间站。你确定要继续吗？"
+      },
+      "key": "MktConfirmRemotePlexPurchaseForCorporation",
+      "kind": "warning",
+      "title": {
+        "en": "Mkt confirm remote plex purchase for corporation"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Migrating the folder structures to a more permanent location has failed because there is simply too much load. We will try again next time you try to access your locations but until then it will appear that you have no folders.",
+        "zh": "由于负荷太大，系统未能将文件夹结构转移到一个更为长久稳定的位置。我们会在下次再试一下。但在那之前，你将没有文件夹可用。"
+      },
+      "key": "MoveFoldersUpdateThrottle",
+      "kind": "notice",
+      "title": {
+        "en": "Failed to Migrate Folders",
+        "zh": "未能转移文件夹"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Audio drivers not detected\nSound system will not be activated\n\nPlease make sure you have audio drivers installed.",
+        "zh": "没有检测到音频驱动\n声音系统将不会被激活\n\n请确认已经安装了声卡驱动。"
+      },
+      "key": "NoAudio",
+      "kind": "question",
+      "title": {
+        "en": "Audio System",
+        "zh": "音频系统"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Do you want to proceed without applying a label?",
+        "zh": "不想使用标记吗？"
+      },
+      "key": "NoLabelApplied",
+      "kind": "question",
+      "title": {
+        "en": "No label applied",
+        "zh": "未使用标记"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You can't remove points from this attribute because there are no points assigned to it",
+        "zh": "你不能从这个属性上移除点数，因为没有分配给它点数"
+      },
+      "key": "NoPointsAssignedToAttribute",
+      "kind": "notice",
+      "title": {
+        "en": "Nothing To Remove",
+        "zh": "无可移除"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "The structure will run out of fuel before the extraction finishes.\nAre you sure you want to continue?",
+        "zh": "这个建筑会在开采结束之前就耗尽燃料。\n你确定要继续吗？"
+      },
+      "key": "NotEnoughFuelForExtractionDuration",
+      "kind": "question",
+      "title": {
+        "en": "Not Enough Fuel",
+        "zh": "燃料不足"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You are about to open an item filter setting that has been shared with you. Are you sure you want to do that?",
+        "zh": "你将要打开一个共享给你的物品过滤设置。你确定要继续吗？"
+      },
+      "key": "OpenItemFilterSetting",
+      "kind": "question",
+      "title": {
+        "en": "Open item filter setting"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Would you like to overwrite the filter named … with current setup?",
+        "zh": "你想用当前的设置覆盖名为…的过滤器吗？"
+      },
+      "key": "OverwriteFilter",
+      "kind": "question",
+      "title": {
+        "en": "Overwrite filter?",
+        "zh": "覆盖过滤器？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "… sell orders and … buy orders were exported to the file … in the directory …",
+        "zh": "已经将…份出售订单和…份购买订单导出至…目录下的…文件中"
+      },
+      "key": "PersonalMarketExportInfo",
+      "kind": "notice",
+      "title": {
+        "en": "Personal Market Export Information",
+        "zh": "个人市场信息导出"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Planetary Industry (P.I.) is an industry process that takes raw materials from a planet and turns them into goods available on the market at large. Creating extractors, processors and other parts of the industry involves setting up a command center and investing ISK to set it all up. Like most industries, you must have some skills trained to get started. The Remote Sensing skill allows you to survey planets for areas rich in natural resources. Other skills are necessary for running multiple colonies or running colonies remotely. These skills are available on the market.",
+        "zh": "行星工业是一种工业化程序，它从行星上采集原材料并将其大批量转化为市场上常见的商品。你需要先建立一个指挥中心并且花费ISK维持它的运作，这样才能建造采集器、处理设施以及其他一些东西。与大多数其它工业一样，你必须训练相关的技能才能开始进行行星互动。遥测感应技术技能使你能够勘测行星上面自然资源丰富的区域。其它一些技能还可以让你有能力建造多个殖民地或是远程控制你的殖民地。这些技能都可以在市场中买到。"
+      },
+      "key": "PlanetaryInteractionIntroText",
+      "kind": "notice",
+      "title": {
+        "en": "Planetary Industry",
+        "zh": "行星工业"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "The environment of this Abyssal Deadspace is incredibly unstable and hostile. Your probes have minimal environmental shielding and will most certainly be destroyed if you deploy them outside this pocket. Are you sure you want to continue and deploy your probes?",
+        "zh": "深渊空间中的环境极其不稳定而且危险。你的探针对环境的抗性很弱，如果发射到这个空间层之外就很可能会损毁。你确定要继续发射探针吗？"
+      },
+      "key": "ProbeScannerAbyssalSpaceWarning",
+      "kind": "warning",
+      "title": {
+        "en": "Probe scanner abyssal space warning"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The progression is not completed.",
+        "zh": "进度未完成。"
+      },
+      "key": "ProgressionNotCompleted",
+      "kind": "notice",
+      "title": {
+        "en": "Progression Not Completed",
+        "zh": "进度未完成"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The pre-condition of the progression is not match.",
+        "zh": "进度前提条件不匹配。"
+      },
+      "key": "ProgressionPreconditionNotMatch",
+      "kind": "notice",
+      "title": {
+        "en": "Progression Pre-condition Not Match",
+        "zh": "进度前提条件不匹配"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The reward for this progression has already been granted.",
+        "zh": "此进度的奖励已经被发放。"
+      },
+      "key": "ProgressionRewardAlreadyReceived",
+      "kind": "notice",
+      "title": {
+        "en": "Progression reward already received",
+        "zh": "进度奖励已经收到"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Put this module offline?",
+        "zh": "停用该装备吗？"
+      },
+      "key": "PutOffline",
+      "kind": "question",
+      "title": {
+        "en": "Offline Module?",
+        "zh": "停用装备？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "This module is in a group and proceeding to offline a single module will prevent you from activating the group. Are you sure you want to do that?",
+        "zh": "该装备目前在一个武器编组里，将其停用将导致整个武器编组无法使用。你确定要这样做吗？"
+      },
+      "key": "QueryGroupOffline",
+      "kind": "question",
+      "title": {
+        "en": "Offline Module and Deactivate Group?",
+        "zh": "停用装备并停止运转整个组？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You have made changes to the training queue. Do you want to apply those changes?",
+        "zh": "你已对技能队列做了些变动。你想保存这些变更吗？"
+      },
+      "key": "QueueSaveChangesOnClose",
+      "kind": "question",
+      "title": {
+        "en": "Apply Changes?",
+        "zh": "应用更改？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to remove the selected agent(s)?",
+        "zh": "你确定要移除选中的代理人吗？"
+      },
+      "key": "RemoveAgents",
+      "kind": "question",
+      "title": {
+        "en": "Remove agent(s)?",
+        "zh": "移除代理人？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to remove the filter?",
+        "zh": "你确定要删除过滤条件吗？"
+      },
+      "key": "RemoveFilterPrompt",
+      "kind": "question",
+      "title": {
+        "en": "Remove filter",
+        "zh": "删除过滤条件"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to remove this location (\"…\")?",
+        "zh": "你确定要删除这个地点(\"…\")吗？"
+      },
+      "key": "RemoveLocation",
+      "kind": "question",
+      "title": {
+        "en": "Remove Location",
+        "zh": "删除地点"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Do you want to remove the following from your contact list?\n\n\n…",
+        "zh": "你想将下列对象从你的联系对象列表中除去吗？\n\n\n…"
+      },
+      "key": "RemoveManyFromContacts",
+      "kind": "question",
+      "title": {
+        "en": "Remove From Contacts",
+        "zh": "从联系对象中去除"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to remove … …?",
+        "zh": "你确定要删除…个…吗？"
+      },
+      "key": "RemoveMultipleLocation",
+      "kind": "question",
+      "title": {
+        "en": "Remove Locations",
+        "zh": "删除地点"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Do you want to remove … from your contact list?",
+        "zh": "你想将…从你的联系对象列表中除去吗？"
+      },
+      "key": "RemoveOneFromContacts",
+      "kind": "question",
+      "title": {
+        "en": "Remove From Contacts",
+        "zh": "从联系对象中去除"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The following items cannot be sold on the market unless you repackage them first:…",
+        "zh": "你必须先将下列物品拆卸装箱后才能在市场上出售：…"
+      },
+      "key": "RepackageBeforeMultiSelling",
+      "kind": "notice",
+      "title": {
+        "en": "Repackage Before Selling",
+        "zh": "在出售前拆卸装箱"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "One or more of the items you are repackaging contain other items. Repackaging them will move all their contents into your hangar.\nAre you sure you want to repackage those items?",
+        "zh": "你正在拆卸装箱的物品中有一个或多个包含了其他物品。继续拆卸装箱会将其中的所有物品放入你的机库中。\n你确定要将那些物品拆卸装箱吗？"
+      },
+      "key": "RepackageContainers",
+      "kind": "question",
+      "title": {
+        "en": "There are items inside",
+        "zh": "里面有物品"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "All progress in this operation will be reset. Are you sure you want to replay?",
+        "zh": "此行动的全部进度将被重置。你确定要重置吗？"
+      },
+      "key": "ReplayOperationWarning",
+      "kind": "warning",
+      "title": {
+        "en": "Replay operation",
+        "zh": "重置行动"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to revert all changes to the selected filter?",
+        "zh": "确定要撤销对选定过滤条件做出的所有更改吗？"
+      },
+      "key": "RevertOverviewPresetChanges",
+      "kind": "question",
+      "title": {
+        "en": "Revert changes",
+        "zh": "撤销更改"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The only way to remove this rig is by destroying it.",
+        "zh": "移除该改装件的唯一方法就是摧毁它。"
+      },
+      "key": "RigFittingInfo",
+      "kind": "question",
+      "title": {
+        "en": "Jury-Rig Ship?",
+        "zh": "改装舰船？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Removing this rig from the ship will permanently destroy the rig. Do you want to continue?",
+        "zh": "改装件移除后无法再次使用。继续此操作？"
+      },
+      "key": "RigUnFittingInfo",
+      "kind": "question",
+      "title": {
+        "en": "Confirm Rig Destruction?",
+        "zh": "确认销毁改装件？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "No rigs were added to or removed from the ship. There is no way to remove a rig other than destroying it so if you want to add or remove a rig you have to do it manually.",
+        "zh": "舰船上没有增加或移除任何改装件。摧毁改装件是移除它的唯一方式。如果你想增加或移除一个改装件，你必须手动去那样做。"
+      },
+      "key": "RigsNotAutomaticallyFitted",
+      "kind": "notice",
+      "title": {
+        "en": "Rigs not fitted",
+        "zh": "改装件未装配"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Roles and grantable roles will not be automatically assigned when this contract is accepted. Roles and grantable roles have to be assigned to the applicant by a member of the corporation such as a personnel manager, director or the CEO.",
+        "zh": "同意这份合同时，并不会自动指定职位或可转授职位。职位和可转授职位是由军团成员，比如人事主管、总监或CEO，来分配给申请者的。"
+      },
+      "key": "RolesNotAssignedAutomatically",
+      "kind": "notice",
+      "title": {
+        "en": "Role Assignment",
+        "zh": "职位分配"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Scaling the UI will reset the contents of your windows, and any unsaved changes will be lost. Are you sure you want to continue?",
+        "zh": "缩放用户界面将会重置窗口中的内容，所有未保存的更改都将丢失。你确定要继续吗？"
+      },
+      "key": "ScaleUI",
+      "kind": "question",
+      "title": {
+        "en": "Do you want to scale the UI?",
+        "zh": "你想要对UI进行缩放吗？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The Shared Locations folder \"…\" has been created. Players with the required access can connect via the following link: …. Additional links can be created at any time by dragging the Shared Locations Folder from the People & Places window.",
+        "zh": "共享地点文件夹\"…\"已创建。拥有访问权限的飞行员可以通过此链接访问：…。将共享地点文件夹从人物和地点窗口中拖到其他位置可以创建更多链接。"
+      },
+      "key": "SharedLocationFolderCreated",
+      "kind": "notice",
+      "title": {
+        "en": "Shared Locations Folder Created",
+        "zh": "共享地点文件夹已创建"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Your ship is carrying at least one item (…) which is contraband in this solar system, are you sure you wish to jump?",
+        "zh": "你的飞船至少携带了一种在这个星系内属于违禁物的物品（…）。你确定要跳跃吗？"
+      },
+      "key": "ShipContrabandWarningJump",
+      "kind": "question",
+      "title": {
+        "en": "Stargate Jump Confirmation",
+        "zh": "星门跳跃确认"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Your ship is carrying at least one item (…) which is contraband somewhere. Are you sure you wish to undock?",
+        "zh": "你的舰船里运载着至少一个会被没收的物品（…）。你确定要出站吗？"
+      },
+      "key": "ShipContrabandWarningUndock",
+      "kind": "question",
+      "title": {
+        "en": "Undock Confirmation",
+        "zh": "离站确认"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Your ship has been destroyed by ….",
+        "zh": "你的飞船被…摧毁了。"
+      },
+      "key": "ShipExploded",
+      "kind": "notice",
+      "title": {
+        "en": "Ship Destroyed",
+        "zh": "飞船被毁"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Offlining the structure will halt resource collection and discard any reagents stored in it. Are you sure you want to do that?",
+        "zh": "停用建筑后将停止资源采集，并丢弃其中储藏的所有试剂。你确定要继续吗？"
+      },
+      "key": "SkyhookOfflineConfirmReagent",
+      "kind": "question",
+      "title": {
+        "en": "Offline Reagent Skyhook?",
+        "zh": "是否停用试剂天钩？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Offlining the structure will halt resource collection and disconnect it from the system's sovereignty hub. Are you sure you want to do that?",
+        "zh": "停用建筑后将停止资源采集，并断开该建筑与星系主权中心的连接。你确定要继续吗？"
+      },
+      "key": "SkyhookOfflineConfirmResources",
+      "kind": "question",
+      "title": {
+        "en": "Offline Skyhook?",
+        "zh": "是否停用天钩？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to reset the standings from you to …?",
+        "zh": "你确定要重设你对…的声望吗？"
+      },
+      "key": "StandingsConfirmReset",
+      "kind": "question",
+      "title": {
+        "en": "Really reset standings?",
+        "zh": "确定重设声望？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to reset the standings from your corporation to …?",
+        "zh": "你确定要重设你军团对…的声望吗？"
+      },
+      "key": "StandingsConfirmResetCorp",
+      "kind": "question",
+      "title": {
+        "en": "Really reset standings?",
+        "zh": "确定重设声望？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "EVE requires CPU SSE support in order to play in-game audio. As your computer hardware does not support SSE, in-game audio will be disabled.",
+        "zh": "你计算机的CPU必须具备SSE指令集才能播放游戏内的音乐。因为你的计算机硬件不支持SSE指令集，系统将自动关闭游戏音乐。"
+      },
+      "key": "SystemDoesNotSupportAudio",
+      "kind": "warning",
+      "title": {
+        "en": "Audio Not Supported",
+        "zh": "无法播放音乐"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "You are receiving a ship through this trade session. Keep in mind that even though you may have been told otherwise, this ship does not necessarily contain any modules or rigs.\n\nIf you want to be safe you should accept the ship through an Item Exchange contract instead.\n\nAre you sure you want to continue?",
+        "zh": "你将在此交易期收到一艘飞船。尽管你可能已经知道，但还是要提醒你，这艘飞船不一定装备任何设备或改装件。\n\n\n为了安全起见，你应转而通过物品交换合同来接受这艘飞船。\n\n\n你确定要继续吗？"
+      },
+      "key": "TradeShipWarning",
+      "kind": "question",
+      "title": {
+        "en": "Trading ship warning",
+        "zh": "交易飞船警告"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You will be warped to the tutorial, do you wish to proceed? Canceling will close the tutorial.",
+        "zh": "你将会跃迁到教程地点，想去那里吗？按“取消”会关闭教程。"
+      },
+      "key": "TutorialWarpToQuestion",
+      "kind": "question",
+      "title": {
+        "en": "Warp to Tutorial Location?",
+        "zh": "跃迁到教程地点？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "If you warp now, the tutorial will abort and close itself.",
+        "zh": "如果你现在跃迁离开，那么教程会中断并自动关闭。"
+      },
+      "key": "TutorialWarpWarning",
+      "kind": "question",
+      "title": {
+        "en": "Abort tutorial by warping",
+        "zh": "跃迁以中断教程"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Warning! You are currently flagged for being part of combat actions and you are about to enter an area with people wanting to kill you! If you continue they will use all means necessary to kill you and the station will probably not let you back in.\n\nAre you sure you want to continue?",
+        "zh": "警告！你目前被确认参与了一场战斗，你将要进入的区域里有人想杀你！如果你执意前行，那他们将对你全力追杀，并且空间站人员也可能不让你停靠。\n\n你确定要继续吗？"
+      },
+      "key": "UndockAggressionConfirm",
+      "kind": "warning",
+      "title": {
+        "en": "You are engaged in combat!",
+        "zh": "你正在进行一场战斗！"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "Are you sure you want to undock with this fit? You will need the following modules to complete the next operations:\n\n…",
+        "zh": "你确定要以这样的装配离站吗？你需要下列装备来完成下一个行动：\n\n\n…"
+      },
+      "key": "UndockingWithoutOperationModuleRequirements",
+      "kind": "question",
+      "title": {
+        "en": "Required modules missing",
+        "zh": "缺少必要装备"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are about to unregister your fleet. Are you sure you want to do that?",
+        "zh": "你打算注销舰队。确定要这样做吗？"
+      },
+      "key": "UnregisteringFleet",
+      "kind": "question",
+      "title": {
+        "en": "Unregistering fleet",
+        "zh": "注销舰队"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You corporation has a fitting with the name …,  do you want to update it?",
+        "zh": "你的军团有一个名为…的装配方案，  你想要更新它吗？"
+      },
+      "key": "UpdateFitCorp",
+      "kind": "question",
+      "title": {
+        "en": "Update Corporation Fitting?",
+        "zh": "更新军团装配方案？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "You have a fitting with the name …, do you want to update it?",
+        "zh": "你有一个名为…的装配方案，  你想要更新它吗？"
+      },
+      "key": "UpdateFitPersonal",
+      "kind": "question",
+      "title": {
+        "en": "Update Fitting?",
+        "zh": "更新装配方案？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "If you proceed with this action … will be removed from all groups in your …. Do you want to do that?",
+        "zh": "如果你继续这项操作，…将从你…中的所有组中删除。你确定要这么做吗？"
+      },
+      "key": "WarnDeleteFromAddressbook",
+      "kind": "warning",
+      "title": {
+        "en": "Delete completely?",
+        "zh": "完全删除？"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are warping to a stargate owned by … whom you have recently engaged in combat. Customs police are operating on a low tolerance policy and will attack you if they are present.\n\nDo you wish to proceed with this dangerous action?",
+        "zh": "你正向…的星门跃迁，而你最近刚和他战斗过。海关警察正采取低容忍政策，如果他们在场，就会攻击你。\n\n你想继续此项危险行动吗？"
+      },
+      "key": "WarpToStargateWhileFlagged",
+      "kind": "question",
+      "title": {
+        "en": "Proceed with this dangerous act?",
+        "zh": "继续此项危险行动？"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "If you are searching for another capsuleer, a system or a corporation then you can use the search functionality here. You can also see your buddy list and your blocked list, a list of your agents and corporation members, and all the locations in space you might have bookmarked.",
+        "zh": "如果你要查找其他的飞行员、一个星系、或一个军团等等，你都可以使用这里的搜索功能。你也可以在这里查看你的好友列表和阻止列表，查看你的代理人和军团成员还有太空中所有你添加过位标的地点。"
+      },
+      "key": "Welcome_Addressbook",
+      "kind": "welcome",
+      "title": {
+        "en": "People & Places Welcome Page",
+        "zh": "人物和地点欢迎页"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "All your ships and items throughout the universe can be viewed from within the assets window. Here you can see a categorized list of your items, on a station by station basis. You can also search for items you might have temporarily misplaced. Perhaps some treasure awaits you!",
+        "zh": "你在宇宙中任何地方的舰船和各种物品都可以通过这个窗口找到。在这里你可以看到一个按照空间站划分包含你所有物品的分类列表。你也可以按名称搜索你不小心忘记放在哪里了的物品。或许还能从自己的杂货堆里翻出什么好东西来，呵呵！"
+      },
+      "key": "Welcome_Assets",
+      "kind": "welcome",
+      "title": {
+        "en": "Assets Welcome Page",
+        "zh": "资产欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Use the calendar to plan ahead and keep track of important events or tasks which you can share with your friends, corp  and alliance. The calendar is easy to use and can also be accessed through your EVE Gate profile",
+        "zh": "使用日历有助于你做计划、办活动。你可以利用它来追踪重要活动或任务的进展，将它们与你的朋友、军团及联盟共分享。日历用起来十分简便。你还可以通过EVE Gate来使用日历。"
+      },
+      "key": "Welcome_Calendar",
+      "kind": "welcome",
+      "title": {
+        "en": "Calendar Welcome Page",
+        "zh": "日历欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Certificates are a good way to clearly see how to reach a goal in your character development. By picking a certificate, you can quickly see what skills you need to obtain it. Although certificates do not grant you any special bonuses, it will allow you, through the skills to become a more qualified pilot in that area.",
+        "zh": "证书可以清晰地显示你的人物在成长中取得的成就情况。选中一个证书就可以查看获取它所需的相关技能。虽然证书系统并不为你提供任何特殊的加成，但是它可以帮助你在各个领域成为更优秀的飞行员。"
+      },
+      "key": "Welcome_Certificatewindow",
+      "kind": "welcome",
+      "title": {
+        "en": "Certificates Welcome Page",
+        "zh": "证书欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "To facilitate easy communicaton with others, you can join various chat channels to discuss all aspects of space faring. Whether it's the locations of asteroids or enemy factions, or the latest alliance news, or stock tips, or just plain gossip, there's probably a channel out there for you - and if there's not, you can make your own!",
+        "zh": "这里的工具让你更快捷和方便地同其他玩家进行交流。你可以加入不同的聊天频道，在星际航行中参与不同事件的讨论。它可以是有关小行星带位置的，讨论敌对势力状况的，最新的联盟新闻，股票消息，或者干脆只是八卦闲聊，你都可以找到适合你的频道。就算没有找到一个感兴趣的聊天频道，你还可以自己创建一个！"
+      },
+      "key": "Welcome_Channels",
+      "kind": "welcome",
+      "title": {
+        "en": "Chat Channels Welcome Page",
+        "zh": "聊天频道欢迎页"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The character sheet is one of the most important tools in EVE. Here you select skills for training, write your biography, and check on your attributes, clones, standings, employment history and more. It is a valuable source of information on your character development and should not be overlooked.",
+        "zh": "人物表单是EVE中最重要的工具之一。在这里你可以安排你的技能学习，编写你的个人信息，查看你的属性、克隆体、声望及雇佣记录等情况。这里提供与你的人物成长相关的关键数据和信息，请不要忽视它们。"
+      },
+      "key": "Welcome_Charactersheet",
+      "kind": "welcome",
+      "title": {
+        "en": "Character Sheet Welcome Page",
+        "zh": "人物表单欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Some items might generate a better profit when sold through auction. Using the contract system, you can auction off your items, exchange them for other items directly, set up part-exchange deals... the contract system gives you the flexibility to choose the right kind of deal for the situation. Countless deals are closed every day, relying on the contract system's rules to prevent swindles and scams. If you have a rare item, others might be willing to fight for it in an auction!",
+        "zh": "有些东西要是放在拍卖行里的话或许能卖个好价钱。通过使用合同系统，你可以直接拍卖或者交换你的物品。合同系统让你能够制订各种合同来满足不同的需要。在这里每天都有无数的交易成功完成，这都归功于合同系统精心设计的防欺诈规则。如果你有稀罕的物品，可能会引得他人拼着命来拍哦！"
+      },
+      "key": "Welcome_Contracts",
+      "kind": "welcome",
+      "title": {
+        "en": "Contracts Welcome Page",
+        "zh": "合同欢迎页"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Here within you can find tools to manage your corporation, or to set one up. You can also find the corporate registry, which enables you to either quickly find a corporation for yourself, or to list your own corporation to others. You can also manage all roles to your members, manage wars and take care of alliance needs.",
+        "zh": "在这里你可以创建或管理军团。你也能够找到军团的招募信息，通过它你可以迅速找到你心仪的军团，或者把你的军团公布在列表中供别人查阅。你也可以在这里管理军团的职位、头衔和成员，以及打理战争和联盟事务。"
+      },
+      "key": "Welcome_Corporation",
+      "kind": "welcome",
+      "title": {
+        "en": "Corporation Welcome Page",
+        "zh": "军团欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Your ships need to be fitted with weapons, defensive modules, cargo expanders, mining lasers and other equipment to reach their full potential. The fittings window grants you access to the ship's hardware, where you can install your equipment and view statistics like resistances, cargo space and more.",
+        "zh": "你的舰船需要合理装配各种武器、防护装备、货柜扩展装备、采矿器及其他必要装备来发挥其最大功效。装配界面可让你对舰船硬件直接进行管理，在这里你可以于安装各种装备的同时查看它们的状态数据，如抗性与货舱容量等。"
+      },
+      "key": "Welcome_Fitting",
+      "kind": "welcome",
+      "title": {
+        "en": "Fitting Welcome Page",
+        "zh": "装配欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "This window gives you access to options and information about fleets. Here you can form and manage your fleet, or use the Fleet Finder to search for friendly fleets.",
+        "zh": "在该窗口中，你可以查看舰队相关信息并进行相应操作。你可以在此组队并对其进行管理。你也可以使用“舰队搜寻器”来寻求志同道合的其他舰队。"
+      },
+      "key": "Welcome_Fleetwindow",
+      "kind": "welcome",
+      "title": {
+        "en": "Fleet Welcome Page",
+        "zh": "舰队欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "To stay in contact with your friends, you can use EVE mails. These are handy and easy to use - your friend will receive it instantly, thanks to the wonders of fluid router technology. You'll also receive communications from all kinds of other entities through this interface, from insurance notices to offers of work.",
+        "zh": "使用EVE邮件服务，你可以同你的朋友们保持联络。这个工具使用起来十分方便简单，归功于先进的星际通讯中继技术，你的朋友能即时收到你的邮件。你也能够在这里收到保险通知、工作邀请等来自其他用户和机构的通讯。"
+      },
+      "key": "Welcome_Inbox",
+      "kind": "welcome",
+      "title": {
+        "en": "EVE Mail Welcome Page",
+        "zh": "EVE邮件欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "If your ship is not insured, you should perhaps consider changing this! Insurance comes in several levels, to minimize your financial loss in case of the destruction of a ship. Be sure to check on your insurance regularly, as standard policies only last for 12 weeks - losing a ship whose insurance expired the previous week is rarely a happy event.",
+        "zh": "如果你的舰船尚未投保，那你或许应该考虑一下了！保险分几档，能将舰船被毁后产生的经济损失尽量减小。记得要经常检查你的保险界面，标准的保单有效期仅为12个星期——如果你的舰船被毁而它的保险是上个星期才刚刚过期的，那就有的你好后悔了。"
+      },
+      "key": "Welcome_Insurance",
+      "kind": "welcome",
+      "title": {
+        "en": "Insurance Welcome Page",
+        "zh": "保险欢迎页"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Here within you can find information regarding your agent missions, your ongoing research as well as a list of all corporations that you have gained loyalty points with and how many. On this page you can find information related to the journal, tutorials, knowledgebase articles on how to operate and make best use of the journal.",
+        "zh": "在这里你可以找到关于你的代理人任务的信息，你目前的科研点数情况，以及你获得忠诚点数的军团列表和相应点数等。你还能查看正在进行的远征及萨沙入侵等信息。好好利用你的日志系统吧。"
+      },
+      "key": "Welcome_Journal",
+      "kind": "welcome",
+      "title": {
+        "en": "Journal Welcome Page",
+        "zh": "日志欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "While doing missions for agents, you might notice that you receive loyalty points as additional payment for finishing the mission successfully. These points can be spent at the corresponding corporation's stations. Items vary between corporations and races, and scientists and technicians work hard on bringing new types of equipment to the store as soon as it is available.",
+        "zh": "在完成代理人任务的同时，你或许已经注意到，除了获得金钱和物品奖励外，你还能获得忠诚点数作为额外的奖励。这些点数能在对应的NPC军团空间站里使用。可兑换的物品根据军团和种族有不同的变化，而且科学家和技术人员们不停地努力工作以将最新的物品带到商店里。"
+      },
+      "key": "Welcome_Lpstore",
+      "kind": "welcome",
+      "title": {
+        "en": "Loyalty Point Store Welcome Page",
+        "zh": "忠诚点商店欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "To stay in contact with other players and friends, you can use EVE mails. These are handy and easy to use - your recipient will receive it instantly, thanks to the wonders of fluid router technology. You'll also receive communications from all kinds of other entities through this interface.",
+        "zh": "使用EVE邮件服务，你可以同你的朋友们保持联络。这个工具使用起来十分方便简单，归功于先进的星际通讯中继技术，你的朋友能即时收到你的邮件。你也能够在这里收到来自于各类机构的通讯。"
+      },
+      "key": "Welcome_Mail",
+      "kind": "welcome",
+      "title": {
+        "en": "EVE Mail Welcome Page",
+        "zh": "EVE邮件欢迎页"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "For all your scientific and industry related ventures! You can initiate, monitor and finalize all your manufacturing and researching tasks from within the confines of the science & industry window.",
+        "zh": "所有敢于在科学和工业中冒险的人，这里是你们的天堂。你可以在这里发起、监控及完成各种制造和研究工作。"
+      },
+      "key": "Welcome_Manufacturing",
+      "kind": "welcome",
+      "title": {
+        "en": "Science & Industry Welcome Page",
+        "zh": "科学和工业欢迎页"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The map can show both your current solar system, and the whole universe. It provides you with information and statistics, and acts as a tool for planning your route around your constellation, region or between regions.",
+        "zh": "星图既可以显示你当前所在的恒星系，也可以显示整个宇宙。星图能向你提供各种信息和统计数据，同时也是你制订星际航行计划的好帮手。"
+      },
+      "key": "Welcome_Mapspalette",
+      "kind": "welcome",
+      "title": {
+        "en": "Map Welcome Page",
+        "zh": "星图欢迎页"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The market is a tool that nearly everyone accesses at on a daily basis. Whether it's to buy a new ship, acquire the latest in weapons technology or to trade countless other items with your fellow pilots. Here you can find it all, and here you can work the market to gain riches and fortune as a trader.",
+        "zh": "市场几乎每个人每天都会接触。无论是购买舰船，了解最新武器行情，还是向其他飞行员买卖各种物品，你都可以在这里完成。在这儿，如果你有良好的商业头脑，说不定还能成为腰缠万贯的贸易家。"
+      },
+      "key": "Welcome_Market",
+      "kind": "welcome",
+      "title": {
+        "en": "Market Welcome Page",
+        "zh": "市场欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "It is imperative that you keep an up to date clone. In the event of your death, your body will be rematerialized at your selected station. If your clone doesn't support the skill points you have, you could lose some of them in the process. Always ensure that your clone can store more skill points than you currently have.",
+        "zh": "保持自己的克隆体随时更新在EVE的世界里面是非常重要的。如果你死亡了，你的身体将在你所选择的空间站内再造。如果你死亡前的克隆等级未能涵盖你的全部技能点数，那么你可能于再造过程中损失一部分技能点数。请随时确保你的克隆等级所保存的技能点数可以涵盖你当前所拥有的总技能点数。"
+      },
+      "key": "Welcome_Medical",
+      "kind": "welcome",
+      "title": {
+        "en": "Medical Welcome Page",
+        "zh": "医疗欢迎页"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "This is the information hub for the war effort. In this panel you can enlist yourself or your corporation, and once enlisted access data and statistics about the war effort.Individuals may enlist by leaving any current player corporations, ensuring their standing from this faction is above 0.5 and that they're not on a trial account; applications are processed immediately.\nDirectors and CEOs may enlist their entire corporation by leaving any current alliance and ensuring their corporate standing from this faction is above 0.5; applications are processed at downtime.All enlisted players are in a state of permanent war with their enemies and may be attacked by enemy capsuleers at any time. They are also advised to avoid high security space (0.5 security and above) belonging to enemy factions, as those factions' navies will shoot on sight.Enlisted players are empowered to take missions from agents in their Militia, and to assist in the capture of strategic locations. Missions are limited by ship type. Locations are exploration sites found using the onboard scanner, are limited by ship type and have proximity sensors on strategic capture sites that trigger a capturing timer.For further information on all aspects of the war, please visit the knowledge base!",
+        "zh": "这里是势力战争的情报中心。在这里你可以个人身份或带领军团入伍应征，并在加入后看到各种数据情报。个人可以通过退出当前玩家军团的方式加入势力战争，同时还要保证与所投势力的声望值大于0.5且使用的账号是非试玩账号；入伍申请马上就能有结果。\n\n总监及CEO可以通过退出当前所属联盟投入势力战争，当然同样要保证所入势力对自己军团的声望值在0.5以上；加入申请将在一次系统维护后知道结果。所有入伍玩家都与其敌方处于长期交战状态，在任何时候都能遭到对方的合法攻击。我们建议加入了势力战争的玩家尽量不要前往敌方享有主权的高安全等级地区（0.5及以上），因为这些地方的势力海军对敌人是见到就打的。加入势力战争的玩家可以接到来自他们的国民卫队代理人的任务，也可以去协助夺取战略要地。势力战争任务对舰船类型是有一定限制的。战略要地是那些可以用舰载扫描器探测出的异常空间，它们对于可进入的舰船种类同样有所限制，并且设有范围传感器，可以触发抢占计时器进行倒计时。要想全面了解势力战争，请查阅相关知识网页！"
+      },
+      "key": "Welcome_Militia",
+      "kind": "welcome",
+      "title": {
+        "en": "Militia Welcome Page",
+        "zh": "国民卫队欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "The bounty office holds information on all criminals in the galaxy. You can browse through the most wanted list and see if you spot any friends of yours or perhaps your most sworn enemy. You can also add a bounty to others if you so desire.",
+        "zh": "荣誉追击办公室向你提供宇宙中各个不法分子的信息。你可以在这里浏览追击排行榜看看你和你的朋友是不是榜上有名，或者说不定还能找到你的死敌。当然你也可以在这里自己设定添加一个追击对象。"
+      },
+      "key": "Welcome_Missions",
+      "kind": "welcome",
+      "title": {
+        "en": "Bounty Office Welcome Page",
+        "zh": "荣誉追击欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Your ship can sustain damage in space and might need repairs. Stations often feature repairshops that can patch up your ships for a small fee.",
+        "zh": "你的舰船在太空中遭受的损伤需要修理。空间站通常会提供修理业务，花费一定的费用就可以让你的船只得到完全修复。"
+      },
+      "key": "Welcome_Repairshop",
+      "kind": "welcome",
+      "title": {
+        "en": "Repairshop Welcome Page",
+        "zh": "维修站欢迎页"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Ore can be reprocessed into minerals using the reprocessing plant. Each type of ore has its own particular makeup and reprocesses into a unique combination of minerals. Skills can affect how well you reprocess, and standings from the owner of the station can also have an effect. You can also reprocess modules, ships and other items into their base mineral components.",
+        "zh": "矿石通过提炼工厂提炼可以产出矿物材料。每种矿石都有其不同的成分，通过提炼可以产出不同的矿物组合。提炼的效果会受到技能的影响，你在该空间站主人处的声望也是一个重要的因素。同样，你也可以在这里把装备、舰船或其他物品也拿来提炼，使其再次转化为基本的矿物原料。"
+      },
+      "key": "Welcome_Reprocessing",
+      "kind": "welcome",
+      "title": {
+        "en": "Reprocessing Plant Welcome Page",
+        "zh": "提炼工厂欢迎页"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "This dashboard keeps you informed of the changes to sovereignty throughout New Eden. Changes to individual solar systems, constellations, regions or the whole cluster are visible as well. Information about systems' indices are also displayed.",
+        "zh": "在此窗口中，你将了解到宇宙中所有星系主权的变更情况。单个星系、星座、星域及全宇宙的变化情况也能通过此窗口获悉。另外你还能在此查阅星系指数相关信息。"
+      },
+      "key": "Welcome_Sovereigntyoverviewwnd",
+      "kind": "welcome",
+      "title": {
+        "en": "Sovereignty Dashboard",
+        "zh": "主权信息板"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "This dashboard keeps you informed of the changes to sovereignty throughout New Eden. Changes to individual solar systems, constellations, regions or the whole cluster are visible as well. Information about systems' indices are also displayed.",
+        "zh": "在此窗口中，你将了解到宇宙中所有星系主权的变更情况。单个星系、星座、星域及全宇宙的变化情况也能通过此窗口获悉。另外你还能在此查阅星系指数相关信息。"
+      },
+      "key": "Welcome_Sovoverview",
+      "kind": "welcome",
+      "title": {
+        "en": "Sovereignty Dashboard Welcome Page",
+        "zh": "主权信息板欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "When the privileged and powerful of New Eden yearn for commodities beyond what is normally available on the public market, they turn to the Noble Exchange, a private bazaar of diverse goods governed by the aurum currency. The spectrum of merchandise stretches from current fashions to those that are exceptionally rare or of dubious legality.These transactions are overseen and guaranteed by CONCORD, but due to the fact that only those with access to aurum and qualified merchant corporations may use the Noble Exchange, virtually all inconsistencies, loopholes, and exploits have been systematically eliminated.",
+        "zh": "新伊甸中的特权阶级和达官贵人们早已对市面上的普通货色不屑一顾，怀着对上等货品的渴盼，他们来到了新伊甸商城，这是一个陈列着各色商品的私人交易市场，使用AUR作为货币进行交易。这里的商品琳琅满目，从流行时尚到奇珍异宝甚至是貌似违禁的物品，应有尽有。这里的交易由统合部监管并担保，但是考虑到只有那些持有AUR的人以及够资格的商业军团才可以进入新伊甸商城，事实上任何可能发生的风险都不复存在了。"
+      },
+      "key": "Welcome_Virtualgoodsstore",
+      "kind": "welcome",
+      "title": {
+        "en": "Noble Exchange Welcome Page",
+        "zh": "新伊甸商城欢迎页面"
+      }
+    },
+    {
+      "answer": 1,
+      "body": {
+        "en": "Your hard-earned ISK is stored in your wallet. It holds the balance sheet on your recent expenditures and earnings with detailed information on every entry. If you have access to the corporation wallet, here you can also look at similar information for your corporation.",
+        "zh": "你的血汗钱都存在这个钱包里面了。这里你可以看到你的余额，最近的开支明细等详细信息。如果你有权限进入军团账户，你也可以查看你的军团账户的收支明细等情况。"
+      },
+      "key": "Welcome_Wallet",
+      "kind": "welcome",
+      "title": {
+        "en": "Wallet Welcome Page",
+        "zh": "钱包欢迎页面"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "Are you sure you want to withdraw your application?",
+        "zh": "你确定要撤回你的申请吗？"
+      },
+      "key": "WithdrawApplication",
+      "kind": "question",
+      "title": {
+        "en": "Withdraw Application?",
+        "zh": "撤销申请？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "If you go through this wormhole you may end up in the far reaches of space, where CONCORD will not be able to help you!\n\n\nDo you wish to continue?",
+        "zh": "如果你穿越此虫洞，那你就将到达宇宙遥远的深处。在那里你将不会受到统合部的任何帮助！\n\n\n你还要继续吗？"
+      },
+      "key": "WormholeJumpingFromHiSec",
+      "kind": "warning",
+      "title": {
+        "en": "The Unknown!",
+        "zh": "未知领域！"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are leaving … probes behind. If the wormhole collapses and you don't have enough probes on board, you may become stranded. Are you sure you want to do this?",
+        "zh": "你遗留了…个探针。一旦虫洞崩塌而你又没有带上足够的探针，那你就有可能被困在里面。你还要这样做吗？"
+      },
+      "key": "WormholeLeaveProbesConfirm",
+      "kind": "warning",
+      "title": {
+        "en": "Probes in space",
+        "zh": "太空里的探针"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "By ejecting this job you will loose the time spent on the current batch. If the job requires materials then you will loose some of the materials that are required for the batch. You can check if the job requires materials by looking at the bill of materials for the job. Are you sure that you want to eject this job?",
+        "zh": "取消此任务会使你先前花费在这批任务上的时间全部作废。如果任务需要材料，那么你会损失这批任务所需的部分材料。你可以查看任务材料账单来确定此任务是否需要材料。你确定要取消此任务吗？"
+      },
+      "key": "facAcceptEjectMaterialLoss",
+      "kind": "question",
+      "title": {
+        "en": "Accept Loss?",
+        "zh": "接受损失？"
+      }
+    },
+    {
+      "answer": 6,
+      "body": {
+        "en": "There is already a pending change to the default vulnerability time. It is currently scheduled to become … after …. If you continue, the pending change will be cleared and the new vulnerability time will become … after …. Are you sure you wish to confirm this change?",
+        "zh": "已有一个对默认可被攻击时段的更改正在等待生效。在…后，可被攻击时段将变更为…。如果你继续，之前的更改将被取消，在…后，新的可被攻击时段将为…。你确定要继续这项更改吗？"
+      },
+      "key": "updateNewPrimeTime",
+      "kind": "question",
+      "title": {
+        "en": "Pending Change Exists",
+        "zh": "已有等待生效的更改"
+      }
+    }
+  ],
+  "schema": 1
+}

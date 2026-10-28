@@ -256,27 +256,6 @@ impl DroneGroupsDialog {
         )
     }
 
-    // Uppercase title, an optional count and a hairline running to the edge,
-    // in the style of the main window's section headers.
-    fn section_header(title: String, count: Option<String>, cx: &App) -> Div {
-        let theme = cx.theme();
-        h_flex()
-            .gap_2()
-            .py_1()
-            .text_xs()
-            .font_medium()
-            .text_color(theme.muted_foreground)
-            .child(ui::section_title(title))
-            .when_some(count, |this, count| {
-                this.child(
-                    div()
-                        .text_color(theme.muted_foreground.opacity(0.6))
-                        .child(count),
-                )
-            })
-            .child(div().flex_1().h(px(1.)).bg(theme.border.opacity(0.6)))
-    }
-
     fn render_groups(&self, presets: &[DroneGroupPreset], cx: &mut Context<Self>) -> Div {
         v_flex()
             .gap_5()
@@ -297,7 +276,7 @@ impl DroneGroupsDialog {
                 v_flex()
                     .gap_2()
                     .child(
-                        Self::section_header(
+                        ui::section_divider(
                             t!(format!("droneGroups.category.{}", category.id())).to_string(),
                             Some(format!("{chosen}/{}", ids.len())),
                             cx,
@@ -406,7 +385,7 @@ impl DroneGroupsDialog {
                                 .child(detail),
                         ),
                 )
-                .child(check_mark(selected, cx))
+                .child(ui::check_mark(selected, cx))
                 .on_click(cx.listener(move |this, _, _, cx| {
                     if !this.selected.remove(&id) {
                         this.selected.insert(id.clone());
@@ -469,7 +448,7 @@ impl DroneGroupsDialog {
                                     .font_medium()
                                     .child(t!(format!("droneGroups.style.{id}")).to_string()),
                             )
-                            .child(check_mark(selected, cx)),
+                            .child(ui::check_mark(selected, cx)),
                     )
                     .children(examples.iter().map(|preset| {
                         div()
@@ -531,7 +510,7 @@ impl DroneGroupsDialog {
             .child(
                 v_flex()
                     .gap_2()
-                    .child(Self::section_header(
+                    .child(ui::section_divider(
                         t!("droneGroups.styles").to_string(),
                         None,
                         cx,
@@ -542,8 +521,8 @@ impl DroneGroupsDialog {
                 v_flex()
                     .gap_2()
                     .child(
-                        Self::section_header(t!("droneGroups.custom").to_string(), None, cx)
-                            .child(check_mark(custom, cx)),
+                        ui::section_divider(t!("droneGroups.custom").to_string(), None, cx)
+                            .child(ui::check_mark(custom, cx)),
                     )
                     .child(Input::new(&self.pattern_input).small())
                     .child(
@@ -641,7 +620,7 @@ impl DroneGroupsDialog {
                 (!section.is_empty()).then(|| {
                     let title = t!(format!("droneGroups.category.{}", category.id())).to_string();
                     v_flex()
-                        .child(Self::section_header(
+                        .child(ui::section_divider(
                             title,
                             Some(section.len().to_string()),
                             cx,
@@ -663,7 +642,7 @@ impl DroneGroupsDialog {
             .when(!removed.is_empty(), |this| {
                 this.child(
                     v_flex()
-                        .child(Self::section_header(
+                        .child(ui::section_divider(
                             t!("droneGroups.removed").to_string(),
                             Some(removed.len().to_string()),
                             cx,
@@ -757,29 +736,6 @@ impl DroneGroupsDialog {
                 ),
             })
     }
-}
-
-// A filled accent dot with a check when selected, an empty ring otherwise.
-fn check_mark(selected: bool, cx: &App) -> Div {
-    let accent = ui::target_color();
-    div()
-        .flex()
-        .flex_none()
-        .items_center()
-        .justify_center()
-        .size(px(16.))
-        .rounded_full()
-        .map(|this| {
-            if selected {
-                this.bg(accent).child(
-                    Icon::new(IconName::Check)
-                        .xsmall()
-                        .text_color(cx.theme().background),
-                )
-            } else {
-                this.border_1().border_color(cx.theme().border)
-            }
-        })
 }
 
 impl Render for DroneGroupsDialog {
