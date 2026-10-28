@@ -593,64 +593,14 @@ pub fn parse_distance(text: &str) -> Option<f64> {
         .filter(|v| v.is_finite())
 }
 
-// Undo/redo over the whole edit state. Consecutive edits with the same key
-// (typing into one field, one drag) collapse into a single step.
+// The whole edit state, for undo/redo.
 #[derive(Clone, Debug, PartialEq)]
 pub struct Snapshot {
     pub formations: Vec<Formation>,
     pub selected: usize,
 }
 
-#[derive(Default)]
-pub struct History {
-    undo: Vec<Snapshot>,
-    redo: Vec<Snapshot>,
-    last_key: Option<String>,
-}
-
-impl History {
-    const LIMIT: usize = 200;
-
-    pub fn record(&mut self, before: Snapshot, key: Option<String>) {
-        if key.is_some() && key == self.last_key {
-            return;
-        }
-        if self.undo.last() != Some(&before) {
-            self.undo.push(before);
-            if self.undo.len() > Self::LIMIT {
-                self.undo.remove(0);
-            }
-        }
-        self.redo.clear();
-        self.last_key = key;
-    }
-
-    pub fn undo(&mut self, current: Snapshot) -> Option<Snapshot> {
-        let previous = self.undo.pop()?;
-        self.redo.push(current);
-        self.last_key = None;
-        Some(previous)
-    }
-
-    pub fn redo(&mut self, current: Snapshot) -> Option<Snapshot> {
-        let next = self.redo.pop()?;
-        self.undo.push(current);
-        self.last_key = None;
-        Some(next)
-    }
-
-    pub fn can_undo(&self) -> bool {
-        !self.undo.is_empty()
-    }
-
-    pub fn can_redo(&self) -> bool {
-        !self.redo.is_empty()
-    }
-
-    pub fn clear(&mut self) {
-        *self = Self::default();
-    }
-}
+pub type History = crate::history::History<Snapshot>;
 
 // Where an item at `index` ends up after the item at `from` moves to `to`.
 pub fn index_after_move(index: usize, from: usize, to: usize) -> usize {

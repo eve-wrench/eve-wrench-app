@@ -1,0 +1,105 @@
+name: Dialog catalog
+
+# Regenerates the catalog of suppressible confirmation dialogs when CCP ships a
+# new client build and opens a pull request when the dialogs changed. Installed
+# apps fetch the file from main, so a merged catalog reaches users without a
+# release.
+on:
+    schedule:
+        # Client builds go out with downtime (11:00 UTC)
+        - cron: "45 12 * * *"
+    workflow_dispatch:
+
+concurrency:
+    group: dialog-catalog
+    cancel-in-progress: false
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+    update:
+        name: Update
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Compare client builds
+              id: client
+              env:
+                  GH_TOKEN: ${{ github.token }}
+              run: |
+                  latest=$(curl -sf https://binaries.eveonline.com/eveclient_TQ.json | jq -r .build)
+                  current=$(jq -r .client_build crates/eve-wrench-core/data/confirmations.json)
+                  echo "Client build $latest, catalog built from $current"
+                  branch="dialog-catalog/client-$latest"
+                  echo "latest=$latest" >> "$GITHUB_OUTPUT"
+                  echo "branch=$branch" >> "$GITHUB_OUTPUT"
+                  if [ -n "$(gh pr list --head "$branch" --state open --json number --jq '.[].number')" ]; then
+                      echo "Pull request for $branch already open"
+                  elif [ -n "$latest" ] && [ "$latest" != "$current" ]; then
+                      echo "changed=true" >> "$GITHUB_OUTPUT"
+                  fi
+
+            # A build whose dialogs match the catalog gets no pull request, so
+            # remember it was checked instead of regenerating it every day
+            - name: Restore checked build
+              if: steps.client.outputs.changed == 'true'
+              id: checked
+              uses: actions/cache/restore@v4
+              with:
+                  path: .client-checked
+                  key: dialog-catalog-checked-${{ steps.client.outputs.latest }}
+
+            - name: Rust cache
+              if: steps.client.outputs.changed == 'true' && steps.checked.outputs.cache-hit != 'true'
+              uses: swatinem/rust-cache@v2
+              with:
+                  workspaces: tools/dialog-catalog
+
+            - name: Generate catalog
+              if: steps.client.outputs.changed == 'true' && steps.checked.outputs.cache-hit != 'true'
+              id: generate
+              working-directory: tools/dialog-catalog
+              run: |
+                  file=../../crates/eve-wrench-core/data/confirmations.json
+                  git show HEAD:crates/eve-wrench-core/data/confirmations.json > /tmp/old.json
+                  cargo run --release
+                  # The build number alone changes with every client release
+                  if [ "$(jq -S 'del(.client_build)' /tmp/old.json)" = "$(jq -S 'del(.client_build)' "$file")" ]; then
+                      echo "Dialogs unchanged in build ${{ steps.client.outputs.latest }}"
+                  else
+                      echo "dialogs=true" >> "$GITHUB_OUTPUT"
+                  fi
+                  echo "${{ steps.client.outputs.latest }}" > ../../.client-checked
+
+            - name: Save checked build
+              if: steps.generate.outcome == 'success' && steps.generate.outputs.dialogs != 'true'
+              uses: actions/cache/save@v4
+              with:
+                  path: .client-checked
+                  key: dialog-catalog-checked-${{ steps.client.outputs.latest }}
+
+            - name: Open pull request
+              if: steps.generate.outputs.dialogs == 'true'
+              env:
+                  GH_TOKEN: ${{ github.token }}
+                  BRANCH: ${{ steps.client.outputs.branch }}
+                  BUILD: ${{ steps.client.outputs.latest }}
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git switch -c "$BRANCH"
+                  git add crates/eve-wrench-core/data/confirmations.json
+                  title="chore(dialogs): update dialog catalog to client build $BUILD"
+                  git commit -m "$title"
+                  git push --force -u origin "$BRANCH"
+                  url=$(gh pr create --base main --head "$BRANCH" --title "$title" \
+                      --body "Regenerated from client build $BUILD. Apps pick it up from main once merged.")
+                  # Older catalog pull requests are superseded by this one
+                  gh pr list --state open --json number,headRefName \
+                      --jq ".[] | select(.headRefName | startswith(\"dialog-catalog/\")) | select(.headRefName != \"$BRANCH\") | .number" |
+                      while read -r number; do
+                          gh pr close "$number" --delete-branch --comment "Superseded by $url"
+                      done
