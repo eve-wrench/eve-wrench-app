@@ -1,5 +1,5 @@
 {
-  "client_build": 3654997,
+  "client_build": 3662168,
   "dialogs": [
     {
       "answer": 6,
@@ -3326,7 +3326,7 @@
     {
       "answer": 1,
       "body": {
-        "en": "The Shared Locations folder \"…\" has been created. Players with the required access can connect via the following link: …. Additional links can be created at any time by dragging the Shared Locations Folder from the People & Places window.",
+        "en": "The Shared Locations folder \"…\" has been created. Players with the required access can connect via the following link: …. Additional links can be created at any time by dragging the Shared Locations Folder from the Locations window.",
         "zh": "共享地点文件夹\"…\"已创建。拥有访问权限的飞行员可以通过此链接访问：…。将共享地点文件夹从人物和地点窗口中拖到其他位置可以创建更多链接。"
       },
       "key": "SharedLocationFolderCreated",
