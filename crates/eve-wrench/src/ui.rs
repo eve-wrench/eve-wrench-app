@@ -85,6 +85,15 @@ pub fn relative_time(timestamp: u64) -> SharedString {
     text.to_string().into()
 }
 
+// The dialog catalog has English and Chinese texts.
+pub fn catalog_language() -> &'static str {
+    if rust_i18n::locale().starts_with("zh") {
+        "zh"
+    } else {
+        "en"
+    }
+}
+
 pub fn kind_icon(kind: SettingsKind) -> IconName {
     match kind {
         SettingsKind::User => IconName::User,
@@ -327,6 +336,15 @@ pub fn notify_success(
     cx: &mut App,
 ) {
     window.push_notification(Notification::success(message).title(title), cx);
+}
+
+pub fn notify_info(
+    title: impl Into<SharedString>,
+    message: impl Into<SharedString>,
+    window: &mut Window,
+    cx: &mut App,
+) {
+    window.push_notification(Notification::info(message).title(title), cx);
 }
 
 pub fn notify_error(

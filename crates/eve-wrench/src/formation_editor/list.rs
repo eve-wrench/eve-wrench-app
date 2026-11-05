@@ -6,11 +6,13 @@ use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::*;
 use rust_i18n::t;
 
+use eve_wrench_core::share::SharePack;
+
 use super::model::{
     FORMATION_PRESETS, Formation, MAX_PROBES, Preset, PresetIcon, STACK_PRESETS, index_after_move,
 };
 use super::{FormationEditor, editor_action};
-use crate::ui;
+use crate::{sharing, ui};
 
 fn preset_icon(icon: PresetIcon) -> IconName {
     match icon {
@@ -91,6 +93,87 @@ impl FormationEditor {
         });
     }
 
+    // Formations as stored, renumbered; just the selected one or all of them.
+    fn stored_formations(&self, only_selected: bool) -> Vec<eve_wrench_core::ProbeFormation> {
+        let formations: Vec<&Formation> = if only_selected {
+            self.current().into_iter().collect()
+        } else {
+            self.formations.iter().collect()
+        };
+        formations
+            .iter()
+            .enumerate()
+            .map(|(i, f)| f.to_stored(i as i64))
+            .collect()
+    }
+
+    fn share_formations(
+        &mut self,
+        only_selected: bool,
+        to_file: bool,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        let stored = self.stored_formations(only_selected);
+        let pack = match SharePack::from_formations(&stored, None) {
+            Ok(pack) => pack,
+            Err(e) => return ui::notify_error(t!("share.exportFailed"), e, window, cx),
+        };
+        if to_file {
+            let stem = format!("{}-formations", self.display_name);
+            sharing::save_to_file(pack, &stem, window, cx);
+        } else {
+            sharing::copy_to_clipboard(&pack, window, cx);
+        }
+    }
+
+    // Adds what isn't here yet as one undoable step; saving writes it.
+    fn import_formations(
+        &mut self,
+        loaded: Result<SharePack, String>,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        let title = t!("formationEditor.importFailed");
+        let pack = match loaded {
+            Ok(pack) => pack,
+            Err(e) => return ui::notify_error(title, e, window, cx),
+        };
+        let incoming: Vec<Formation> = pack
+            .formations()
+            .iter()
+            .map(Formation::from_stored)
+            .collect();
+        if incoming.is_empty() {
+            return ui::notify_error(title, t!("formationEditor.noSharedFormations"), window, cx);
+        }
+        let new: Vec<Formation> = incoming
+            .into_iter()
+            .filter(|f| !self.formations.contains(f))
+            .collect();
+        if new.is_empty() {
+            return ui::notify_info(
+                t!("formationEditor.importedTitle"),
+                t!("formationEditor.nothingNew"),
+                window,
+                cx,
+            );
+        }
+
+        let count = new.len();
+        self.edit(window, cx, |this| {
+            this.selected = this.formations.len();
+            this.selected_probe = None;
+            this.formations.extend(new);
+        });
+        ui::notify_success(
+            t!("formationEditor.importedTitle"),
+            t!("formationEditor.importedDesc", count = count),
+            window,
+            cx,
+        );
+    }
+
     pub(super) fn render_list(&self, cx: &mut Context<Self>) -> impl IntoElement + use<> {
         let view = cx.entity().downgrade();
         let count = self.formations.len();
@@ -133,6 +216,64 @@ impl FormationEditor {
                                 )
                             })
                     },
+                )
+            });
+
+        let has_formations = count > 0;
+        let share_view = cx.entity().downgrade();
+        let share_menu = Button::new("share-formations")
+            .ghost()
+            .xsmall()
+            .icon(IconName::Share2)
+            .tooltip(t!("formationEditor.share").to_string())
+            .dropdown_menu(move |menu, _, _| {
+                let view = share_view.clone();
+                let open_view = share_view.clone();
+                menu.item(
+                    PopupMenuItem::new(t!("formationEditor.copySelected").to_string())
+                        .icon(IconName::Copy)
+                        .disabled(!has_formations)
+                        .on_click(editor_action(&view, |this, window, cx| {
+                            this.share_formations(true, false, window, cx)
+                        })),
+                )
+                .item(
+                    PopupMenuItem::new(t!("formationEditor.copyAll").to_string())
+                        .icon(IconName::Copy)
+                        .disabled(!has_formations)
+                        .on_click(editor_action(&view, |this, window, cx| {
+                            this.share_formations(false, false, window, cx)
+                        })),
+                )
+                .item(
+                    PopupMenuItem::new(t!("formationEditor.saveAll").to_string())
+                        .icon(IconName::Download)
+                        .disabled(!has_formations)
+                        .on_click(editor_action(&view, |this, window, cx| {
+                            this.share_formations(false, true, window, cx)
+                        })),
+                )
+                .separator()
+                .item(
+                    PopupMenuItem::new(t!("formationEditor.importClipboard").to_string())
+                        .icon(IconName::ClipboardPaste)
+                        .on_click(editor_action(&view, |this, window, cx| {
+                            let loaded = sharing::read_clipboard(cx);
+                            this.import_formations(loaded, window, cx)
+                        })),
+                )
+                .item(
+                    PopupMenuItem::new(t!("formationEditor.importFile").to_string())
+                        .icon(IconName::FolderOpen)
+                        .on_click(move |_, window, cx| {
+                            let view = open_view.clone();
+                            sharing::open_file(window, cx, move |loaded, window, cx| {
+                                view.update(cx, |this, cx| {
+                                    this.import_formations(loaded, window, cx)
+                                })
+                                .ok();
+                            });
+                        }),
                 )
             });
 
@@ -205,7 +346,7 @@ impl FormationEditor {
                             ))
                             .child(ui::count_label(count, cx)),
                     )
-                    .child(add_menu),
+                    .child(h_flex().gap_0p5().child(share_menu).child(add_menu)),
             )
             .child(
                 v_flex()

@@ -9,8 +9,10 @@ authors.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 dirs.workspace = true
+base64 = "0.22"
 blue-marshal = "1.0.1"
 filetime = "0.2.26"
+flate2 = "1"
 sha2 = "0.10"
 ureq = { version = "3", features = ["json"] }
 zip = { version = "2", default-features = false, features = ["deflate"] }
