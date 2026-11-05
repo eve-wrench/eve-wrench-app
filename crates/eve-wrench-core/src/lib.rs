@@ -1,6 +1,7 @@
 //! Reading and writing EVE Online settings files: discovery, backups,
 //! selective copy, probe formations, drone group presets, confirmation
-//! dialogs, window layouts and portable archives. Every function is blocking; callers run them off the UI thread.
+//! dialogs, window layouts, portable archives and share files. Every
+//! function is blocking; callers run them off the UI thread.
 
 pub mod archive;
 pub mod backups;
@@ -15,6 +16,7 @@ pub mod locations;
 mod marshal;
 pub mod model;
 pub mod scan;
+pub mod share;
 pub mod updates;
 pub mod window_layout;
 

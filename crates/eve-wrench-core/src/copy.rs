@@ -10,7 +10,7 @@ use crate::backups::auto_backup;
 use crate::marshal::{encode_settings_json, load_settings_json, strip_type_prefix};
 use crate::model::SettingsKind;
 
-enum GroupRule {
+pub(crate) enum GroupRule {
     Sections(&'static [&'static str]),
     UiPrefixes(&'static [&'static str]),
 }
@@ -21,7 +21,11 @@ pub struct CopyGroup {
     // Off for groups people legitimately customize per identity and would be
     // annoyed to have overwritten (HUD module slots, typed search history).
     pub default_on: bool,
-    rule: GroupRule,
+    // Whether the group can go into a share file, and if so whether it is
+    // ticked by default. None for data that is personal or tied to one
+    // player's items (typed search history).
+    pub share: Option<bool>,
+    pub(crate) rule: GroupRule,
 }
 
 impl CopyGroup {
@@ -39,30 +43,35 @@ pub const COPY_GROUPS: &[CopyGroup] = &[
         id: "overview",
         kinds: USER,
         default_on: true,
+        share: Some(true),
         rule: GroupRule::Sections(&["overview", "defaultoverview"]),
     },
     CopyGroup {
         id: "probes",
         kinds: USER,
         default_on: true,
+        share: Some(true),
         rule: GroupRule::UiPrefixes(&["probescanning."]),
     },
     CopyGroup {
         id: "suppress",
         kinds: USER,
         default_on: true,
+        share: Some(true),
         rule: GroupRule::Sections(&["suppress"]),
     },
     CopyGroup {
         id: "audio",
         kinds: USER,
         default_on: true,
+        share: Some(true),
         rule: GroupRule::Sections(&["audio"]),
     },
     CopyGroup {
         id: "camera_graphics",
         kinds: USER,
         default_on: true,
+        share: Some(true),
         rule: GroupRule::UiPrefixes(&[
             "camera",
             "spaceMouse",
@@ -84,6 +93,7 @@ pub const COPY_GROUPS: &[CopyGroup] = &[
         id: "market",
         kinds: USER,
         default_on: true,
+        share: Some(false),
         rule: GroupRule::UiPrefixes(&[
             "market_",
             "minEdit_market",
@@ -98,42 +108,49 @@ pub const COPY_GROUPS: &[CopyGroup] = &[
         id: "slots",
         kinds: USER,
         default_on: false,
+        share: Some(false),
         rule: GroupRule::UiPrefixes(&["slotOrder", "linkedWeapons_"]),
     },
     CopyGroup {
         id: "tabgroups",
         kinds: USER,
         default_on: true,
+        share: Some(true),
         rule: GroupRule::Sections(&["tabgroups"]),
     },
     CopyGroup {
         id: "windows",
         kinds: CHAR,
         default_on: true,
+        share: Some(true),
         rule: GroupRule::Sections(&["windows"]),
     },
     CopyGroup {
         id: "neocom",
         kinds: CHAR,
         default_on: true,
+        share: Some(true),
         rule: GroupRule::UiPrefixes(&["neocomButtonRawData"]),
     },
     CopyGroup {
         id: "chat",
         kinds: CHAR,
         default_on: true,
+        share: Some(false),
         rule: GroupRule::UiPrefixes(&["chatchannels"]),
     },
     CopyGroup {
         id: "infopanels",
         kinds: CHAR,
         default_on: true,
+        share: Some(true),
         rule: GroupRule::UiPrefixes(&["InfoPanelModes_"]),
     },
     CopyGroup {
         id: "dockpanels",
         kinds: CHAR,
         default_on: true,
+        share: Some(true),
         rule: GroupRule::Sections(&["dockPanels"]),
     },
     // Typed-text autocomplete and recent-search data; keys missing from a
@@ -142,6 +159,7 @@ pub const COPY_GROUPS: &[CopyGroup] = &[
         id: "search_history",
         kinds: BOTH,
         default_on: false,
+        share: None,
         rule: GroupRule::UiPrefixes(&[
             "editHistory",
             "contracts_history",
@@ -151,17 +169,17 @@ pub const COPY_GROUPS: &[CopyGroup] = &[
     },
 ];
 
-fn find_group(id: &str) -> Option<&'static CopyGroup> {
+pub(crate) fn find_group(id: &str) -> Option<&'static CopyGroup> {
     COPY_GROUPS.iter().find(|g| g.id == id)
 }
 
-fn key_matches(key: &str, prefixes: &[&str]) -> bool {
+pub(crate) fn key_matches(key: &str, prefixes: &[&str]) -> bool {
     let stripped = strip_type_prefix(key);
     prefixes.iter().any(|p| stripped.starts_with(p))
 }
 
 // Sections are usually "bytes:<name>"; fall back to constructing it
-fn find_section_key(root: &Map<String, Value>, section: &str) -> String {
+pub(crate) fn find_section_key(root: &Map<String, Value>, section: &str) -> String {
     root.keys()
         .find(|k| strip_type_prefix(k) == section)
         .cloned()

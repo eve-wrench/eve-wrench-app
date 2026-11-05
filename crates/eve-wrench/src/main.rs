@@ -6,6 +6,7 @@ mod history;
 mod layout_editor;
 mod logging;
 mod main_window;
+mod sharing;
 mod store;
 mod table;
 mod ui;

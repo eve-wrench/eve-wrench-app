@@ -1860,9 +1860,11 @@ dependencies = [
 name = "eve-wrench-core"
 version = "0.7.0"
 dependencies = [
+ "base64 0.22.1",
  "blue-marshal",
  "dirs 6.0.0",
  "filetime",
+ "flate2",
  "serde",
  "serde_json",
  "sha2 0.10.9",

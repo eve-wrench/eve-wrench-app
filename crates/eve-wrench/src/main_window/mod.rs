@@ -5,6 +5,7 @@ mod copy_panel;
 mod dialogs;
 mod drone_groups;
 mod settings_panel;
+mod share;
 mod title_bar;
 
 use std::collections::{HashMap, HashSet};

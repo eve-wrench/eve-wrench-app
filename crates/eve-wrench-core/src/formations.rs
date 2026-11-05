@@ -12,7 +12,7 @@ use crate::marshal::{encode_settings_json, filetime_now, load_settings_json, str
 use crate::model::{FormationProbe, ProbeFormation};
 
 const UI_KEY: &str = "bytes:ui";
-const FORMATIONS_KEY: &str = "bytes:probescanning.customFormations";
+pub(crate) const FORMATIONS_KEY: &str = "bytes:probescanning.customFormations";
 const SELECTED_FORMATION_KEY: &str = "bytes:probescanning.selectedFormationID";
 
 fn stored_entries(root: &Value) -> Option<&serde_json::Map<String, Value>> {
@@ -34,7 +34,7 @@ fn parse_probe(value: &Value) -> Option<FormationProbe> {
     })
 }
 
-fn formations_from_settings(root: &Value) -> Vec<ProbeFormation> {
+pub(crate) fn formations_from_settings(root: &Value) -> Vec<ProbeFormation> {
     let Some(entries) = stored_entries(root) else {
         return Vec::new();
     };
@@ -67,7 +67,10 @@ fn formations_from_settings(root: &Value) -> Vec<ProbeFormation> {
     formations
 }
 
-fn formations_into_settings(root: &mut Value, formations: &[ProbeFormation]) -> Result<(), String> {
+pub(crate) fn formations_into_settings(
+    root: &mut Value,
+    formations: &[ProbeFormation],
+) -> Result<(), String> {
     // Carry over client-internal entries (negative IDs) untouched
     let mut entries: serde_json::Map<String, Value> = stored_entries(root)
         .map(|existing| {

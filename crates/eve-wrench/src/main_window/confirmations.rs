@@ -147,15 +147,6 @@ impl Section {
     }
 }
 
-// The catalog has English and Chinese texts.
-fn language() -> &'static str {
-    if rust_i18n::locale().starts_with("zh") {
-        "zh"
-    } else {
-        "en"
-    }
-}
-
 // One dialog as the list shows it.
 struct Row {
     key: String,
@@ -185,7 +176,7 @@ impl ConfirmationsDialog {
     // cleared and restored if the file already has them.
     fn rows(&self) -> Vec<Row> {
         let catalog = confirmations::catalog();
-        let language = language();
+        let language = ui::catalog_language();
         let mut rows: Vec<Row> = catalog
             .iter()
             .filter(|d| d.can_suppress() || self.stored.contains(&d.key))

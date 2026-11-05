@@ -34,6 +34,8 @@ something. EVE Wrench turns that into a safe, visual workflow.
 - **🔕 Silence confirmations** like the low-sec jump warning, from a searchable
   list of every dialog with a "don't show again" box
 - **🪟 Arrange window layouts** per character on a scaled copy of your screen
+- **📤 Share** your overview, probe formations or other settings with friends,
+  who see exactly what changes before importing
 - **🗂️ Export & import** your whole setup as a single portable archive
 - **🏷️ Identify** accounts and characters with ESI portraits and custom aliases
 - **🌐 Every server**: Tranquility, Singularity, Thunderdome, and Serenity
@@ -119,6 +121,8 @@ dedicated editor window (with the same custom title bar as the main app).
   shrinks it)
 - **Safe saves**: writes re-encode the file losslessly, back it up first, and
   stay in sync live with the main window
+- **Share** one formation or all of them as a file or as text to paste in chat,
+  and import formations others shared with you
 
 ### 🤖 Drone groups
 
@@ -170,6 +174,19 @@ screen they were saved on. Scroll to zoom and drag the background to pan.
 
 Log the character out before saving: the client writes its layout back on
 logout.
+
+## 📤 Sharing settings
+
+Pick **Share settings...** from the ⋯ menu on any account or character, tick
+what to share (overview profiles, probe formations, suppressed dialogs, audio,
+window layout and more), and save it as a `.ewshare` file or copy it as text.
+Chat channels and market settings start unticked because they can contain
+private names.
+
+The other person picks **Import shared settings...**, opens the file or pastes
+the text, and sees what each group contains and what it would change before
+anything is written. Ticked groups replace their own settings, except probe
+formations, which are added next to the ones they already have.
 
 ## 🗂️ Import & export
 
