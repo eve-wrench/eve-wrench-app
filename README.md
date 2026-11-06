@@ -357,7 +357,7 @@ to the download page.
 
 ## License
 
-MIT
+MIT, see [LICENSE](LICENSE).
 
 ---
 

@@ -4,6 +4,7 @@ description = "EVE Online Settings Manager - Backup, restore, and sync settings"
 version.workspace = true
 edition.workspace = true
 authors.workspace = true
+license.workspace = true
 default-run = "eve-wrench"
 
 [dependencies]

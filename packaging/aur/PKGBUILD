@@ -26,4 +26,5 @@ package() {
     install -Dm644 icons/128x128.png "$pkgdir/usr/share/icons/hicolor/128x128/apps/eve-wrench.png"
     install -Dm644 icons/256x256.png "$pkgdir/usr/share/icons/hicolor/256x256/apps/eve-wrench.png"
     install -Dm644 icons/eve-wrench.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/eve-wrench.svg"
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
