@@ -3,7 +3,7 @@ resolver = "3"
 members = ["crates/eve-wrench-core", "crates/eve-wrench"]
 
 [workspace.package]
-version = "0.8.0"
+version = "0.8.1"
 edition = "2024"
 authors = ["Tim Kunze"]
 license = "MIT"
