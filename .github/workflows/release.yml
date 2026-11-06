@@ -185,6 +185,7 @@ jobs:
           mkdir -p "$name/icons"
           cp "target/${{ matrix.target }}/release/eve-wrench" "$name/"
           cp packaging/linux/eve-wrench.desktop "$name/"
+          cp LICENSE "$name/"
           cp assets/icons/32x32.png assets/icons/128x128.png "$name/icons/"
           cp assets/icons/128x128@2x.png "$name/icons/256x256.png"
           cp assets/icons/icon.svg "$name/icons/eve-wrench.svg"

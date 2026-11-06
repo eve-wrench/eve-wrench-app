@@ -6,6 +6,7 @@ members = ["crates/eve-wrench-core", "crates/eve-wrench"]
 version = "0.8.0"
 edition = "2024"
 authors = ["Tim Kunze"]
+license = "MIT"
 repository = "https://github.com/eve-wrench/eve-wrench-app"
 
 [workspace.dependencies]

@@ -4,6 +4,7 @@ description = "EVE Online settings file handling for EVE Wrench"
 version.workspace = true
 edition.workspace = true
 authors.workspace = true
+license.workspace = true
 
 [dependencies]
 serde.workspace = true
