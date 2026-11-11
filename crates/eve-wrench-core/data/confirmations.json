@@ -1,6 +1,32 @@
 {
-  "client_build": 3662168,
+  "client_build": 3687575,
   "dialogs": [
+    {
+      "answer": 6,
+      "body": {
+        "en": "Claiming this ship will return your previously claimed Academy Ship to AIR.\nAll non-academy items in the ships hold or non-academy modules fitted to the ship will be returned to your Item hangar.",
+        "zh": "领取这艘舰船后，你之前领取的学院舰船将被退还给星空会。舰船货舱中的所有非学院物品，以及装配在舰船上的所有非学院物品，都会被退还至你的物品机库。"
+      },
+      "key": "AcademyShipAlreadyActive",
+      "kind": "question",
+      "title": {
+        "en": "Swap Academy Ships",
+        "zh": "更换学院舰船"
+      }
+    },
+    {
+      "answer": null,
+      "body": {
+        "en": "You are about to claim an AIR Academy Ship\n\nAlways Free.\nCan only be used within the Exordium region.\nCannot be traded or reprocessed.\nCan be swapped with other academy ships as you explore different ship styles.",
+        "zh": "你即将领取一艘星空会学院舰船，永久免费。只能在始源星域区域内使用。无法交易或重炼。在探索不同舰船风格的过程中，可随时更换为其他学院舰船。"
+      },
+      "key": "AcademyShipClaim",
+      "kind": "question",
+      "title": {
+        "en": "Claim Academy Ship",
+        "zh": "领取学院舰船"
+      }
+    },
     {
       "answer": 6,
       "body": {
@@ -433,8 +459,8 @@
     {
       "answer": 6,
       "body": {
-        "en": "You corporation or alliance is currently involved in a formal war. During a formal war members of opposing corporations and/or alliances can shoot you in high security space without CONCORD interference. It is good idea to always fly ships that you can afford to lose in New Eden, and this tip is especially important during formal wars.\nAre you sure you want to undock at this time?",
-        "zh": "你的军团或联盟目前正身处一场战争中。战争进行时，敌对军团或联盟的成员可以在高安星系攻击你而不会招致统合部的干预。不要把鸡蛋放在一个篮子里是新伊甸的通行法则，这一点在战争期间尤其重要。\n你确定现在要离站吗？"
+        "en": "Your corporation or alliance is currently involved in a formal war. During a formal war members of opposing corporations and/or alliances can shoot you in high security space without CONCORD interference. It is good idea to always fly ships that you can afford to lose in New Eden, and this tip is especially important during formal wars.\nAre you sure you want to undock at this time?",
+        "zh": "你的军团或联盟目前处于正式宣战状态之中。战争进行时，敌对军团或联盟的成员可以在高安星系攻击你而不会招致统合部的干预。不要把鸡蛋放在一个篮子里是新伊甸的通行法则，这一点在战争期间尤其重要。\n你确定现在要离站吗？"
       },
       "key": "AskUndockInHighSecWhileAtWar",
       "kind": "question",
