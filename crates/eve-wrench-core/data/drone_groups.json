@@ -829,11 +829,11 @@
     {
       "category": "industry",
       "group_id": 101,
-      "id": "prototype-pluto-mining-drone",
+      "id": "pluto-mining-drone",
       "members": [
-        "Prototype 'Pluto' Mining Drone"
+        "'Pluto' Mining Drone"
       ],
-      "name": "Prototype 'Pluto' Mining Drone",
+      "name": "'Pluto' Mining Drone",
       "stats": {
         "effect": "2.2m3/s",
         "speed": 344.0
@@ -843,11 +843,11 @@
     {
       "category": "industry",
       "group_id": 101,
-      "id": "prototype-pluto-ice-harvesting-drone",
+      "id": "pluto-ice-harvesting-drone",
       "members": [
-        "Prototype 'Pluto' Ice Harvesting Drone"
+        "'Pluto' Ice Harvesting Drone"
       ],
-      "name": "Prototype 'Pluto' Ice Harvesting Drone",
+      "name": "'Pluto' Ice Harvesting Drone",
       "stats": {
         "effect": "3.8m3/s",
         "speed": 124.0
@@ -872,5 +872,5 @@
     }
   ],
   "schema": 1,
-  "sde_build": 3632936
+  "sde_build": 3687575
 }
