@@ -1842,7 +1842,7 @@ dependencies = [
 
 [[package]]
 name = "eve-wrench"
-version = "0.8.1"
+version = "0.8.2"
 dependencies = [
  "cargo-packager-updater",
  "dirs 6.0.0",
@@ -1858,7 +1858,7 @@ dependencies = [
 
 [[package]]
 name = "eve-wrench-core"
-version = "0.8.1"
+version = "0.8.2"
 dependencies = [
  "base64 0.22.1",
  "blue-marshal",
